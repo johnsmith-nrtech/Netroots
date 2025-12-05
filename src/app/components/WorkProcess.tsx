@@ -37,7 +37,6 @@ export default function WorkProcess() {
   return (
     <section className={`py-16 bg-white text-center ${inter.className}`}>
       <div className="max-w-6xl mx-auto px-6">
-        <p className="s font-medium mb-2"><span className="text-teal-500">//</span> Our Work Process</p>
         <h2 className="text-3xl md:text-4xl font-bold mb-12">
           Our Proven <span className="text-blue-600">Work Process</span>
         </h2>
