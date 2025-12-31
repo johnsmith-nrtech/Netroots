@@ -133,7 +133,13 @@ export default function Home() {
             loop
             muted
             playsInline
-            className="w-full sm:h-[780px] md:h-[560px] h-[780px] object-cover"
+            preload="auto"
+            className="
+              w-full
+              h-screen
+              object-cover
+              absolute inset-0
+            "
           >
             <source src="/text.mp4" type="video/mp4" />
             Your browser does not support the video tag.
