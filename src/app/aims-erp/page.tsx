@@ -1304,87 +1304,101 @@ function AccountingContent() {
   const [activePoint, setActivePoint] = useState(0);
 
   const featureCards = [
-    { title: "Chart of Accounts",     img: "/products/amis/standard5.png"  },
-    { title: "Financial Management",  img: "/products/amis/standard6.png"  },
-    { title: "Compliance Assurance",  img: "/products/amis/standard7.png"  },
-    { title: "Expense Management",    img: "/products/amis/standard8.png"  },
-    { title: "Accounting Reports",    img: "/products/amis/standard9.png"  },
-    { title: "Payment Vouchers",      img: "/products/amis/standard10.png" },
-    { title: "Receipts Vouchers",     img: "/products/amis/standard11.png" },
-    { title: "Budget Management",     img: "/products/amis/standard12.png" },
-    { title: "Data Access & Control", img: "/products/amis/standard13.png" },
-  ];
+  { title: "Chart of Accounts",     img: "/chart-of-account.png",  back: "Manage unlimited chart-of-accounts levels with a hierarchical data structure according to your requirements." },
+  { title: "Financial Management",  img: "/financial-reporting.png",  back: "Manage internal business matters effectively with real-time reporting powered by accurate financial data stored in the cloud." },
+  { title: "Compliance Assurance",  img: "/Compliance-Assurance.png",  back: "Our preprogrammed modules ensure compliance with accounting standards, while your accountants maintain oversight." },
+  { title: "Expense Management",    img: "/Expense-Management.png",  back: "Efficient expense management through timely reporting of daily, weekly, and monthly transactions." },
+  { title: "Accounting Reports",    img: "/Accounting-reports.png",  back: "Access balance sheets, ledgers, statements, and payment logs securely, all in a print-ready format." },
+  { title: "Payment Vouchers",      img: "/Payments-Transactions.png", back: "Easily generate, track, and manage payment vouchers to streamline your financial transactions." },
+  { title: "Receipts Vouchers",     img: "/Accounting-Integration.png", back: "Record and manage incoming payments seamlessly with automated receipts vouchers for accurate cash tracking." },
+  { title: "Budget Management",     img: "/Budget-Management.png", back: "Easily plan, track, and adjust budgets using our ERP's dedicated budgeting modules." },
+  { title: "Data Access & Control", img: "/data-Access.png", back: "Ensure secure user roles and access levels with complete control over financial data usage." },
+];
 
   const keyPoints = [
     {
       num: 1,
       title: "Cash Flow",
-      desc: "Track and manage the movement of money in and out of your business with clarity. Monitor real-time inflows and outflows to maintain healthy liquidity at all times.",
-      img: "/products/amis/standard3.png",
+      desc: "Track and manage the movement of money in and out of your business with clarity.",
+      img: "/user-info-1.png",
     },
     {
       num: 2,
       title: "Bank/Cash Book",
-      desc: "Maintain a complete record of all bank and cash transactions in one place. Reconcile accounts quickly and eliminate manual errors with automated bank feeds.",
-      img: "/products/amis/standard4.png",
+      desc: "Maintain accurate record of all banks and cash transactions",
+      img: "/expense-01.png",
     },
     {
       num: 3,
       title: "General Ledger",
-      desc: "A centralized record of all financial transactions across accounts. Drill down into any entry and trace the complete audit trail from source document to ledger.",
-      img: "/products/amis/standard5.png",
+      desc: "Keep a centralized record of every financial transaction for easy reference.",
+      img: "/receipt.png",
     },
     {
       num: 4,
       title: "Trial Balance",
-      desc: "Verify the accuracy of your records with an auto-generated trial balance. Instantly identify discrepancies and ensure debits and credits are always balanced.",
-      img: "/products/amis/standard6.png",
+      desc: "Ensure debit and credit balances match for error-free accounts.",
+      img: "/out-going-payment.png",
     },
     {
       num: 5,
       title: "Profit and Loss",
-      desc: "Get a clear picture of your revenue, costs, and net profitability. Compare across periods and cost centres to understand where your business is truly performing.",
-      img: "/products/amis/standard7.png",
+      desc: "Analyze income and expenses to measure business performance.",
+      img: "/expense-payment.png",
     },
     {
       num: 6,
       title: "Balance Sheet",
-      desc: "Assess financial health with a snapshot of assets, liabilities and equity. Generate investor-ready reports at any point in time with a single click.",
-      img: "/products/amis/standard8.png",
+      desc: "Get a clear snapshot of assets, liabilities and equity at any time.",
+      img: "/balance-sheet.png",
     },
   ];
 
   return (
     <div className="space-y-0">
 
-      {/* 3×3 feature cards */}
-      <div className="bg-white px-10 py-10">
-        <div className="grid grid-cols-3 gap-5">
-          {featureCards.map((card) => (
-            <div
-              key={card.title}
-              className="relative rounded-xl overflow-hidden group h-90 cursor-pointer shadow-sm"
-            >
-              <Image
-                src={card.img}
-                alt={card.title}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
-              <div className="absolute rounded-md bottom-4 left-4 right-4 px-4 py-2 bg-white/60 backdrop-blur-sm">
-                <p className="text-black text-center font-semibold text-sm">{card.title}</p>
-              </div>
+{/* 3×3 flip cards */}
+<div className="bg-white px-10 py-10">
+  <style>{`
+    .acc-flip { perspective: 1000px; }
+    .acc-flip-inner { transition: transform 0.6s; transform-style: preserve-3d; position: relative; }
+    .acc-flip:hover .acc-flip-inner { transform: rotateY(180deg); }
+    .acc-flip-front, .acc-flip-back { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+    .acc-flip-back { transform: rotateY(180deg); }
+  `}</style>
+  <div className="grid grid-cols-3 gap-5">
+    {featureCards.map((card) => (
+      <div key={card.title} className="acc-flip h-90 cursor-pointer">
+        <div className="acc-flip-inner w-full h-full">
+          {/* Front — image with title overlay */}
+          <div className="acc-flip-front absolute inset-0 rounded-2xl overflow-hidden shadow-sm">
+            <Image
+              src={card.img}
+              alt={card.title}
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0" />
+            <div className="absolute bottom-0 left-0 right-0 px-4 py-3">
+              <p className="text-black bg-white/30 backdrop-blur-sm py-2 font-semibold text-base text-center">{card.title}</p>
             </div>
-          ))}
+          </div>
+          {/* Back — white bg, black text, black border */}
+          <div className="acc-flip-back absolute inset-0 rounded-2xl bg-white border border-black flex flex-col items-center justify-center px-6 text-center">
+            <p className="text-black font-bold text-lg mb-3">{card.title}</p>
+            <p className="text-gray-700 text-sm leading-relaxed">{card.back}</p>
+          </div>
         </div>
       </div>
+    ))}
+  </div>
+</div>
 
       {/* AI-based accounting */}
       <div className="bg-white px-10 py-10 border-t border-gray-100">
         <div className="flex gap-10 items-center">
-          <div className="w-1/2 relative h-72 rounded-xl overflow-hidden flex-shrink-0">
-            <Image src="/products/amis/Dashboard.png" alt="AI Accounting" fill className="object-cover" />
+          <div className="w-1/2 relative h-72 rounded-xl overflow-hidden flex-shrink-0 shadow-lg">
+            <Image src="/accounts.jpg" alt="AI Accounting" fill className="object-cover" />
           </div>
           <div className="w-1/2">
             <h2 className="text-2xl font-bold text-gray-900 mb-4 leading-snug">
@@ -1493,7 +1507,7 @@ function AccountingContent() {
         <div className="grid grid-cols-2 gap-6">
   <div>
     <div className="relative h-64 rounded-xl overflow-hidden">
-      <Image src="/products/amis/standard4.png" alt="Business management 1" fill className="object-cover" />
+      <Image src="/Automation-accounting.png" alt="Business management 1" fill className="object-cover" />
     </div>
     <h3 className="font-bold text-gray-900 text-lg mt-4 mb-2">
       Effectively manages your relationships with business partners
@@ -1505,7 +1519,7 @@ function AccountingContent() {
 
   <div>
     <div className="relative h-64 rounded-xl overflow-hidden">
-      <Image src="/products/amis/standard14.png" alt="Business management 2" fill className="object-cover" />
+      <Image src="/improve-documentation.png" alt="Business management 2" fill className="object-cover" />
     </div>
     <h3 className="font-bold text-gray-900 text-lg mt-4 mb-2">
       Effectively enhance your documentation for legal concerns
@@ -1522,7 +1536,7 @@ function AccountingContent() {
         <div className="grid grid-cols-2 gap-8">
           <div>
             <div className="relative h-56 rounded-xl overflow-hidden mb-5">
-              <Image src="/products/amis/standard15.png" alt="Future decisions" fill className="object-cover" />
+              <Image src="/decisions-regarding.png" alt="Future decisions" fill className="object-cover" />
             </div>
             <h3 className="font-bold text-gray-900 text-lg mb-2">
               Allows you to make decisions regarding future plans
@@ -1535,7 +1549,7 @@ function AccountingContent() {
           </div>
           <div>
             <div className="relative h-56 rounded-xl overflow-hidden mb-5">
-              <Image src="/products/amis/standard16.png" alt="Taxation" fill className="object-cover" />
+              <Image src="/taxation-painless.png" alt="Taxation" fill className="object-cover" />
             </div>
             <h3 className="font-bold text-gray-900 text-lg mb-2">
               Our solution makes taxation simple and practical across all business activities.
@@ -1586,26 +1600,38 @@ function InventoryContent() {
   const [activeFeature, setActiveFeature] = useState(0);
 
   const features = [
-    { title: "Stock Tracking", desc: "Track inventory in real-time across warehouses and locations, preventing shortages or overstocking.", img: "/products/amis/standard14.png" },
-    { title: "Barcode Scanning", desc: "Easily scan products with barcodes or QR codes to update stock and reduce human errors.", img: "/products/amis/standard15.png" },
-    { title: "Inventory Reports", desc: "Generate detailed reports on stock levels, purchases, sales, and product performance for better insights.", img: "/products/amis/standard16.png" },
-    { title: "Reorder Alerts", desc: "Set automated reorder alerts to maintain optimal stock levels and prevent stockouts.", img: "/products/amis/standard17.png" },
-    { title: "Batch Management", desc: "Manage products by batch, expiry date, or serial number for traceability and compliance.", img: "/products/amis/standard4.png" },
-    { title: "Location Tracking", desc: "Track inventory across multiple warehouses with a clear overview of product distribution.", img: "/products/amis/standard5.png" },
+    { title: "Stock Tracking", 
+        desc: "Track inventory in real-time across warehouses and locations, preventing shortages or overstocking.", 
+        img: "/stock-tracking.png" },
+    { title: "Barcode Scanning", 
+        desc: "Easily scan products with barcodes or QR codes to update stock and reduce human errors.", 
+        img: "/barcode-scanning.png" },
+    { title: "Inventory Reports", 
+        desc: "Generate detailed reports on stock levels, purchases, sales, and product performance for better insights.", 
+        img: "/inventory-reports.jpg" },
+    { title: "Reorder Alerts", 
+        desc: "Set automated reorder alerts to maintain optimal stock levels and prevent stockouts.", 
+        img: "/reorder-alerts.png" },
+    { title: "Batch Management", 
+        desc: "Manage products by batch, expiry date, or serial number for traceability and compliance.", 
+        img: "/batch-management.png" },
+    { title: "Location Tracking", 
+        desc: "Track inventory across multiple warehouses with a clear overview of product distribution.", 
+        img: "/location-tracking.png" },
   ];
 
   const whyChoose = [
-    { title: "Optimize Inventory Decisions", desc: "Gain insights to make informed inventory and procurement decisions based on accurate real-time data.", img: "/products/amis/standard14.png" },
-    { title: "Reduce Wastage", desc: "Prevent product losses and overstocking by maintaining precise stock levels and expiry tracking.", img: "/products/amis/standard15.png" },
-    { title: "Simplify Reporting", desc: "Generate automated reports to streamline audits, financial planning, and management decisions.", img: "/products/amis/standard16.png" },
-    { title: "Multi-location Management", desc: "Easily manage inventory across multiple warehouses or retail stores from a single dashboard.", img: "/products/amis/standard17.png" },
+    { title: "Optimize Inventory Decisions", desc: "Gain insights to make informed inventory and procurement decisions based on accurate real-time data.", img: "/inventory-optimization.png" },
+    { title: "Reduce Wastage", desc: "Prevent product losses and overstocking by maintaining precise stock levels and expiry tracking.", img: "/inventory-reduce-waste.png" },
+    { title: "Simplify Reporting", desc: "Generate automated reports to streamline audits, financial planning, and management decisions.", img: "/inventory-report.png" },
+    { title: "Multi-location Management", desc: "Easily manage inventory across multiple warehouses or retail stores from a single dashboard.", img: "/inventory-location.png" },
   ];
 
   return (
     <div className="space-y-0">
 
       {/* BLOCK 1: Hero */}
-      <div className="bg-[#1a6bb5] mx-7 my-8 px-10 py-12 flex gap-10 items-center">
+      <div className="bg-gradient-to-r from-[#00aeef] to-[#0077b6] mx-7 my-8 px-10 py-18 flex gap-10 items-center overflow-hidden">
         <div className="flex-1">
           <h1 className="text-4xl font-bold text-white mb-4 leading-snug">
             AIMS ERP (Hybrid) Inventory Management
@@ -1614,23 +1640,24 @@ function InventoryContent() {
             Manage your stock efficiently with our modern inventory system designed to streamline operations and prevent losses.
           </p>
         </div>
-        <div className="flex-1 relative h-64 rounded-xl overflow-hidden">
-          <Image src="/products/amis/standard14.png" alt="Inventory Hero" fill className="object-cover" />
+        <div className="flex-1 relative h-64 rounded-l-xl overflow-hidden -mr-10">
+          <Image src="/inventory-hero.png" alt="Inventory Hero" fill className="object-cover" />
         </div>
       </div>
 
       {/* BLOCK 2: ERP Inventory Features — 3×2 cards with title + desc below */}
       <div className="bg-white px-10 py-10">
         <h2 className="text-3xl font-bold text-[#1a6bb5] text-center mb-8">ERP (Hybrid) Inventory Features</h2>
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-3 mx-8 gap-6">
           {features.map((f) => (
-            <div key={f.title} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
+            <div key={f.title} className="bg-white rounded-2xl shadow-sm border border-gray-100 
+            overflow-hidden hover:shadow-md transition-shadow">
               <div className="relative h-48">
                 <Image src={f.img} alt={f.title} fill className="object-cover" />
               </div>
               <div className="p-5">
-                <h3 className="font-bold text-[#1a6bb5] text-lg mb-2">{f.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
+                <h3 className="font-bold text-[#1a6bb5] text-md mb-1">{f.title}</h3>
+                <p className="text-[12px] leading-relaxed">{f.desc}</p>
               </div>
             </div>
           ))}
@@ -1652,7 +1679,7 @@ function InventoryContent() {
                 transition={{ duration: 0.3 }}
                 className="absolute inset-0"
               >
-                <Image src={features[activeFeature].img} alt={features[activeFeature].title} fill className="object-cover rounded-xl" />
+                <Image src="/stock-tracking-1.png" alt={features[activeFeature].title} fill className="object-cover rounded-xl" />
               </motion.div>
             </AnimatePresence>
           </div>
@@ -1867,7 +1894,7 @@ function PurchaseContent() {
       <div className="bg-white px-10 py-10 border-t border-gray-100">
         <div className="flex gap-10 items-center">
           <div className="w-1/2 relative h-80 rounded-xl overflow-hidden flex-shrink-0">
-            <Image src="/products/amis/standard4.png" alt="Procurement Workflow" fill className="object-cover" />
+            <Image src="/Cloud-Procurement-Software.png" alt="Procurement Workflow" fill className="object-cover" />
           </div>
           <div className="w-1/2">
             <h2 className="text-3xl font-bold text-gray-900 mb-4 leading-snug">
@@ -1899,15 +1926,15 @@ function PurchaseContent() {
           </p>
         </div>
         {/* Tab pills */}
-        <div className="flex items-center justify-center gap-2 mb-6 border border-gray-200 rounded-full p-1 max-w-xl mx-auto">
+        <div className="flex items-center justify-center gap-2 mb-6 border border-gray-200 rounded-full p-1">
           {poTabs.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 activeTab === tab
-                  ? "bg-[#1a6bb5] text-white"
-                  : "text-gray-600 hover:text-[#1a6bb5]"
+                  ? "bg-[#00aeef] text-white"
+                  : "text-gray-600 hover:text-[#00aeef]"
               }`}
             >
               {tab}
@@ -1916,15 +1943,15 @@ function PurchaseContent() {
         </div>
         {/* Image below tabs */}
         <div className="relative h-72 rounded-xl overflow-hidden">
-          <Image src="/products/amis/standard5.png" alt="Purchase Order" fill className="object-cover" />
+          <Image src="/purchase-order.png" alt="Purchase Order" fill className="object-cover" />
         </div>
       </div>
 
       {/* BLOCK 4: Left image + right 3 text blocks */}
-      <div className="bg-blue-50 px-10 py-10 border-t border-gray-100">
+      <div className="px-10 py-10 mx-8 bg-gradient-to-br from-white via-[#f9fbff] to-[#00aeef]">
         <div className="flex gap-10 items-start">
-          <div className="w-1/2 relative h-80 rounded-xl overflow-hidden flex-shrink-0">
-            <Image src="/products/amis/standard9.png" alt="Product Management" fill className="object-cover" />
+          <div className="w-1/2 relative h-100 rounded-xl overflow-hidden flex-shrink-0">
+            <Image src="/stock-tracking-2.png" alt="Product Management" fill className="object-cover" />
           </div>
           <div className="w-1/2 space-y-6">
             {[
@@ -1933,8 +1960,8 @@ function PurchaseContent() {
               { title: "Vendor & Partner Management", desc: "Maintain accurate records of vendors, suppliers, and business partners. The software helps track purchase histories, generate notifications, and ensures smooth collaboration for procurement processes." },
             ].map((item) => (
               <div key={item.title}>
-                <h3 className="font-bold text-gray-900 text-lg mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+                <h3 className="font-bold text-gray-900 text-md mt-4 mb-2">{item.title}</h3>
+                <p className="text-[12px] text-gray-500 leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -1974,15 +2001,29 @@ function SalesContent() {
 
   // Top 3×3 flip cards
   const flipCards = [
-    { title: "Sales Inquiry",     back: "Record and manage customer inquiries quickly to capture every potential lead." },
-    { title: "Quotation",         back: "Create precise quotations fast and send them to clients for approval." },
-    { title: "Sales Order",       back: "Convert approved quotations into confirmed sales orders ready for processing." },
-    { title: "Delivery Order",    back: "Generate delivery documents and coordinate timely shipment of products to clients." },
-    { title: "Debtor Price Note", back: "Issue accurate price notes to debtors and maintain transparent billing records." },
-    { title: "Sales Invoice",     back: "Create and send professional invoices to ensure timely and accurate billing." },
-    { title: "Sales Return",      back: "Handle product returns efficiently and update stock and accounts automatically." },
-    { title: "Sales Order Status",back: "Track real-time status of every sales order from creation to delivery." },
-    { title: "A/R Payment",       back: "Manage accounts receivable and track customer payments to maintain healthy cash flow.", highlight: true },
+    { 
+        title: "Sales Inquiry",     
+        back: "Easily record and manage incoming sales inquiries from prospects, ensuring no opportunity is missed." },
+    { 
+        title: "Quotation",         
+        back: "Generate accurate quotations quickly and send them to customers to streamline approvals and negotiations." },
+    { 
+        title: "Sales Order",       
+        back: "Convert approved quotations into sales orders and track them efficiently through the order lifecycle." },
+    { 
+        title: "Delivery Order",   
+        back: "Prepare and manage delivery orders to ensure timely shipment of products to customers." },
+    { 
+        title: "Debtor Price Note", 
+        back: "Prepare and manage delivery orders to ensure timely shipment of products to customers." },
+    { title: "Sales Invoice",     
+        back: "Generate professional invoices for sales orders with ease, reducing errors and manual effort." },
+    { title: "Sales Return",      
+        back: "Handle product returns efficiently, update stock levels, and process refunds or adjustments quickly." },
+    { title: "Sales Order Status",
+        back: "Track the status of all sales orders in real-time to ensure transparency and timely action." },
+    { title: "A/R Payment",       
+        back: "Manage accounts receivable and track customer payments to maintain a healthy cash flow.", highlight: true },
   ];
 
   // Numbered steps (hover interaction)
@@ -2032,7 +2073,7 @@ function SalesContent() {
       <div className="bg-white px-10 py-10 border-t border-gray-100">
         <div className="flex gap-10 items-center">
           <div className="w-1/2 relative h-80 rounded-2xl overflow-hidden flex-shrink-0">
-            <Image src="/products/amis/standard4.png" alt="Sales Management" fill className="object-cover" />
+            <Image src="/sales-management.jpg" alt="Sales Management" fill className="object-cover" />
           </div>
           <div className="w-1/2">
             <h2 className="text-2xl font-bold text-gray-900 mb-3">Unlock the Power of Intelligent Sales Management</h2>
@@ -2042,7 +2083,6 @@ function SalesContent() {
             <div className="grid grid-cols-2 gap-3">
               {["Bulk Price Change", "Sales Target & Analysis", "Job Order & Schemas", "On-Demand Reporting"].map((item) => (
                 <div key={item} className="border border-gray-200 rounded-lg px-4 py-3 flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-[#1a6bb5] flex-shrink-0" />
                   <p className="text-sm font-medium text-gray-700">{item}</p>
                 </div>
               ))}
@@ -2103,10 +2143,10 @@ function SalesContent() {
         </div>
         <div className="grid grid-cols-2 gap-6">
           {[
-            { title: "Manage Product Returns",    desc: "Handle returns efficiently to maintain customer trust and keep records accurate.",         img: "/products/amis/standard14.png" },
-            { title: "Order Tracking Overview",   desc: "Keep track of all orders in real-time, ensuring visibility and accountability.",           img: "/products/amis/standard15.png" },
-            { title: "Receivables Management",    desc: "Monitor outstanding customer payments and manage receivables for healthy cash flow.",       img: "/products/amis/standard16.png" },
-            { title: "Sales Performance Insights",desc: "Evaluate sales targets versus actual results to improve strategy and maximize revenue.",   img: "/products/amis/standard17.png" },
+            { title: "Manage Product Returns",    desc: "Handle returns efficiently to maintain customer trust and keep records accurate.",         img: "/sales-return.png" },
+            { title: "Order Tracking Overview",   desc: "Keep track of all orders in real-time, ensuring visibility and accountability.",           img: "/sales-overview.png" },
+            { title: "Receivables Management",    desc: "Monitor outstanding customer payments and manage receivables for healthy cash flow.",       img: "/sales-receivable.png" },
+            { title: "Sales Performance Insights",desc: "Evaluate sales targets versus actual results to improve strategy and maximize revenue.",   img: "/sales-insights.png" },
           ].map((card) => (
             <div key={card.title} className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
               <div className="relative h-52 mx-4 my-3">
@@ -2152,22 +2192,22 @@ function TaxPortalContent() {
     {
       title: "Sales Tax Portal",
       desc: "Easily manage sales tax submissions, returns, and compliance directly through the portal.",
-      img: "/products/amis/standard5.png",
+      img: "/sales-tax-portal.png",
     },
     {
       title: "GST Info",
       desc: "Access GST records, track invoices, and ensure proper filing with accurate data.",
-      img: "/products/amis/standard6.png",
+      img: "/gst-info.png",
     },
     {
       title: "Withholding Tax",
       desc: "Track and manage withholding tax payments, deductions, and compliance efficiently.",
-      img: "/products/amis/standard7.png",
+      img: "/withholding-tax.png",
     },
     {
       title: "POS FBR Integration",
       desc: "Easily connect your POS with the FBR Tax Portal to ensure compliance and automated reporting.",
-      img: "/products/amis/standard8.png",
+      img: "/fbrintegration.png",
     },
   ];
 
@@ -2182,7 +2222,7 @@ function TaxPortalContent() {
     <div className="space-y-0">
 
       {/* BLOCK 1: 4 image cards with hover-grow title */}
-      <div className="bg-white px-10 py-10 mt-12">
+      <div className="bg-white px-10 py-10 mt-12 mx-6">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-[#1a6bb5] mb-2">Seamless FBR Tax Portal Integration</h2>
         </div>
@@ -2241,27 +2281,27 @@ function TaxPortalContent() {
 
 function HRPayrollContent() {
   const coreModules = [
-    { title: "Employees",         desc: "Maintain detailed employee records efficiently.",              img: "/products/amis/standard14.png" },
-    { title: "Designation",       desc: "Manage roles and reporting hierarchy seamlessly.",             img: "/products/amis/standard15.png" },
-    { title: "Employee Types",    desc: "Classify employees for precise payroll handling.",             img: "/products/amis/standard16.png" },
-    { title: "Departments",       desc: "Organize workforce by departments for clarity.",               img: "/products/amis/standard17.png" },
-    { title: "Adv/Loan Application", desc: "Streamline loan and advance applications.",                img: "/products/amis/standard4.png"  },
-    { title: "Employee Advances", desc: "Track and approve employee advances transparently.",           img: "/products/amis/standard5.png"  },
-    { title: "Employee Loan",     desc: "Manage loans including repayments and interest.",             img: "/products/amis/standard6.png"  },
-    { title: "Attendance",        desc: "Monitor attendance, overtime, and leaves accurately.",        img: "/products/amis/standard7.png"  },
-    { title: "Timesheet",         desc: "Track working hours accurately with a timesheet.",            img: "/products/amis/standard8.png"  },
+    { title: "Employees",         desc: "Maintain detailed employee records efficiently.",              img: "/employee.png" },
+    { title: "Designation",       desc: "Manage roles and reporting hierarchy seamlessly.",             img: "/designation.png" },
+    { title: "Employee Types",    desc: "Classify employees for precise payroll handling.",             img: "/employeestype.png" },
+    { title: "Departments",       desc: "Organize workforce by departments for clarity.",               img: "/departments.png" },
+    { title: "Adv/Loan Application", desc: "Streamline loan and advance applications.",                img: "/loan-applications.png"  },
+    { title: "Employee Advances", desc: "Track and approve employee advances transparently.",           img: "/employee-advances.png"  },
+    { title: "Employee Loan",     desc: "Manage loans including repayments and interest.",             img: "/employees-loan.png"  },
+    { title: "Attendance",        desc: "Monitor attendance, overtime, and leaves accurately.",        img: "/attendance.png"  },
+    { title: "Timesheet",         desc: "Track working hours accurately with a timesheet.",            img: "/attendance-logs.png"  },
   ];
 
   const exploreModules = [
-    { num: 1, title: "Manage Employees",  img: "/products/amis/standard14.png" },
-    { num: 2, title: "Job Roles",         img: "/products/amis/standard15.png" },
-    { num: 3, title: "Staff Categories",  img: "/products/amis/standard16.png" },
-    { num: 4, title: "Departments",       img: "/products/amis/standard17.png" },
-    { num: 5, title: "Adv/Loan",          img: "/products/amis/standard4.png"  },
-    { num: 6, title: "Employee Advances", img: "/products/amis/standard5.png"  },
-    { num: 7, title: "Employee Loans",    img: "/products/amis/standard6.png"  },
-    { num: 8, title: "Track Attendance",  img: "/products/amis/standard7.png"  },
-    { num: 9, title: "Attendance Logs",   img: "/products/amis/standard8.png"  },
+    { num: 1, title: "Manage Employees",  img: "/employee.png" },
+    { num: 2, title: "Job Roles",         img: "/designation.png" },
+    { num: 3, title: "Staff Categories",  img: "/employeestype.png" },
+    { num: 4, title: "Departments",       img: "/departments.png" },
+    { num: 5, title: "Adv/Loan",          img: "/loan-applications.png"  },
+    { num: 6, title: "Employee Advances", img: "/employee-advances.png"  },
+    { num: 7, title: "Employee Loans",    img: "/employees-loan.png"  },
+    { num: 8, title: "Track Attendance",  img: "/attendance.png"  },
+    { num: 9, title: "Attendance Logs",   img: "/attendance-logs.png"  },
   ];
 
   const benefits = [
@@ -2332,7 +2372,7 @@ function HRPayrollContent() {
               </div>
               <p className="text-center font-bold text-[#1a6bb5] mt-3 mb-3 px-4">{m.title}</p>
               <div className="relative h-40 mx-6 my-4">
-                <Image src={m.img} alt={m.title} fill className="object-cover" />
+                <Image src={m.img} alt={m.title} fill className="object-cover rounded-lg" />
               </div>
             </div>
           ))}
@@ -2386,10 +2426,10 @@ function ManufacturingContent() {
   const [activeHighlight, setActiveHighlight] = useState(0);
 
   const autoSlides = [
-    { title: "BOM Setup",           desc: "Easily configure bills of materials with accurate details for production.",          img: "/products/amis/standard14.png" },
-    { title: "Work Order",          desc: "Generate and manage work orders efficiently with real-time tracking.",               img: "/products/amis/standard15.png" },
-    { title: "Production Tracking", desc: "Track production output seamlessly with detailed status insights.",                  img: "/products/amis/standard16.png" },
-    { title: "Production Variance", desc: "Analyze production variances to control cost and improve efficiency.",              img: "/products/amis/standard17.png" },
+    { title: "BOM Setup",           desc: "Easily configure bills of materials with accurate details for production.",          img: "/product-variance.png" },
+    { title: "Work Order",          desc: "Generate and manage work orders efficiently with real-time tracking.",               img: "/bom.png" },
+    { title: "Production Tracking", desc: "Track production output seamlessly with detailed status insights.",                  img: "/work-order.png" },
+    { title: "Production Variance", desc: "Analyze production variances to control cost and improve efficiency.",              img: "/production-manager.png" },
   ];
 
   // Auto-rotate every 4 seconds
@@ -2401,12 +2441,12 @@ function ManufacturingContent() {
   }, []);
 
   const moduleCards = [
-    { title: "BOM Setup",            desc: "Easily configure bills of materials with accurate details for production.",         img: "/products/amis/standard14.png" },
-    { title: "Work Order",           desc: "Generate and manage work orders efficiently with real-time tracking.",              img: "/products/amis/standard15.png" },
-    { title: "Production/Finish G",  desc: "Streamline finished goods tracking and ensure accurate inventory control.",         img: "/products/amis/standard16.png" },
-    { title: "Production Variance",  desc: "Analyze production variances to control cost and improve efficiency.",             img: "/products/amis/standard17.png" },
-    { title: "Machines",             desc: "Monitor machine performance and schedule preventive maintenance.",                  img: "/products/amis/standard4.png"  },
-    { title: "Production Planner",   desc: "Plan and optimize production schedules with dynamic resource allocation.",         img: "/products/amis/standard5.png"  },
+    { title: "BOM Setup",            desc: "Easily configure bills of materials with accurate details for production.",         img: "/bom.png" },
+    { title: "Work Order",           desc: "Generate and manage work orders efficiently with real-time tracking.",              img: "/work-order.png" },
+    { title: "Production/Finish G",  desc: "Streamline finished goods tracking and ensure accurate inventory control.",         img: "/product-finishing.png" },
+    { title: "Production Variance",  desc: "Analyze production variances to control cost and improve efficiency.",             img: "/product-variance.png" },
+    { title: "Machines",             desc: "Monitor machine performance and schedule preventive maintenance.",                  img: "/machines.png"  },
+    { title: "Production Planner",   desc: "Plan and optimize production schedules with dynamic resource allocation.",         img: "/production-manager.png"  },
   ];
 
   const iconCards = [
@@ -2503,7 +2543,7 @@ function ManufacturingContent() {
       <div className="bg-white px-10 py-10 border-t border-gray-100">
         <div className="flex gap-10 items-center">
           <div className="w-1/2 relative h-72 rounded-2xl overflow-hidden flex-shrink-0">
-            <Image src="/products/amis/standard6.png" alt="Streamline Workflow" fill className="object-cover" />
+            <Image src="/manufacturing-workflow.png" alt="Streamline Workflow" fill className="object-cover" />
           </div>
           <div className="w-1/2">
             <h2 className="text-3xl font-bold text-gray-900 mb-3">Streamline Your Manufacturing Workflow</h2>
@@ -2511,7 +2551,7 @@ function ManufacturingContent() {
             <div className="grid grid-cols-2 gap-3">
               {["Material Requirement Planning","Inventory Tracking","Supplier Management","Cost Optimization"].map((item) => (
                 <div key={item} className="border border-gray-200 rounded-lg px-4 py-3 flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-[#1a6bb5] flex-shrink-0" />
+                  {/* <div className="w-2 h-2 rounded-full bg-[#1a6bb5] flex-shrink-0" /> */}
                   <p className="text-sm font-medium text-gray-700">{item}</p>
                 </div>
               ))}
@@ -2526,8 +2566,8 @@ function ManufacturingContent() {
           <h2 className="text-3xl font-bold text-gray-900 mb-2">Optimize Your Manufacturing Process</h2>
           <p className="text-gray-500 text-sm">Streamline production, track machines, and analyze performance for better efficiency.</p>
         </div>
-        <div className="relative h-72 rounded-2xl overflow-hidden mb-8">
-          <Image src="/products/amis/standard7.png" alt="Manufacturing Process" fill className="object-cover" />
+        <div className="relative h-110 rounded-2xl overflow-hidden mb-8">
+          <Image src="/manufacturing.png" alt="Manufacturing Process" fill className="object-cover" />
         </div>
         <div className="grid grid-cols-3 gap-5">
           {iconCards.map((c) => (
@@ -2549,7 +2589,7 @@ function ManufacturingContent() {
           {workflowSteps.map((step, i) => (
             <div key={step.num} className="flex items-center">
               <div className="flex flex-col items-center">
-                <div className="w-12 h-12 rounded-full bg-blue-100 border-2 border-[#1a6bb5] flex items-center justify-center text-[#1a6bb5] font-bold text-lg">
+                <div className="w-12 h-12 rounded-full border-6 border-gray-300 flex items-center justify-center text-[#00aeef] font-bold text-lg">
                   {step.num}
                 </div>
               </div>
@@ -2576,21 +2616,21 @@ function ManufacturingContent() {
 // ─────────────────────────────────────────────────────────────────────────────
 function FixedAssetsContent() {
   const exploreModules = [
-    { num: 1, title: "Assets",         img: "/products/amis/standard14.png" },
-    { num: 2, title: "Asset Service",  img: "/products/amis/standard15.png" },
-    { num: 3, title: "Asset Disposal", img: "/products/amis/standard16.png" },
-    { num: 4, title: "Asset Audit",    img: "/products/amis/standard17.png" },
-    { num: 5, title: "Asset Type",     img: "/products/amis/standard4.png"  },
-    { num: 6, title: "Assets Locations",img:"/products/amis/standard5.png"  },
+    { num: 1, title: "Assets",         img: "/assets.png" },
+    { num: 2, title: "Asset Service",  img: "/assetservice.png" },
+    { num: 3, title: "Asset Disposal", img: "/assetdisposal.png" },
+    { num: 4, title: "Asset Audit",    img: "/assetaudit.png" },
+    { num: 5, title: "Asset Type",     img: "/assettypes.png"  },
+    { num: 6, title: "Assets Locations",img:"/assetlocation.png"  },
   ];
 
   const keyFeatures = [
-    { title: "Track Asset Life Cycle", img: "/products/amis/standard14.png" },
-    { title: "Schedule Maintenance",   img: "/products/amis/standard15.png" },
-    { title: "Automated Depreciation", img: "/products/amis/standard16.png" },
-    { title: "Categorize Asset Types", img: "/products/amis/standard17.png" },
-    { title: "Generate Reports",       img: "/products/amis/standard4.png"  },
-    { title: "Audit Ready Data",       img: "/products/amis/standard5.png"  },
+    { title: "Track Asset Life Cycle", img: "/assetlifecycle.png" },
+    { title: "Schedule Maintenance",   img: "/schedule.png" },
+    { title: "Automated Depreciation", img: "/depreciation.png" },
+    { title: "Categorize Asset Types", img: "/typesofassets.png" },
+    { title: "Generate Reports",       img: "/generatereports.png"  },
+    { title: "Audit Ready Data",       img: "/auditdata.png"  },
   ];
 
   const workflow = [
@@ -2629,14 +2669,14 @@ function FixedAssetsContent() {
         ref={(el) => { sectionRefs.current[0] = el; }}
         className={`bg-white px-10 py-10 transition-all duration-700 ${visible[0] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
       >
-        <h2 className="text-3xl font-bold text-[#1a6bb5] text-center mb-8">Explore Fixed Asset Modules</h2>
-        <div className="grid grid-cols-3 gap-5">
+        <h2 className="text-3xl font-extrabold text-[#1a6bb5] text-center mt-20 mb-8">Explore Fixed Asset Modules</h2>
+        <div className="grid grid-cols-3 gap-8 mx-8">
           {exploreModules.map((m) => (
-            <div key={m.num} className="bg-blue-50 border border-blue-100 rounded-2xl overflow-hidden hover:shadow-md transition-shadow">
+            <div key={m.num} className="bg-gradient-to-br from-[#f0faff] to-[#d0f0ff] border border-blue-100 rounded-2xl overflow-hidden hover:shadow-md transition-shadow">
               <div className="flex items-center gap-3 p-4">
                 <div className="w-10 h-10 rounded-full bg-[#00aeef] flex items-center justify-center text-white font-bold flex-shrink-0">{m.num}</div>
-                <p className="font-bold text-[#1a6bb5]">{m.title}</p>
               </div>
+              <p className="font-bold text-center mb-1 text-[#1a6bb5]">{m.title}</p>
               <div className="relative h-40">
                 <Image src={m.img} alt={m.title} fill className="object-cover" />
               </div>
@@ -2654,7 +2694,7 @@ function FixedAssetsContent() {
         <div className="grid grid-cols-3 gap-5">
           {keyFeatures.map((f) => (
             <div key={f.title} className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-              <div className="relative h-40 flex items-center justify-center bg-gray-50 p-4">
+              <div className="relative h-20 flex items-center justify-center p-4">
                 <Image src={f.img} alt={f.title} fill className="object-contain p-4" />
               </div>
               <div className="p-4 text-center">
@@ -2693,15 +2733,15 @@ function AdministrationContent() {
 
   // Flip image cards
   const imageCards = [
-    { title: "Company",           img: "/products/amis/standard14.png", back: "Manage company profiles, branches, and settings centrally." },
-    { title: "Role",              img: "/products/amis/standard15.png", back: "Define and assign roles to control access across the system." },
-    { title: "Users",             img: "/products/amis/standard16.png", back: "Add and manage user accounts with full profile control." },
-    { title: "User Settings",     img: "/products/amis/standard17.png", back: "Customize user preferences and system settings with ease." },
-    { title: "Document Approvals",img: "/products/amis/standard4.png",  back: "Set up multi-level approval workflows for all documents." },
-    { title: "Document Numbers",  img: "/products/amis/standard5.png",  back: "Configure automatic document numbering for every module." },
-    { title: "Custom Doc Number", img: "/products/amis/standard6.png",  back: "Create custom numbering formats for specific document types." },
-    { title: "Audit Trail",       img: "/products/amis/standard7.png",  back: "Track all user actions with a complete and secure audit log." },
-    { title: "Dynamic Model",     img: "/products/amis/standard8.png",  back: "Configure dynamic models and fields to match your business." },
+    { title: "Company",           img: "/company.png", back: "Manage company profiles, branches, and settings centrally." },
+    { title: "Role",              img: "/role.png", back: "Define and assign roles to control access across the system." },
+    { title: "Users",             img: "/users.png", back: "Add and manage user accounts with full profile control." },
+    { title: "User Settings",     img: "/users-setting.png", back: "Customize user preferences and system settings with ease." },
+    { title: "Document Approvals",img: "/document-approval.png",  back: "Set up multi-level approval workflows for all documents." },
+    { title: "Document Numbers",  img: "/document-number.png",  back: "Configure automatic document numbering for every module." },
+    { title: "Custom Doc Number", img: "/custom-doc-number.png",  back: "Create custom numbering formats for specific document types." },
+    { title: "Audit Trail",       img: "/audit-trial.png",  back: "Track all user actions with a complete and secure audit log." },
+    { title: "Dynamic Model",     img: "/dynamic-model.png",  back: "Configure dynamic models and fields to match your business." },
   ];
 
   // Numbered steps with image change
@@ -2735,14 +2775,14 @@ function AdministrationContent() {
       <div className="bg-white px-10 py-10">
         <div className="grid grid-cols-3 gap-5">
           {imageCards.map((card) => (
-            <div key={card.title} className="admin-flip h-52 cursor-pointer">
+            <div key={card.title} className="admin-flip h-90 cursor-pointer">
               <div className="admin-flip-inner w-full h-full">
                 {/* Front — image with title overlay */}
                 <div className="admin-flip-front absolute inset-0 rounded-2xl overflow-hidden">
                   <Image src={card.img} alt={card.title} fill className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 px-4 py-3">
-                    <p className="text-white font-semibold text-base text-center">{card.title}</p>
+                    <p className="font-semibold bg-white/40 backdrop-blur-sm text-black text-base text-center">{card.title}</p>
                   </div>
                 </div>
                 {/* Back — blue with description */}
@@ -2760,7 +2800,7 @@ function AdministrationContent() {
       <div className="bg-white px-10 py-10 border-t border-gray-100">
         <div className="flex gap-10 items-center">
           <div className="w-1/2 relative h-80 rounded-2xl overflow-hidden flex-shrink-0">
-            <Image src="/products/amis/standard9.png" alt="Administration" fill className="object-cover" />
+            <Image src="/admin.png" alt="Administration" fill className="object-cover" />
           </div>
           <div className="w-1/2">
             <h2 className="text-2xl font-bold text-gray-900 mb-3">Streamline Administration with Intelligent Modules</h2>
@@ -2768,7 +2808,6 @@ function AdministrationContent() {
             <div className="grid grid-cols-2 gap-3">
               {["Role-Based Access","Custom Document Workflows","Audit Trail Management","Dynamic Configuration"].map((item) => (
                 <div key={item} className="border border-gray-200 rounded-lg px-4 py-3 flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-[#1a6bb5] flex-shrink-0" />
                   <p className="text-sm font-medium text-gray-700">{item}</p>
                 </div>
               ))}
@@ -3967,41 +4006,54 @@ function CRMContent() {
       </div>
 
       {/* BLOCK 2: Why AIMS ERP CRM — dark background */}
-      <div className="bg-gray-900 px-10 py-12">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-white mb-4">Why AIMS ERP CRM Solutions?</h2>
-          <p className="text-gray-300 text-sm max-w-2xl mx-auto leading-relaxed">
-            AIMS ERP has built a trusted reputation by delivering advanced CRM and ERP systems that empower businesses to manage customer relationships efficiently and grow sustainably.
-          </p>
-        </div>
-        <div className="grid grid-cols-3 gap-5">
-          {[
-            {
-              title: "Comprehensive Tools",
-              desc: "Our CRM suite is designed to be your complete business relationship hub. Every module is customized to meet your goals and includes features such as:",
-              bullets: ["Scalable customer capacity", "Flexible user roles and access", "Secure and seamless communication"],
-            },
-            {
-              title: "Powerful Sales CRM",
-              desc: "With years of expertise, AIMS ERP delivers sales-focused CRM tools that streamline your pipeline, improve conversion rates, and give your team the insights they need to close deals faster.",
-              bullets: [],
-            },
-            {
-              title: "Cutting-Edge Technology",
-              desc: "AIMS ERP integrates the latest technologies and frameworks into its CRM solutions, ensuring your business stays ahead with reliable, scalable, and innovative tools.",
-              bullets: [],
-            },
-          ].map((card) => (
-            <div key={card.title} className="bg-gray-800 rounded-2xl p-6 hover:bg-gray-750 transition-colors">
-              <h4 className="font-bold text-white text-lg mb-3">{card.title}</h4>
-              <p className="text-gray-300 text-sm leading-relaxed mb-3">{card.desc}</p>
-              {card.bullets.map((b) => (
-                <p key={b} className="text-gray-400 text-sm mb-1">• {b}</p>
-              ))}
-            </div>
-          ))}
+      <div className="bg-gray-900 px-10 py-12 mx-7 my-4 rounded-2xl">
+  <div className="text-center mb-10">
+    <h2 className="text-4xl font-bold text-white mb-4">
+      Why Q-Soft Technologies' ERP CRM Solutions?
+    </h2>
+    <p className="text-gray-300 text-sm max-w-2xl mx-auto leading-relaxed">
+      Q-Soft Technologies has built a trusted reputation by delivering advanced CRM and ERP systems
+      that empower businesses to manage customer relationships efficiently and grow sustainably.
+    </p>
+  </div>
+  <div className="grid grid-cols-2 gap-5">
+    {[
+      {
+        title: "Comprehensive Tools",
+        desc: "Q-Soft's CRM suite is designed to be your complete business relationship hub. Every module is customized to meet your goals and includes features such as:",
+        bullets: ["Scalable customer capacity", "Flexible user roles and access", "Secure and seamless communication"],
+        icon: "💻📊",
+      },
+      {
+        title: "Powerful Sales CRM",
+        desc: "With years of expertise, Q-Soft delivers sales-focused CRM tools that streamline your pipeline, improve conversion rates, and give your team the insights they need to close deals faster.",
+        bullets: [],
+        icon: "📈",
+      },
+      {
+        title: "Cutting-Edge Technology",
+        desc: "Q-Soft integrates the latest technologies and frameworks into its CRM solutions, ensuring your business stays ahead with reliable, scalable, and innovative tools.",
+        bullets: [],
+        icon: "⚙️💡",
+      },
+    ].map((card) => (
+      <div
+        key={card.title}
+        className="bg-gray-800 rounded-2xl p-6 relative overflow-hidden hover:bg-gray-700 transition-colors"
+      >
+        <h4 className="font-bold text-white text-xl mb-3">{card.title}</h4>
+        <p className="text-gray-300 text-sm leading-relaxed mb-3">{card.desc}</p>
+        {card.bullets.map((b) => (
+          <p key={b} className="text-gray-400 text-sm mb-1">• {b}</p>
+        ))}
+        {/* icon bottom right */}
+        <div className="absolute bottom-4 right-4 text-4xl opacity-80">
+          {card.icon}
         </div>
       </div>
+    ))}
+  </div>
+</div>
 
       {/* BLOCK 3: Dashboard section — heading + large image */}
       <div className="bg-white px-10 py-10 border-t border-gray-100">
@@ -4214,6 +4266,12 @@ function FloatingButtons() {
 export default function AimsErpPage() {
   const [activeTab, setActiveTab] = useState("Accounting");
 
+  const handleTabChange = (item: string) => {
+    setActiveTab(item);
+    const mainEl = document.getElementById("main-content");
+    if (mainEl) mainEl.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className={`min-h-screen ${inter.className}`}>
       <Navbar />
@@ -4222,20 +4280,22 @@ export default function AimsErpPage() {
 
         {/* ── LEFT BLUE SIDEBAR ─────────────────────────────────────────── */}
         <aside
-          className="w-56 flex-shrink-0 bg-[#1a6bb5] sticky self-start overflow-y-auto z-10"
+          className="w-56 flex-shrink-0 bg-[#00aeef] sticky self-start overflow-y-auto z-10"
           style={{ top: "64px", height: "calc(100vh - 64px)" }}
         >
           <nav className="py-4">
             {sidebarItems.map((item) => (
               <button
                 key={item}
-                onClick={() => setActiveTab(item)}
-                className={`w-full text-left px-5 py-3 text-sm font-medium transition-all duration-150 ${
-                  activeTab === item
-                    ? "bg-white text-[#1a6bb5] font-bold"
-                    : "text-white hover:bg-[#1559a0]"
+                onClick={() => handleTabChange(item)}
+                className={`w-full text-left px-5 py-2 mx-2 my-1 text-sm font-medium transition-all 
+                duration-150 rounded-lg ${
+                activeTab === item
+                ? "bg-white text-[#00aeef] font-bold"
+                : "text-white hover:bg-[#00aeef]"
                 }`}
-              >
+                style={{ width: "calc(100% - 16px)" }}
+            >
                 {item}
               </button>
             ))}
@@ -4245,7 +4305,7 @@ export default function AimsErpPage() {
         {/* ── RIGHT CONTENT ─────────────────────────────────────────────── */}
         <main
           id="main-content"
-          className="flex-1 overflow-y-auto bg-gray-50"
+          className="flex-1 overflow-y-auto bg-white"
           style={{ height: "calc(100vh - 64px)" }}
         >
           {/* PINNED STATS BAR — always at the top regardless of active tab */}
