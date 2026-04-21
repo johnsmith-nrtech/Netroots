@@ -17,6 +17,13 @@ export default function CoreProducts() {
     
       const products = [
     {
+      title: "AIMS ERP",
+      description:
+        "AIMS ERP is a powerful hybrid Enterprise Resource Planning solution that works on Desktop, Mobile and Web. With 17+ modules including Accounting, Inventory, Sales, HR/Payroll and more, it is trusted by 10,000+ active clients across Pakistan....",
+      href: "/aims-erp",
+      logo: "/AIMS-ERP.png",
+    },
+    {
       title: "FORSA ERP",
       description:
         "ForsaERP is a leading cloud-based Enterprise Resource Planning (ERP) solution designed to integrate, streamline, and centralize various business processes. It offers comprehensive modules that support back-office operations, finance, procurement, payroll, and forecasting....",
