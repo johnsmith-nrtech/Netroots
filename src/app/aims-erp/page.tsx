@@ -1,1237 +1,3 @@
-// "use client";
-
-// import { useState } from "react";
-// import { motion } from "framer-motion";
-// import Navbar from "../components/Navbar";
-// import Footer from "../components/Footer";
-// import ContactUs from "../components/ContactUs";
-// import { Inter } from "next/font/google";
-// import Image from "next/image";
-
-// // Load Inter font
-// const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
-
-// export default function AimsErpPage() {
-//   const menuItems = [
-//     "Overview",
-//     "Benefits",
-//     "Features",
-//     "Customizable",
-//     "What's New",
-//     "Download Brochure",
-//   ];
-
-//   const [activeTab, setActiveTab] = useState("Overview");
-//      const renderContent = () => {
-//     switch (activeTab) {
-//       case "Overview":
-//         return (
-//             <>
-//             <h2 className="text-2xl font-bold mb-4">Overview</h2>
-
-//             <p className="mb-4 text-justify">
-//                 <strong>All-in-One Business Accounting & Inventory Solution</strong>
-//                 <br />
-//                 AIMS ERP is a robust Accounts and Inventory Management System
-//                 specifically tailored to meet the needs of growing businesses in
-//                 Pakistan. Built on international standards of bookkeeping and financial
-//                 control, it offers a fully integrated platform to Plan, Source, Stock,
-//                 Sell, Recover, and Analyze your entire business lifecycle. It seamlessly
-//                 unifies your operations with your customers, suppliers, employees, and
-//                 processes, unlocking hidden ROI and improving productivity across the
-//                 organization.
-//             </p>
-
-//             <p className="mb-4 text-justify">
-//                 <strong>Powerful Financial Management</strong>
-//                 <br />
-//                 The Accounts & Finance Module of AIMS ERP empowers businesses to
-//                 maintain accurate records, manage transactions, and gain clear financial
-//                 insights. It supports flexible GL accounts, journal vouchers, payment
-//                 and receipt handling, and full bank reconciliation  allowing management
-//                 to make informed, strategic decisions with confidence. With built-in
-//                 compliance to international auditing standards, businesses can prepare
-//                 reports that are audit-ready and fully transparent.
-//             </p>
-
-//             <p className="mb-4 text-justify">
-//                 <strong>Smart Inventory Management</strong>
-//                 <br />
-//                 AIMS ERP offers FIFO-based inventory tracking with real-time updates and
-//                 forecasting tools. The Inventory Module helps register, monitor, and
-//                 optimize stock levels using multi-unit measurement, batch barcoding, and
-//                 automated reorder suggestions. Whether managing a single warehouse or
-//                 multiple locations, the system provides a centralized view of inventory
-//                 and ensures efficient procurement-to-sales flow, minimizing losses and
-//                 maximizing client satisfaction.
-//             </p>
-
-//             <p className="mb-4 text-justify">
-//                 <strong>Efficient Purchase & Sales Operations</strong>
-//                 <br />
-//                 With a streamlined Purchase Order Management (POM) system, businesses
-//                 can generate and track purchase orders, manage supplier records, and
-//                 accurately calculate costs including on-invoice expenses. The Sales
-//                 Invoice Management (SIM) module includes advanced tools for sales
-//                 orders, profit margin analysis, discount handling, and real-time sales
-//                 reporting. Admin rights ensure data security, while support for multiple
-//                 languages and formats enhances billing flexibility.
-//             </p>
-
-//             <p className="mb-4 text-justify">
-//                 <strong>Retail-Ready Point of Sale (POS)</strong>
-//                 <br />
-//                 Designed for retail environments, AIMS ERP includes a high-speed POS
-//                 system that supports barcode scanners, receipt printers, cash drawers,
-//                 and even credit/debit card processing. It synchronizes with accounting
-//                 and inventory modules, enabling businesses to track stock, handle
-//                 multiple payment types, and process transactions offline or in the
-//                 cloud. POS reports offer valuable insights into customer behavior, sales
-//                 trends, and inventory performance.
-//             </p>
-
-//             <p className="mb-4 text-justify">
-//                 <strong>Advanced Reporting & Business Intelligence</strong>
-//                 <br />
-//                 The system includes over 100 customizable reports across Sales,
-//                 Inventory, Warehousing, Accounts, and Expenses. With powerful filters
-//                 and export capabilities, reports can be generated in PDF, Excel, Word,
-//                 HTML, or image formats. Managers can quickly assess key metrics like
-//                 profit margins, overdue invoices, and sales by product or salesman to
-//                 make data-driven decisions that grow the business.
-//             </p>
-
-//             <p className="mb-4 text-justify">
-//                 <strong>User-Centric Features & Simplicity</strong>
-//                 <br />
-//                 From role-based user access to easy document attachments, SMS device
-//                 integration, and quick recovery tools, AIMS ERP is designed for
-//                 usability and efficiency. It includes multi-level dashboards, reminder
-//                 tools, and real-time insights all contributing to smoother operations.
-//                 Whether a startup or a scaling enterprise, AIMS ERP offers a
-//                 comprehensive, scalable, and cost-effective ERP experience.
-//             </p>
-//             </>
-//         );
-//       case "Benefits":
-//         return (
-//             <>
-//             <h2 className="text-2xl font-bold mb-4">Benefits</h2>
-
-//             <p className="mb-4 text-justify">
-//                 <strong>Designed for Growing Businesses</strong>
-//                 <br />
-//                 AIMS ERP is tailored specifically for small to medium-sized businesses in Pakistan. 
-//                 It delivers a complete suite of integrated tools for managing finances, inventory, 
-//                 sales, and operations. With a user-friendly interface and localized features, it 
-//                 simplifies complex processes and supports business growth without the overhead costs 
-//                 of large-scale ERP systems.
-//             </p>
-
-//             <p className="mb-4 text-justify">
-//                 <strong>Affordable and Scalable ERP Solution</strong>
-//                 <br />
-//                 Unlike many expensive ERP platforms, AIMS ERP offers an affordable pricing model 
-//                 without compromising on features. Its modular design ensures businesses only pay 
-//                 for what they use, while retaining the ability to scale seamlessly as operations 
-//                 expand. Whether managing a single branch or multiple locations, AIMS adapts to the 
-//                 organization’s needs over time.
-//             </p>
-
-//             <p className="mb-4 text-justify">
-//                 <strong>Boosts Operational Efficiency</strong>
-//                 <br />
-//                 By automating core accounting and inventory tasks, AIMS ERP minimizes manual work 
-//                 and reduces the chances of errors. From generating invoices and purchase orders to 
-//                 tracking stock and calculating taxes, the software simplifies day-to-day operations 
-//                 and enables faster decision-making.
-//             </p>
-
-//             <p className="mb-4 text-justify">
-//                 <strong>Real-Time Visibility & Control</strong>
-//                 <br />
-//                 AIMS ERP provides real-time data insights across your entire business from sales 
-//                 and inventory levels to customer balances and expenses. This transparency empowers 
-//                 business owners to make informed decisions, avoid stock-outs, and control cash flow 
-//                 with confidence. It also reduces dependency on external consultants for everyday 
-//                 reporting.
-//             </p>
-
-//             <p className="mb-4 text-justify">
-//                 <strong>Seamless Integration Across Departments</strong>
-//                 <br />
-//                 All modules in AIMS ERP including Accounts, Inventory, POS, Purchase, Sales, and 
-//                 Reporting are interconnected. Data entered in one module automatically updates related 
-//                 modules, eliminating duplication and ensuring consistency across the organization. 
-//                 This integration enhances collaboration and streamlines workflows.
-//             </p>
-
-//             <p className="mb-4 text-justify">
-//                 <strong>Localized Features for the Pakistani Market</strong>
-//                 <br />
-//                 AIMS ERP is built with a deep understanding of local business practices, tax structures, 
-//                 and reporting needs. It supports Urdu and English interfaces, GST/SRB integration, and 
-//                 prepares audit-ready financials aligned with Pakistani regulatory standards making 
-//                 compliance easy and reliable.
-//             </p>
-
-//             <p className="mb-4 text-justify">
-//                 <strong>Robust Data Security & User Access Control</strong>
-//                 <br />
-//                 The software includes role-based access controls, ensuring sensitive financial and 
-//                 operational data is only accessible to authorized users. Permissions can be customized 
-//                 for each employee, increasing accountability and reducing risks. Secure logins and 
-//                 frequent backups ensure business continuity.
-//             </p>
-
-//             <p className="mb-4 text-justify">
-//                 <strong>Customer Support & Training</strong>
-//                 <br />
-//                 AIMS ERP provides dedicated customer support and training resources. From initial setup 
-//                 and migration to advanced usage queries, businesses receive expert guidance to ensure 
-//                 smooth adoption and maximum ROI.
-//             </p>
-//             </>
-//         );
-//         case "Features":
-//         return (
-//             <div className="space-y-10">
-            
-//             {/* ===================== MAIN HEADING ===================== */}
-//             <h2 className="text-3xl font-bold">Features</h2>
-
-//             {/* ===================== STANDARD INTRO ===================== */}
-//             <h3 className="text-2xl font-semibold">
-//                 AIMS (Standard)  Accounts & Inventory Management System
-//             </h3>
-
-//             {/* Screenshot 1 */}
-//             <Image src="/products/amis/standard1.png" width={500} height={300} className="rounded shadow" alt="Standard Screenshot 1" />
-
-//             <h3 className="text-2xl font-semibold mt-6">Complete Package for Any Business Domain</h3>
-
-//             {/* Screenshot 2 */}
-//             <Image src="/products/amis/standard2.png" width={500} height={300} className="rounded shadow" alt="Standard Screenshot 2" />
-
-//             <h3 className="text-2xl font-semibold mt-6">User Login</h3>
-
-//             {/* Screenshot 3 */}
-//             <Image src="/products/amis/standard3.png" width={300} height={150} className="rounded shadow" alt="Standard Screenshot 3" />
-
-//             {/* ===================== DASHBOARD ===================== */}
-//             <h3 className="text-3xl font-bold mt-10">DASHBOARD OVERVIEW</h3>
-
-//             {/* Screenshot 4 */}
-//             <Image src="/products/amis/standard4.png" width={900} height={600} className="rounded shadow" alt="Standard Screenshot 4" />
-
-//             <ul className="list-disc pl-6 space-y-2 mt-4">
-//                 <li>Dash board with a Real-Time Graphical view of your Business</li>
-//                 <li>Purchases & Sales</li>
-//                 <li>Active & Inactive Products</li>
-//                 <li>Dead Sales Items</li>
-//                 <li>Reorder Items</li>
-//                 <li>Documents Statistics</li>
-//                 <li>Scheduled Tasks</li>
-//                 <li>To Do List</li>
-//             </ul>
-
-//             {/* ===================== ACCOUNTS MANAGEMENT ===================== */}
-//             <h2 className="text-3xl font-bold mt-12">Accounts Management (AM)</h2>
-
-//             <p className="text-justify">
-//                 AIMS (Standard) Accounts and Finance Module gives you the power to take control of your 
-//                 financial decisions. Built according to international bookkeeping standards, it generates 
-//                 fully compliant audit reports for businesses in Pakistan.
-//             </p>
-
-//             <p className="text-justify mt-2">
-//                 With strong financial tools and automated processes, businesses can minimize costs and 
-//                 maximize profitability with ease.
-//             </p>
-
-//             <h3 className="text-xl font-semibold mt-4">Key Features of AM</h3>
-
-//             <ul className="list-disc pl-6 space-y-2">
-//                 <li>Flexible GL Account (Chart of Account) & Sub-Account</li>
-//                 <li>Payment & Receipt Vouchers</li>
-//                 <li>Cash & Bank Vouchers with Cheque Management</li>
-//                 <li>Journal Vouchers</li>
-//                 <li>Create Custom Vouchers</li>
-//                 <li>Scheduled / Recurring Transactions</li>
-//                 <li>Reversing Entries</li>
-//                 <li>Bulk Payment & Receipt Entry</li>
-//                 <li>Auto Cash Transaction Posting</li>
-//                 <li>Bank Reconciliation</li>
-//                 <li>Multi-Level Trial Balance</li>
-//                 <li>Final Statements</li>
-//             </ul>
-
-//             {/* Screenshots 5 & 6 */}
-//             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
-//                 <Image src="/products/amis/standard5.png" width={500} height={300} className="rounded shadow" alt="Screenshot 5" />
-//                 <Image src="/products/amis/standard6.png" width={500} height={300} className="rounded shadow" alt="Screenshot 6" />
-//             </div>
-
-//             {/* Screenshots 7 & 8 */}
-//             <h3 className="text-lg font-semibold mt-4">Create Supplier & Customer</h3>
-//             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
-//                 <Image src="/products/amis/standard7.png" width={500} height={300} className="rounded shadow" alt="Screenshot 7" />
-//                 <Image src="/products/amis/standard8.png" width={500} height={300} className="rounded shadow" alt="Screenshot 8" />
-//             </div>
-
-//             {/* More Screenshots (9–13) */}
-//             <h3 className="text-lg font-semibold mt-6">Cash / Bank Vouchers & Journal Vouchers</h3>
-//             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
-//                 <Image src="/products/amis/standard9.png" width={500} height={300} className="rounded shadow" alt="Screenshot 9" />
-//                 <Image src="/products/amis/standard10.png" width={500} height={300} className="rounded shadow" alt="Screenshot 10" />
-//                 <Image src="/products/amis/standard11.png" width={500} height={300} className="rounded shadow" alt="Screenshot 11" />
-//                 <Image src="/products/amis/standard12.png" width={500} height={300} className="rounded shadow" alt="Screenshot 12" />
-//                 <Image src="/products/amis/standard13.png" width={500} height={300} className="rounded shadow" alt="Screenshot 13" />
-//             </div>
-
-//             {/* ===================== INVENTORY MANAGEMENT ===================== */}
-//             <h2 className="text-3xl font-bold mt-12">Inventory Management (IM)</h2>
-
-//             <p className="text-justify">
-//                 A highly optimized FIFO-based inventory & warehouse system. It manages stock levels, 
-//                 warehouse operations, forecasting, valuations, and stock movements in real-time.
-//             </p>
-
-//             <h3 className="text-xl font-semibold mt-4">Key Features of IM</h3>
-
-//             <ul className="list-disc pl-6 space-y-2">
-//                 <li>Dynamic Product Chart with Multi UOM</li>
-//                 <li>Active & Inactive Products</li>
-//                 <li>Unicode (Urdu) Language Support</li>
-//                 <li>Multiple Barcodes & Batch Barcoding</li>
-//                 <li>Advanced & Custom Filtration</li>
-//                 <li>Product Grouping & Categorization</li>
-//                 <li>Automated & Manual Reorder Management</li>
-//                 <li>Inventory Forecasting & Valuation</li>
-//                 <li>Multiple Warehouses</li>
-//                 <li>Billing & Invoicing</li>
-//                 <li>Purchase vs Sales Analysis</li>
-//             </ul>
-
-//             {/* Screenshots 14 & 15 */}
-//             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
-//                 <Image src="/products/amis/standard14.png" width={500} height={300} className="rounded shadow" alt="Screenshot 14" />
-//                 <Image src="/products/amis/standard15.png" width={500} height={300} className="rounded shadow" alt="Screenshot 15" />
-//             </div>
-
-//             {/* Screenshots 16 & 17 */}
-//             <h3 className="text-lg font-semibold mt-4">Barcode & Batch Printing</h3>
-//             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-//                 <Image src="/products/amis/standard16.png" width={500} height={300} className="rounded shadow" alt="Screenshot 16" />
-//                 <Image src="/products/amis/standard17.png" width={500} height={300} className="rounded shadow" alt="Screenshot 17" />
-//             </div>
-
-//             {/* ===================== PURCHASE ORDER MANAGEMENT ===================== */}
-//             <h2 className="text-3xl font-bold mt-12">Purchase Order Management (POM)</h2>
-
-//             <p className="text-justify">
-//                 A complete purchase workflow with system-generated and manual POs, expense allocation, 
-//                 product tracking, and document filtration.
-//             </p>
-
-//             <h3 className="text-xl font-semibold mt-4">Key Features of POM</h3>
-
-//             <ul className="list-disc pl-6 space-y-2">
-//                 <li>Full purchase management system</li>
-//                 <li>Detailed & Summary Purchase Orders</li>
-//                 <li>Track Purchase History</li>
-//                 <li>Email POs to Suppliers</li>
-//                 <li>Advanced Document Filtration</li>
-//                 <li>On-Invoice Expense Allocation</li>
-//                 <li>Manual & System-Generated POs</li>
-//                 <li>Attachment Support</li>
-//             </ul>
-
-//             {/* Screenshots 18 & 19 */}
-//             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-//                 <Image src="/products/amis/standard18.png" width={500} height={300} className="rounded shadow" alt="Screenshot 18" />
-//                 <Image src="/products/amis/standard19.png" width={500} height={300} className="rounded shadow" alt="Screenshot 19" />
-//             </div>
-
-//             {/* ===================== SALES INVOICE MANAGEMENT ===================== */}
-//             <h2 className="text-3xl font-bold mt-12">Sales Invoice Management (SIM)</h2>
-
-//             <p className="text-justify">
-//                 Sales orders, returns, multi-UOM, profit calculation, discounts, bonuses, controlled invoice 
-//                 editing, and multilingual invoice printing.
-//             </p>
-
-//             <h3 className="text-xl font-semibold mt-4">Key Features of SIM</h3>
-
-//             <ul className="list-disc pl-6 space-y-2">
-//                 <li>Sales Orders & Invoices</li>
-//                 <li>Sales Returns</li>
-//                 <li>On-Invoice Expense Control</li>
-//                 <li>Cash Receipt Controls</li>
-//                 <li>Salesman Credit Balance Control</li>
-//                 <li>Profit Calculator</li>
-//                 <li>Admin-Controlled Invoice Permissions</li>
-//                 <li>Multi-Language & Multi-Size Printing</li>
-//                 <li>Audit Tracking</li>
-//             </ul>
-
-//             {/* Screenshots 20 & 21 */}
-//             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
-//                 <Image src="/products/amis/standard20.png" width={500} height={300} className="rounded shadow" alt="Screenshot 20" />
-//                 <Image src="/products/amis/standard21.png" width={500} height={300} className="rounded shadow" alt="Screenshot 21" />
-//             </div>
-
-//             {/* ===================== POS ===================== */}
-//             <h2 className="text-3xl font-bold mt-12">Point of Sale (POS)</h2>
-
-//             <p className="text-justify">
-//                 A fast POS system supporting barcode scanners, cash drawers, receipts, multi-store, 
-//                 online/offline mode, invoice history & stock syncing.
-//             </p>
-
-//             <h3 className="text-xl font-semibold mt-4">Key Features of POS</h3>
-
-//             <ul className="list-disc pl-6 space-y-2">
-//                 <li>Multiple Store Configuration</li>
-//                 <li>All Payment Types Supported</li>
-//                 <li>Integrated with Accounting & Inventory</li>
-//                 <li>Barcode Scanners & Printers Support</li>
-//                 <li>Credit/Debit Cards Support</li>
-//                 <li>Hold & Resume Invoice</li>
-//                 <li>Works Offline & Cloud</li>
-//             </ul>
-
-//             {/* Screenshot 22 */}
-//             <Image src="/products/amis/standard22.png" width={800} height={500} className="rounded shadow my-4" alt="Screenshot 22" />
-
-//             {/* ===================== REPORTS ===================== */}
-//             <h2 className="text-3xl font-bold mt-12">Reports & Business Intelligence</h2>
-
-//             <p className="text-justify">
-//                 Over 100 detailed reports with advanced filtering, export to PDF, Excel, CSV, HTML, Image 
-//                 and more. Includes BI insights and financial reporting tools.
-//             </p>
-
-//             {/* Screenshots 23––26 */}
-//             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-//                 <Image src="/products/amis/standard23.png" width={300} height={200} className="rounded shadow" alt="Screenshot 23" />
-//                 <Image src="/products/amis/standard24.png" width={300} height={200} className="rounded shadow" alt="Screenshot 24" />
-//                 <Image src="/products/amis/standard25.png" width={300} height={200} className="rounded shadow" alt="Screenshot 25" />
-//                 <Image src="/products/amis/standard26.png" width={300} height={200} className="rounded shadow" alt="Screenshot 26" />
-//             </div>
-
-//             </div>
-//         );
-
-//       case "Customizable":
-//         return (
-//             <div>
-//             <h2 className="text-2xl font-bold mb-4">Customizable</h2>
-
-//             <p className="mb-4 text-justify">
-//                 <strong>Tailored to Fit Your Unique Business Needs</strong>
-//                 <br />
-//                 Every business operates differently, and AIMS (Standard) understands that one-size-fits-all solutions often fall short. 
-//                 That’s why the system is built with customization flexibility at its core, empowering businesses to shape the software 
-//                 according to their exact workflows and preferences.
-//             </p>
-
-//             <p className="mb-4 text-justify">
-//                 From the very first setup, AIMS (Standard) allows you to choose and activate only the modules relevant to your operations
-//                 be it Accounting, Inventory, POS, Purchase, Sales, or Reporting. As your business grows, you can add more modules without 
-//                 needing a complete system overhaul.
-//             </p>
-
-//             <h3 className="text-xl font-semibold mt-6 mb-2">Flexible Chart of Accounts & Reporting</h3>
-//             <p className="mb-4 text-justify">
-//                 The system supports custom Chart of Accounts (COA) structures, allowing organizations to align their financial records 
-//                 with internal policies or external regulatory requirements. Reporting formats can also be customized, including branded 
-//                 invoice templates, tax summaries, and multi-level dashboards tailored to the management team’s KPIs.
-//             </p>
-
-//             <h3 className="text-xl font-semibold mt-6 mb-2">User Roles, Access & Workflows</h3>
-//             <p className="mb-4 text-justify">
-//                 With customizable user roles and permissions, you can control who accesses what within the platform. You can also define 
-//                 approval hierarchies, set up email alerts for specific actions, and create automated workflows that match your internal 
-//                 processes whether for order approvals, stock transfers, or payment verifications.
-//             </p>
-
-//             <h3 className="text-xl font-semibold mt-6 mb-2">Field Customization & Localization</h3>
-//             <p className="mb-4 text-justify">
-//                 Businesses can rename fields, add custom fields to forms, and even hide or show data based on user type. The software 
-//                 supports both Urdu and English, and localized tax rules (GST/SRB) can be configured based on region and industry. Currency, 
-//                 units of measurement, and barcode formats are all adjustable.
-//             </p>
-
-//             <h3 className="text-xl font-semibold mt-6 mb-2">Built for Adaptability</h3>
-//             <p className="mb-4 text-justify">
-//                 Whether you are a retailer, wholesaler, manufacturer, or service provider, AIMS (Standard) provides the flexibility 
-//                 to adapt without needing any coding knowledge. Our technical team can also offer advanced customizations on request, 
-//                 helping businesses meet complex operational or compliance needs with ease.
-//             </p>
-//             </div>
-//         );
-//       case "What's New":
-//         return (
-//             <div>
-//             <h2 className="text-2xl font-bold mb-4">Whats New</h2>
-
-//             <p className="mb-6 font-semibold">What’s New in AIMS (Standard)</p>
-
-//             <ul className="list-disc pl-6 space-y-3 text-gray-700">
-//                 <li>
-//                 Revamped user interface with a fresh, modern, and intuitive layout for easier navigation across all devices.
-//                 </li>
-//                 <li>
-//                 Advanced reporting engine with 100+ customizable reports, filters, and export options (PDF, Excel, Word).
-//                 </li>
-//                 <li>
-//                 Smart document attachment system to link invoices, receipts, and contracts directly with transactions.
-//                 </li>
-//                 <li>
-//                 Enhanced security with role-based access control, OTP verification, login history, and auto session timeout.
-//                 </li>
-//                 <li>
-//                 Improved POS integration with faster barcode scanning, real-time sync, and offline support.
-//                 </li>
-//                 <li>
-//                 Auto reorder alerts based on stock thresholds and intelligent purchase suggestions.
-//                 </li>
-//                 <li>
-//                 AI-powered insights to predict sales trends, overdue payments, and slow-moving inventory.
-//                 </li>
-//                 <li>
-//                 Multi-language interface (English & Urdu) for broader accessibility and ease of use.
-//                 </li>
-//                 <li>
-//                 Email and SMS notification features for instant updates on purchases, sales, and payments.
-//                 </li>
-//                 <li>
-//                 Custom field creation in sales, purchase, customer, and product forms without development effort.
-//                 </li>
-//             </ul>
-//             </div>
-//         );
-//       case "Download Brochure":
-//         return (
-//           <>
-//             <h2 className="text-2xl font-bold mb-4">Download Brochure</h2>
-//             <p className="text-gray-700 leading-relaxed">
-//               Download the official AIMS ERP brochure to explore all modules,
-//               benefits, pricing, and technical specs.
-//             </p>
-
-//             <a
-//               href="/brochures/aims-erp.pdf"
-//               download
-//               className="inline-block mt-6 px-6 py-3 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700 transition"
-//             >
-//               Download PDF Brochure
-//             </a>
-//           </>
-//         );
-//       default:
-//         return null;
-//     }
-//   };
-
-//   return (
-//     <div className={`bg-[#f4f7fb] mt-10 min-h-screen ${inter.className}`}>
-//       <Navbar />
-
-//       {/* ---------- HERO SECTION ---------- */}
-//       <motion.section
-//         className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-20 px-6 md:px-20 flex flex-col-reverse md:flex-row items-center justify-between gap-8"
-//         initial={{ opacity: 0, y: 50 }}
-//         animate={{ opacity: 1, y: 0 }}
-//         transition={{ duration: 0.8 }}
-//       >
-//         <motion.div
-//           className="md:w-1/2"
-//           initial={{ opacity: 0, x: -50 }}
-//           animate={{ opacity: 1, x: 0 }}
-//           transition={{ duration: 1 }}
-//         >
-//           <h1 className="text-4xl md:text-5xl font-bold mb-6">AIMS ERP</h1>
-//           <p className="text-lg mb-6 text-justify">
-//             Discover NetRoots Technologies AIMS ERP the ultimate business accounting, inventory, and sales management solution for small and growing businesses in Pakistan.
-//           </p>
-//           <motion.a
-//             href="/AIMS-ERP-Brochure.pdf"
-//             download
-//             className="inline-block bg-white text-blue-700 font-semibold px-6 py-3 rounded-lg shadow-lg hover:scale-105 transition-transform"
-//             whileHover={{ scale: 1.05 }}
-//           >
-//             Download Brochure
-//           </motion.a>
-//         </motion.div>
-
-//         <motion.div
-//           className="md:w-1/2 flex justify-center"
-//           initial={{ opacity: 0, x: 50 }}
-//           animate={{ opacity: 1, x: 0 }}
-//           transition={{ duration: 1 }}
-//         >
-//           <Image
-//             src="/products/amis/Dashboard.png"
-//             alt="AIMS ERP Dashboard"
-//             width={1200}   // you can adjust this
-//             height={700}   // adjust proportionally
-//             className="w-full md:w-4/5 rounded-xl shadow-lg object-contain"
-//             />
-
-//         </motion.div>
-//       </motion.section>
-
-//       {/* ---------- MAIN SECTION ---------- */}
-//       <section className="px-6 md:px-20 py-12 flex flex-col md:flex-row gap-10">
-        
-//         {/* SIDEBAR */}
-//         <motion.div
-//           className="w-full md:w-1/4"
-//           initial={{ opacity: 0, x: -30 }}
-//           animate={{ opacity: 1, x: 0 }}
-//           transition={{ duration: 0.8 }}
-//         >
-//           <div className="bg-gradient-to-b from-blue-700 to-blue-700 shadow-lg rounded-xl p-4 sticky top-24">
-//                 {menuItems.map((item) => (
-//                     <button
-//                     key={item}
-//                     onClick={() => setActiveTab(item)}
-//                     className={`w-full text-left px-4 py-3 mb-3 rounded-lg font-medium transition-all duration-300 flex items-center justify-between ${
-//                         activeTab === item
-//                         ? "bg-gradient-to-r from-indigo-500 to-blue-400 text-white font-bold border-l-4 border-white shadow-lg"
-//                         : "text-white bg-transparent hover:bg-white hover:text-blue-700"
-//                     }`}
-//                     >
-//                     {item}
-                    
-//                     </button>
-//                 ))}
-//                 </div>
-
-//         </motion.div>
-
-//         {/* CONTENT */}
-//         <motion.div
-//         className="w-full md:w-3/4"
-//         initial={{ opacity: 0, y: 20 }}
-//         animate={{ opacity: 1, y: 0 }}
-//         transition={{ duration: 0.8 }}
-//         >
-//         <motion.div
-//             key={activeTab} // ensures animation on tab change
-//             initial={{ opacity: 0, x: 20 }}
-//             animate={{ opacity: 1, x: 0 }}
-//             exit={{ opacity: 0, x: -20 }}
-//             transition={{ duration: 0.5 }}
-//             className={`bg-white p-8 rounded-xl shadow-lg border-l-4 ${
-//             activeTab === "Overview"
-//                 ? "border-blue-600"
-//                 : activeTab === "Benefits"
-//                 ? "border-blue-600"
-//                 : activeTab === "Features"
-//                 ? "border-blue-600"
-//                 : activeTab === "Customizable"
-//                 ? "border-blue-600"
-//                 : activeTab === "What's New"
-//                 ? "border-blue-600"
-//                 : "border-blue-600"
-//             }`}
-//         >
-//             {renderContent()}
-//         </motion.div>
-//         </motion.div>
-
-
-//       </section>
-
-//       <ContactUs />
-//       <Footer />
-//     </div>
-//   );
-// }
-
-
-
-
-
-
-// "use client";
-
-// import { useState } from "react";
-// import { motion, AnimatePresence } from "framer-motion";
-// import Navbar from "../components/Navbar";
-// import Footer from "../components/Footer";
-// import ContactUs from "../components/ContactUs";
-// import { Inter } from "next/font/google";
-// import Image from "next/image";
-
-// const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
-
-// const sidebarItems = [
-//   "Accounting",
-//   "Inventory",
-//   "Procurement/Purchase",
-//   "CRM",
-//   "Sales",
-//   "Tax Portal",
-//   "HR/Payroll",
-//   "Manufacturing",
-//   "Fixed Assets",
-//   "Administration",
-//   "POS",
-//   "Reports",
-// ];
-
-// // ─────────────────────────────────────────────────────────────────────────────
-// // ACCOUNTING CONTENT  (mirrors all 8 screenshots exactly)
-// // ─────────────────────────────────────────────────────────────────────────────
-// function AccountingContent() {
-//   const [activePoint, setActivePoint] = useState(0);
-
-//   const stats = [
-//     { value: "17+",    label: "MODULES AVAILABLE" },
-//     { value: "10000+", label: "ACTIVE CLIENTS" },
-//     { value: "18+",    label: "YEARS EXPERIENCE" },
-//     { value: "24/7",   label: "SUPPORT SERVICE" },
-//   ];
-
-//   const featureCards = [
-//     { title: "Chart of Accounts",    img: "/products/amis/standard5.png"  },
-//     { title: "Financial Management", img: "/products/amis/standard6.png"  },
-//     { title: "Compliance Assurance", img: "/products/amis/standard7.png"  },
-//     { title: "Expense Management",   img: "/products/amis/standard8.png"  },
-//     { title: "Accounting Reports",   img: "/products/amis/standard9.png"  },
-//     { title: "Payment Vouchers",     img: "/products/amis/standard10.png" },
-//     { title: "Receipts Vouchers",    img: "/products/amis/standard11.png" },
-//     { title: "Budget Management",    img: "/products/amis/standard12.png" },
-//     { title: "Data Access & Control",img: "/products/amis/standard13.png" },
-//   ];
-
-//   const keyPoints = [
-//     { num: 1, title: "Cash Flow",      desc: "Track and manage the movement of money in and out of your business with clarity." },
-//     { num: 2, title: "Bank/Cash Book", desc: "Maintain a complete record of all bank and cash transactions in one place." },
-//     { num: 3, title: "General Ledger", desc: "A centralized record of all financial transactions across accounts." },
-//     { num: 4, title: "Trial Balance",  desc: "Verify the accuracy of your records with an auto-generated trial balance." },
-//     { num: 5, title: "Profit and Loss",desc: "Get a clear picture of your revenue, costs, and net profitability." },
-//     { num: 6, title: "Balance Sheet",  desc: "Assess financial health with a snapshot of assets, liabilities & equity." },
-//   ];
-
-//   return (
-//     <div className="space-y-0">
-
-//       {/* ══ BLOCK 1: Title + stats + 3 images  (Screenshot 1) ══════════════════ */}
-//       <div className="bg-[#00aeef] px-10 py-10">
-//         <h1 className="text-4xl font-bold text-white mb-1">
-//           AIMS ERP (Hybrid)
-//         </h1>
-//         <p className="text-blue-100 text-base mb-8">
-//           Manage your business anywhere with Desktop, Mobile and Web App
-//         </p>
-
-//         {/* stat cards */}
-//         <div className="grid grid-cols-4 gap-4 mb-10">
-//           {stats.map((s) => (
-//             <div key={s.label} className="bg-[#00aeef] border border-white/20 rounded-md p-5 text-center text-white">
-//               <p className="text-3xl font-bold">{s.value}</p>
-//               <p className="text-[11px] tracking-widest mt-1 text-blue-100 uppercase">{s.label}</p>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-
-//       {/* ══ BLOCK 2: 3×3 image feature cards  (Screenshots 2 & 3) ═════════════ */}
-//       <div className="bg-white px-10 py-10">
-//         <div className="grid grid-cols-3 gap-5">
-//           {featureCards.map((card) => (
-//             <div
-//               key={card.title}
-//               className="relative rounded-xl overflow-hidden group h-90 cursor-pointer shadow-sm"
-//             >
-//               <Image
-//                 src={card.img}
-//                 alt={card.title}
-//                 fill
-//                 className="object-cover group-hover:scale-105 transition-transform duration-300"
-//               />
-//               <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
-//               <div className="absolute rounded-md bottom-6 left-4 right-4 px-4 py-3 bg-white/60 backdrop-blur-sm">
-//                 <p className="text-black text-center font-semibold text-sm">{card.title}</p>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-
-//       {/* ══ BLOCK 3: AI-based accounting  (Screenshot 4) ════════════════════════ */}
-//       <div className="bg-white px-10 py-10 border-t border-gray-100">
-//         <div className="flex gap-10 items-center">
-//           {/* image left */}
-//           <div className="w-1/2 relative h-72 rounded-xl overflow-hidden flex-shrink-0">
-//             <Image src="/products/amis/Dashboard.png" alt="AI Accounting" fill className="object-cover" />
-//           </div>
-//           {/* text right */}
-//           <div className="w-1/2">
-//             <h2 className="text-2xl font-bold text-gray-900 mb-4 leading-snug">
-//               Explore the potential of powerful AI-based accounting software
-//             </h2>
-//             <p className="text-gray-500 text-sm leading-relaxed mb-6">
-//               NetRoots Technologies is a hub of skilled software expertise. Our professionals carefully
-//               design the modules and the entire software with meticulous attention. We include all essential
-//               modules to ensure clients receive the necessary features and capabilities. Therefore, we deliver:
-//             </p>
-//             {/* 2×2 pill grid */}
-//             <div className="border border-gray-200 rounded-xl p-5 grid grid-cols-2 gap-y-4 gap-x-8">
-//               {["Module Customizations", "Diversity Leadership", "Personalized Experience", "Role-Based Access"].map((item) => (
-//                 <p key={item} className="text-sm font-medium text-gray-700">{item}</p>
-//               ))}
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* ══ BLOCK 4: Numbered list + image  (Screenshot 5) ══════════════════════ */}
-//       <div className="bg-white px-10 py-10 border-t border-gray-100">
-//         <div className="flex gap-10">
-//           {/* numbered list */}
-//           <div className="w-1/2 space-y-1">
-//             {keyPoints.map((point, i) => (
-//               <div
-//                 key={point.num}
-//                 onClick={() => setActivePoint(i)}
-//                 className="flex items-start gap-4 p-3 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors"
-//               >
-//                 <div className={`flex-shrink-0 w-9 h-9 rounded-full border-2 flex items-center justify-center font-bold text-sm transition-all ${
-//                   activePoint === i
-//                     ? "bg-[#1a9ed4] border-[#1a9ed4] text-white"
-//                     : "border-gray-300 text-gray-500"
-//                 }`}>
-//                   {point.num}
-//                 </div>
-//                 <div>
-//                   <p className={`font-bold text-base ${activePoint === i ? "text-[#1a9ed4]" : "text-gray-800"}`}>
-//                     {point.title}
-//                   </p>
-//                   {activePoint === i && (
-//                     <p className="text-sm text-gray-500 mt-1 leading-relaxed">{point.desc}</p>
-//                   )}
-//                 </div>
-//               </div>
-//             ))}
-//           </div>
-//           {/* right image */}
-//           <div className="w-1/2 relative rounded-xl overflow-hidden" style={{ minHeight: "320px" }}>
-//             <Image
-//               src="/products/amis/standard3.png"
-//               alt="Accounting feature"
-//               fill
-//               className="object-cover"
-//             />
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* ══ BLOCK 5: Optimize heading + 2 large images  (Screenshot 6) ══════════ */}
-//       <div className="bg-white px-10 py-10 border-t border-gray-100">
-//         <div className="text-center mb-8">
-//           <h2 className="text-3xl font-bold text-gray-900 mb-3">
-//             Optimize Every Aspect of Your Business Management
-//           </h2>
-//           <p className="text-gray-500 max-w-3xl mx-auto text-sm leading-relaxed">
-//             Our carefully coded ERP software offers the best experience in all aspects of accounting. It can be
-//             customized to meet your specific needs, making it perfect in every way. Our streamlined processes enable
-//             effective coordination and help maintain strong relationships.
-//           </p>
-//         </div>
-//         <div className="grid grid-cols-2 gap-6">
-//           <div className="relative h-64 rounded-xl overflow-hidden">
-//             <Image src="/products/amis/standard4.png" alt="Business management 1" fill className="object-cover" />
-//           </div>
-//           <div className="relative h-64 rounded-xl overflow-hidden">
-//             <Image src="/products/amis/standard14.png" alt="Business management 2" fill className="object-cover" />
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* ══ BLOCK 6: 2 column image + caption  (Screenshot 7) ════════════════════ */}
-//       <div className="bg-white px-10 py-10 border-t border-gray-100">
-//         <div className="grid grid-cols-2 gap-8">
-//           <div>
-//             <div className="relative h-56 rounded-xl overflow-hidden mb-5">
-//               <Image src="/products/amis/standard15.png" alt="Future decisions" fill className="object-cover" />
-//             </div>
-//             <h3 className="font-bold text-gray-900 text-lg mb-2">
-//               Allows you to make decisions regarding future plans
-//             </h3>
-//             <p className="text-sm text-gray-500 leading-relaxed">
-//               With accurate record-keeping and automation tools, our customers gain clear insights into future
-//               business prospects. Our accounting software enables better and more precise decision-making for
-//               business planning, tailored for charities and other organizations.
-//             </p>
-//           </div>
-//           <div>
-//             <div className="relative h-56 rounded-xl overflow-hidden mb-5">
-//               <Image src="/products/amis/standard16.png" alt="Taxation" fill className="object-cover" />
-//             </div>
-//             <h3 className="font-bold text-gray-900 text-lg mb-2">
-//               Our solution makes taxation simple and practical across all business activities.
-//             </h3>
-//             <p className="text-sm text-gray-500 leading-relaxed">
-//               The software carefully tracks every transaction and calculates taxation accordingly, saving you
-//               valuable time and effort. Whenever needed, simply use the modules to access and retrieve stored
-//               information from the database for your use.
-//             </p>
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* ══ BLOCK 7: How ERP streamlines + 4 process cards  (Screenshot 8) ══════ */}
-//       <div className="bg-white px-10 py-10 border-t border-gray-100">
-//         <div className="text-center mb-10">
-//           <h2 className="text-3xl font-bold text-gray-900 mb-3">
-//             How Our ERP Accounting Software Streamlines Accounting in Pakistan
-//           </h2>
-//           <p className="text-gray-500 max-w-2xl mx-auto text-sm leading-relaxed">
-//             Our Accounting ERP software solutions for small businesses in Pakistan help you achieve the
-//             desired financial outcomes. To get started, simply follow this easy process:
-//           </p>
-//         </div>
-//         <div className="grid grid-cols-4 gap-5">
-//           {[
-//             { title: "Audit Trail",       desc: "Keep a complete record of all actions to ensure accountability and transparency." },
-//             { title: "Data Import/Export",desc: "Easily transfer data in and out of the system for seamless integration." },
-//             { title: "Security and Privacy",desc: "Protect sensitive business information with robust security measures." },
-//             { title: "Enhance",           desc: "Continuously improve system performance with regular updates and features." },
-//           ].map((card) => (
-//             <div key={card.title} className="border border-gray-200 rounded-xl p-6 text-center hover:shadow-md transition-shadow">
-//               <h4 className="font-semibold text-gray-800 mb-3">{card.title}</h4>
-//               <p className="text-sm text-gray-500 leading-relaxed">{card.desc}</p>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-
-//     </div>
-//   );
-// }
-
-// // ─────────────────────────────────────────────────────────────────────────────
-// // OTHER TAB CONTENTS  (same visual pattern as accounting blocks)
-// // ─────────────────────────────────────────────────────────────────────────────
-
-// function InventoryContent() {
-//   const featureCards = [
-//     { title: "Stock Overview",      img: "/products/amis/standard14.png" },
-//     { title: "Barcode Management",  img: "/products/amis/standard15.png" },
-//     { title: "Warehouse Control",   img: "/products/amis/standard16.png" },
-//     { title: "Reorder Management",  img: "/products/amis/standard17.png" },
-//     { title: "Product Catalogue",   img: "/products/amis/standard4.png"  },
-//     { title: "Inventory Forecasting",img: "/products/amis/standard5.png" },
-//   ];
-//   return (
-//     <div className="space-y-0">
-//       <div className="bg-[#1a6bb5] px-10 py-10">
-//         <h1 className="text-4xl font-bold text-white mb-1">Inventory Management</h1>
-//         <p className="text-blue-100 text-base mb-8">
-//           A highly optimized FIFO-based inventory & warehouse system for real-time stock control.
-//         </p>
-//         <div className="grid grid-cols-3 gap-4">
-//           {["/products/amis/standard14.png","/products/amis/standard15.png","/products/amis/standard16.png"].map((src,i)=>(
-//             <div key={i} className="relative h-52 rounded-xl overflow-hidden">
-//               <Image src={src} alt={`Inventory ${i+1}`} fill className="object-cover"/>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//       <div className="bg-white px-10 py-10">
-//         <div className="grid grid-cols-3 gap-5">
-//           {featureCards.map((card)=>(
-//             <div key={card.title} className="relative rounded-xl overflow-hidden group h-52 cursor-pointer shadow-sm">
-//               <Image src={card.img} alt={card.title} fill className="object-cover group-hover:scale-105 transition-transform duration-300"/>
-//               <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent"/>
-//               <div className="absolute bottom-0 left-0 right-0 px-4 py-3 bg-black/40 backdrop-blur-sm">
-//                 <p className="text-white font-semibold text-sm">{card.title}</p>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//       <div className="bg-white px-10 py-10 border-t border-gray-100">
-//         <div className="text-center mb-8">
-//           <h2 className="text-3xl font-bold text-gray-900 mb-3">How Our Inventory Module Works</h2>
-//           <p className="text-gray-500 max-w-2xl mx-auto text-sm">Streamline stock, warehouse, and procurement with AIMS ERP's inventory tools.</p>
-//         </div>
-//         <div className="grid grid-cols-4 gap-5">
-//           {[
-//             { title: "FIFO Tracking",    desc: "Accurate costing and stock rotation using FIFO methodology." },
-//             { title: "Multi Warehouse",  desc: "Centrally manage multiple warehouse locations." },
-//             { title: "Auto Reorder",     desc: "Get alerts when stock falls below your defined threshold." },
-//             { title: "Real-Time Sync",   desc: "Instant stock updates reflected across all modules." },
-//           ].map((c)=>(
-//             <div key={c.title} className="border border-gray-200 rounded-xl p-6 text-center hover:shadow-md transition-shadow">
-//               <h4 className="font-semibold text-gray-800 mb-3">{c.title}</h4>
-//               <p className="text-sm text-gray-500 leading-relaxed">{c.desc}</p>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// function PurchaseContent() {
-//   return (
-//     <div className="space-y-0">
-//       <div className="bg-[#1a6bb5] px-10 py-10">
-//         <h1 className="text-4xl font-bold text-white mb-1">Procurement / Purchase</h1>
-//         <p className="text-blue-100 text-base mb-8">Complete purchase workflow with POs, expense allocation and document filtration.</p>
-//         <div className="grid grid-cols-3 gap-4">
-//           {["/products/amis/standard18.png","/products/amis/standard19.png","/products/amis/Dashboard.png"].map((src,i)=>(
-//             <div key={i} className="relative h-52 rounded-xl overflow-hidden">
-//               <Image src={src} alt={`Purchase ${i+1}`} fill className="object-cover"/>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//       <div className="bg-white px-10 py-10 border-t border-gray-100">
-//         <div className="text-center mb-8">
-//           <h2 className="text-3xl font-bold text-gray-900 mb-3">How Our Purchase Module Streamlines Procurement</h2>
-//           <p className="text-gray-500 max-w-2xl mx-auto text-sm">Automate and control all aspects of procurement from vendor selection to payment.</p>
-//         </div>
-//         <div className="grid grid-cols-4 gap-5">
-//           {[
-//             { title: "Audit Trail",        desc: "Keep a complete record of all purchase actions for accountability." },
-//             { title: "Data Import/Export", desc: "Move PO data in and out for seamless supplier integration." },
-//             { title: "Security and Privacy",desc: "Protect sensitive procurement data with access control." },
-//             { title: "Supplier Management",desc: "Manage and track all supplier records and purchase histories." },
-//           ].map((c)=>(
-//             <div key={c.title} className="border border-gray-200 rounded-xl p-6 text-center hover:shadow-md transition-shadow">
-//               <h4 className="font-semibold text-gray-800 mb-3">{c.title}</h4>
-//               <p className="text-sm text-gray-500 leading-relaxed">{c.desc}</p>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// function SalesContent() {
-//   const featureCards = [
-//     { title: "Sales Orders",    img: "/products/amis/standard20.png" },
-//     { title: "Invoice Management",img:"/products/amis/standard21.png"},
-//     { title: "Profit Calculator",img: "/products/amis/standard9.png" },
-//     { title: "Sales Returns",   img: "/products/amis/standard10.png" },
-//     { title: "Discount Control",img: "/products/amis/standard11.png" },
-//     { title: "Audit Tracking",  img: "/products/amis/standard12.png" },
-//   ];
-//   return (
-//     <div className="space-y-0">
-//       <div className="bg-[#1a6bb5] px-10 py-10">
-//         <h1 className="text-4xl font-bold text-white mb-1">Sales Invoice Management</h1>
-//         <p className="text-blue-100 text-base mb-8">Sales orders, returns, profit calculation, discounts, bonuses, and multilingual invoice printing.</p>
-//         <div className="grid grid-cols-3 gap-4">
-//           {["/products/amis/standard20.png","/products/amis/standard21.png","/products/amis/Dashboard.png"].map((src,i)=>(
-//             <div key={i} className="relative h-52 rounded-xl overflow-hidden">
-//               <Image src={src} alt={`Sales ${i+1}`} fill className="object-cover"/>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//       <div className="bg-white px-10 py-10">
-//         <div className="grid grid-cols-3 gap-5">
-//           {featureCards.map((card)=>(
-//             <div key={card.title} className="relative rounded-xl overflow-hidden group h-52 cursor-pointer shadow-sm">
-//               <Image src={card.img} alt={card.title} fill className="object-cover group-hover:scale-105 transition-transform duration-300"/>
-//               <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent"/>
-//               <div className="absolute bottom-0 left-0 right-0 px-4 py-3 bg-black/40 backdrop-blur-sm">
-//                 <p className="text-white font-semibold text-sm">{card.title}</p>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//       <div className="bg-white px-10 py-10 border-t border-gray-100">
-//         <div className="text-center mb-8">
-//           <h2 className="text-3xl font-bold text-gray-900 mb-3">How Our Sales Module Drives Revenue</h2>
-//           <p className="text-gray-500 max-w-2xl mx-auto text-sm">Manage every stage of the sales cycle from order to payment with full transparency.</p>
-//         </div>
-//         <div className="grid grid-cols-4 gap-5">
-//           {[
-//             { title: "Audit Trail",        desc: "Keep a complete record of all sales transactions and edits." },
-//             { title: "Data Import/Export", desc: "Easily transfer sales data for seamless integration." },
-//             { title: "Security and Privacy",desc: "Admin-controlled permissions for invoice editing and access." },
-//             { title: "Multi-Language Print",desc: "Print invoices in English or Urdu as needed." },
-//           ].map((c)=>(
-//             <div key={c.title} className="border border-gray-200 rounded-xl p-6 text-center hover:shadow-md transition-shadow">
-//               <h4 className="font-semibold text-gray-800 mb-3">{c.title}</h4>
-//               <p className="text-sm text-gray-500 leading-relaxed">{c.desc}</p>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// function POSContent() {
-//   return (
-//     <div className="space-y-0">
-//       <div className="bg-[#1a6bb5] px-10 py-10">
-//         <h1 className="text-4xl font-bold text-white mb-1">Point of Sale (POS)</h1>
-//         <p className="text-blue-100 text-base mb-8">Fast POS with barcode scanners, cash drawers, multi-store, online/offline mode.</p>
-//         <div className="relative h-72 rounded-xl overflow-hidden">
-//           <Image src="/products/amis/standard22.png" alt="POS Dashboard" fill className="object-cover"/>
-//         </div>
-//       </div>
-//       <div className="bg-white px-10 py-10 border-t border-gray-100">
-//         <div className="text-center mb-8">
-//           <h2 className="text-3xl font-bold text-gray-900 mb-3">How Our POS Streamlines Retail Operations</h2>
-//           <p className="text-gray-500 max-w-2xl mx-auto text-sm">A complete retail solution that works online and offline, synced with your entire ERP.</p>
-//         </div>
-//         <div className="grid grid-cols-4 gap-5">
-//           {[
-//             { title: "Audit Trail",        desc: "Complete record of all POS transactions and cashier actions." },
-//             { title: "Data Import/Export", desc: "Sync POS data seamlessly with accounting and inventory modules." },
-//             { title: "Security and Privacy",desc: "Secure logins and role-based access per cashier." },
-//             { title: "Offline Mode",       desc: "Keep selling even without internet connectivity." },
-//           ].map((c)=>(
-//             <div key={c.title} className="border border-gray-200 rounded-xl p-6 text-center hover:shadow-md transition-shadow">
-//               <h4 className="font-semibold text-gray-800 mb-3">{c.title}</h4>
-//               <p className="text-sm text-gray-500 leading-relaxed">{c.desc}</p>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// function ReportsContent() {
-//   return (
-//     <div className="space-y-0">
-//       <div className="bg-[#1a6bb5] px-10 py-10">
-//         <h1 className="text-4xl font-bold text-white mb-1">Reports & Business Intelligence</h1>
-//         <p className="text-blue-100 text-base mb-8">Over 100 detailed reports with advanced filtering and export to PDF, Excel, CSV, HTML and more.</p>
-//         <div className="grid grid-cols-4 gap-4">
-//           {["/products/amis/standard23.png","/products/amis/standard24.png","/products/amis/standard25.png","/products/amis/standard26.png"].map((src,i)=>(
-//             <div key={i} className="relative h-44 rounded-xl overflow-hidden">
-//               <Image src={src} alt={`Report ${i+1}`} fill className="object-cover"/>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//       <div className="bg-white px-10 py-10 border-t border-gray-100">
-//         <div className="text-center mb-8">
-//           <h2 className="text-3xl font-bold text-gray-900 mb-3">How Our Reports Drive Better Decisions</h2>
-//           <p className="text-gray-500 max-w-2xl mx-auto text-sm">Get the right information at the right time to grow your business confidently.</p>
-//         </div>
-//         <div className="grid grid-cols-4 gap-5">
-//           {[
-//             { title: "Audit Trail",        desc: "Complete record of report generation and who accessed what." },
-//             { title: "Data Export",        desc: "Export to PDF, Excel, Word, HTML, or image formats." },
-//             { title: "Security and Privacy",desc: "Role-based access controls for sensitive financial reports." },
-//             { title: "100+ Reports",       desc: "Comprehensive coverage across all business functions." },
-//           ].map((c)=>(
-//             <div key={c.title} className="border border-gray-200 rounded-xl p-6 text-center hover:shadow-md transition-shadow">
-//               <h4 className="font-semibold text-gray-800 mb-3">{c.title}</h4>
-//               <p className="text-sm text-gray-500 leading-relaxed">{c.desc}</p>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// function GenericContent({ title }: { title: string }) {
-//   return (
-//     <div className="space-y-0">
-//       <div className="bg-[#1a6bb5] px-10 py-10">
-//         <h1 className="text-4xl font-bold text-white mb-1">{title}</h1>
-//         <p className="text-blue-100 text-base">This module content will be available soon.</p>
-//       </div>
-//       <div className="bg-white px-10 py-20 text-center text-gray-400">
-//         <p>Content for <strong>{title}</strong> is coming soon.</p>
-//       </div>
-//     </div>
-//   );
-// }
-
-// function renderContent(tab: string) {
-//   switch (tab) {
-//     case "Accounting":            return <AccountingContent />;
-//     case "Inventory":             return <InventoryContent />;
-//     case "Procurement/Purchase":  return <PurchaseContent />;
-//     case "Sales":                 return <SalesContent />;
-//     case "POS":                   return <POSContent />;
-//     case "Reports":               return <ReportsContent />;
-//     default:                      return <GenericContent title={tab} />;
-//   }
-// }
-
-// // ─────────────────────────────────────────────────────────────────────────────
-// // MAIN PAGE
-// // ─────────────────────────────────────────────────────────────────────────────
-// export default function AimsErpPage() {
-//   const [activeTab, setActiveTab] = useState("Accounting");
-
-//   return (
-//     <div className={`min-h-screen ${inter.className}`}>
-//       <Navbar />
-
-//       <div className="flex" style={{ paddingTop: "64px" }}>
-
-//         {/* ── LEFT BLUE SIDEBAR ─────────────────────────────────────────── */}
-//         <aside
-//           className="w-56 flex-shrink-0 bg-[#1a6bb5] sticky self-start overflow-y-auto z-10"
-//           style={{ top: "64px", height: "calc(100vh - 64px)" }}
-//         >
-//           <nav className="py-4">
-//             {sidebarItems.map((item) => (
-//               <button
-//                 key={item}
-//                 onClick={() => setActiveTab(item)}
-//                 className={`w-full text-left px-5 py-3 text-sm font-medium transition-all duration-150 ${
-//                   activeTab === item
-//                     ? "bg-white text-[#1a6bb5] font-bold"
-//                     : "text-white hover:bg-[#1559a0]"
-//                 }`}
-//               >
-//                 {item}
-//               </button>
-//             ))}
-//           </nav>
-//         </aside>
-
-//         {/* ── RIGHT CONTENT ─────────────────────────────────────────────── */}
-//         <main className="flex-1 overflow-y-auto bg-gray-50">
-//           <AnimatePresence mode="wait">
-//             <motion.div
-//               key={activeTab}
-//               initial={{ opacity: 0, y: 10 }}
-//               animate={{ opacity: 1, y: 0 }}
-//               exit={{ opacity: 0, y: -10 }}
-//               transition={{ duration: 0.2 }}
-//             >
-//               {renderContent(activeTab)}
-//             </motion.div>
-//           </AnimatePresence>
-//         </main>
-
-//       </div>
-
-//       <ContactUs />
-//       <Footer />
-//     </div>
-//   );
-// }
-
-
-
-
-
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -4022,217 +2788,6 @@ function DownloadBrochureContent() {
 }
 
 
-// function CRMContent() {
-//   return (
-//     <div className="space-y-0">
-
-//       {/* BLOCK 1: 6 feature cards with arrow icon — title + desc + image */}
-//       <div className="bg-white px-10 py-10">
-//         <div className="text-center mb-8">
-//           <h2 className="text-3xl font-bold text-gray-900 mb-1">CRM Solutions Tailored for You</h2>
-//           <div className="w-16 h-1 bg-[#1a6bb5] mx-auto mt-2 mb-3 rounded" />
-//           <p className="text-gray-500 text-sm">Manage customers, track activities, and drive sales with our next-generation CRM tools.</p>
-//         </div>
-//         <div className="grid grid-cols-3 gap-6">
-//           {[
-//             { title: "Lead Management",           desc: "Easily capture, sort, and track potential leads. Automate follow-ups and boost conversions with smarter workflows.",                                          img: "/products/amis/standard5.png"  },
-//             { title: "Activity Monitoring",        desc: "Track every customer interaction, monitor progress, and keep your sales process transparent with activity logs.",                                            img: "/products/amis/standard6.png"  },
-//             { title: "Calendar Management",        desc: "Plan, schedule, and manage customer meetings with a built-in calendar that syncs across your CRM.",                                                          img: "/products/amis/standard7.png"  },
-//             { title: "Reports & Analytics",        desc: "Generate detailed sales and performance reports that provide actionable insights to drive growth.",                                                           img: "/products/amis/standard8.png"  },
-//             { title: "Customers/Clients Workflow", desc: "Maintain a secure, cloud-based customer database that's always accessible, organized, and easy to manage.",                                                 img: "/products/amis/standard9.png"  },
-//             { title: "Stage Tracking",             desc: "Visualize your sales funnel and monitor progress at every stage to maximize efficiency.",                                                                    img: "/products/amis/standard10.png" },
-//           ].map((card) => (
-//             <div key={card.title} className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
-//               <div className="p-5 flex items-start justify-between gap-2">
-//                 <h4 className="font-bold text-gray-900 text-base">{card.title}</h4>
-//                 <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[#00aeef] flex items-center justify-center">
-//                   <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
-//                     <path d="M7 17L17 7M17 7H7M17 7v10" />
-//                   </svg>
-//                 </div>
-//               </div>
-//               <p className="text-sm text-gray-500 leading-relaxed px-5 pb-4">{card.desc}</p>
-//               <div className="relative h-44">
-//                 <Image src={card.img} alt={card.title} fill className="object-cover px-5 py-4" />
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-
-//       {/* BLOCK 2: Why AIMS ERP CRM — dark background */}
-//       <div className="bg-gray-900 px-10 py-12 mx-7 my-4 rounded-2xl">
-//   <div className="text-center mb-10">
-//     <h2 className="text-4xl font-bold text-white mb-4">
-//       Why Q-Soft Technologies' ERP CRM Solutions?
-//     </h2>
-//     <p className="text-gray-300 text-sm max-w-2xl mx-auto leading-relaxed">
-//       Q-Soft Technologies has built a trusted reputation by delivering advanced CRM and ERP systems
-//       that empower businesses to manage customer relationships efficiently and grow sustainably.
-//     </p>
-//   </div>
-//   <div className="grid grid-cols-2 gap-5">
-//     {[
-//       {
-//         title: "Comprehensive Tools",
-//         desc: "Q-Soft's CRM suite is designed to be your complete business relationship hub. Every module is customized to meet your goals and includes features such as:",
-//         bullets: ["Scalable customer capacity", "Flexible user roles and access", "Secure and seamless communication"],
-//         icon: "💻📊",
-//       },
-//       {
-//         title: "Powerful Sales CRM",
-//         desc: "With years of expertise, Q-Soft delivers sales-focused CRM tools that streamline your pipeline, improve conversion rates, and give your team the insights they need to close deals faster.",
-//         bullets: [],
-//         icon: "📈",
-//       },
-//       {
-//         title: "Cutting-Edge Technology",
-//         desc: "Q-Soft integrates the latest technologies and frameworks into its CRM solutions, ensuring your business stays ahead with reliable, scalable, and innovative tools.",
-//         bullets: [],
-//         icon: "⚙️💡",
-//       },
-//     ].map((card) => (
-//       <div
-//         key={card.title}
-//         className="bg-gray-800 rounded-2xl p-6 relative overflow-hidden hover:bg-gray-700 transition-colors"
-//       >
-//         <h4 className="font-bold text-white text-xl mb-3">{card.title}</h4>
-//         <p className="text-gray-300 text-sm leading-relaxed mb-3">{card.desc}</p>
-//         {card.bullets.map((b) => (
-//           <p key={b} className="text-gray-400 text-sm mb-1">• {b}</p>
-//         ))}
-//         {/* icon bottom right */}
-//         <div className="absolute bottom-4 right-4 text-4xl opacity-80">
-//           {card.icon}
-//         </div>
-//       </div>
-//     ))}
-//   </div>
-// </div>
-
-//       {/* BLOCK 3: Dashboard section — heading + large image */}
-//       <div className="bg-white px-10 py-10 border-t border-gray-100">
-//         <div className="text-center mb-6">
-//           <h2 className="text-3xl font-bold text-gray-900 mb-3">
-//             User-Friendly Dashboard for Efficient CRM Management Tool
-//           </h2>
-//           <p className="text-gray-500 text-sm max-w-2xl mx-auto leading-relaxed">
-//             Our expert developers have designed the most easy-to-understand and easy-to-use dashboard for customer relationship management.
-//           </p>
-//         </div>
-//         <div className="relative h-80 rounded-2xl overflow-hidden shadow-lg">
-//           <Image src="/products/amis/Dashboard.png" alt="CRM Dashboard" fill className="object-cover" />
-//         </div>
-//       </div>
-
-//       {/* BLOCK 4: Streamlines Your Every CRM Needs — dark banner */}
-//       <div className="bg-gray-900 px-10 py-10 mx-8 my-6 rounded-xl">
-//         <div className="flex gap-10 items-center">
-//           <div className="flex-1">
-//             <h2 className="text-3xl font-bold text-white mb-4">Streamlines Your Every CRM Needs</h2>
-//             <p className="text-gray-300 text-sm leading-relaxed mb-5">
-//               AIMS ERP provides a tailored CRM management tool for all-around effective operations, streamlining activities end-to-end and adapting to your business needs.
-//             </p>
-//             <ul className="space-y-2">
-//               {["Customized to match client requirements", "Fast and precise processing", "Instant report generation when needed"].map((item) => (
-//                 <li key={item} className="flex items-center gap-2 text-gray-200 text-sm">
-//                   <div className="w-2 h-2 rounded-full bg-[#00aeef] shrink-0" />
-//                   {item}
-//                 </li>
-//               ))}
-//             </ul>
-//           </div>
-//           {/* icon grid */}
-//           <div className="flex-1 grid grid-cols-4 gap-3">
-//             {[...Array(8)].map((_, i) => (
-//               <div key={i} className="bg-white rounded-xl p-3 flex items-center justify-center h-16">
-//                 <div className="w-8 h-8 bg-[#00aeef]/20 rounded-lg" />
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* BLOCK 5: CRM Workflow — circular images + step cards */}
-//       <div className="bg-white px-10 py-10 border-t border-gray-100">
-//         <div className="text-center mb-8">
-//           <p className="text-[#00aeef] text-sm font-medium mb-1">✦ Workflow Insights ✦</p>
-//           <h2 className="text-3xl font-bold text-gray-900">AIMS ERP CRM Workflow</h2>
-//         </div>
-
-//         {/* circular images row */}
-//         <div className="grid grid-cols-4 gap-6 mb-6">
-//           {[
-//             "/products/amis/standard14.png",
-//             "/products/amis/standard15.png",
-//             "/products/amis/standard16.png",
-//             "/products/amis/standard17.png",
-//           ].map((src, i) => (
-//             <div key={i} className="flex flex-col items-center gap-2">
-//               <div className="relative w-36 h-36 rounded-full overflow-hidden border-4 border-[#00aeef]/30">
-//                 <Image src={src} alt={`Step ${i + 1}`} fill className="object-cover" />
-//               </div>
-//               <div className="w-3 h-3 rounded-full bg-[#00aeef]" />
-//             </div>
-//           ))}
-//         </div>
-
-//         {/* step cards */}
-//         <div className="grid grid-cols-4 gap-5">
-//           {[
-//             {
-//               step: "STEP 01", title: "Lead Management",
-//               points: [
-//                 { label: "Capture & Store:", text: "Securely capture, sort and store every lead in a cloud database." },
-//                 { label: "Prioritize:", text: "Auto-tag leads by source and score to focus on what matters." },
-//                 { label: "Compliance:", text: "Role-based access keeps data secure." },
-//               ],
-//             },
-//             {
-//               step: "STEP 02", title: "CRM Stages",
-//               points: [
-//                 { label: "Track:", text: "Monitor each stage from New → Qualified → Won with real-time status." },
-//                 { label: "Assess:", text: "Quickly pull stage summaries for team stand-ups and reviews." },
-//                 { label: "Retrieve:", text: "Find any deal instantly with powerful search." },
-//               ],
-//             },
-//             {
-//               step: "STEP 03", title: "Managing Calendar",
-//               points: [
-//                 { label: "Schedule:", text: "Send reminders, sequence tasks, and auto-book follow-ups." },
-//                 { label: "Keep Record:", text: "Every meeting and note is attached to its contact or deal." },
-//               ],
-//             },
-//             {
-//               step: "STEP 04", title: "Report Generation",
-//               points: [
-//                 { label: "Leads:", text: "Conversion, velocity, and attribution reports on demand." },
-//                 { label: "Activities:", text: "Team productivity and SLA dashboards keep work on track." },
-//                 { label: "On-Demand:", text: "Export any report instantly in multiple formats." },
-//               ],
-//             },
-//           ].map((card) => (
-//             <div key={card.step} className="bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl p-5 border border-gray-700">
-//               <p className="text-[#00aeef] text-xs font-semibold mb-1">{card.step}</p>
-//               <h4 className="font-bold text-white text-lg mb-3">{card.title}</h4>
-//               <div className="space-y-2 mb-4">
-//                 {card.points.map((p) => (
-//                   <p key={p.label} className="text-gray-300 text-xs leading-relaxed">
-//                     <span className="text-[#00aeef] font-semibold">{p.label}</span> {p.text}
-//                   </p>
-//                 ))}
-//               </div>
-//               <p className="text-gray-500 text-xs mt-auto">AIMS ERP • Secure • Scalable</p>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-
-//     </div>
-//   );
-// }
-
-
 function CRMContent() {
   return (
     <div className="space-y-0">
@@ -4424,13 +2979,13 @@ function CRMContent() {
             </ul>
           </div>
           {/* Floating icons grid */}
+{/* Floating icons grid */}
 <div className="flex-1 overflow-hidden">
   <style>{`
     @keyframes slideIcons {
       0%   { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
-
     @keyframes slideIconsReverse {
       0%   { transform: translateX(-50%); }
       100% { transform: translateX(0); }
@@ -4441,7 +2996,7 @@ function CRMContent() {
 
   {/* Row 1 */}
   <div className="overflow-hidden mb-3">
-    <div className="slide-row flex gap-3" style={{ width: "200%" }}>
+    <div className="slide-row flex gap-3" style={{ width: "max-content" }}>
       {[
         "/animated-crm-icon-1.png",
         "/animated-crm-icon-2.png",
@@ -4451,8 +3006,21 @@ function CRMContent() {
         "/animated-crm-icon-8.png",
         "/animated-crm-icon-9.png",
         "/animated-crm-icon-10.png",
+        // duplicate for seamless loop
+        "/animated-crm-icon-1.png",
+        "/animated-crm-icon-2.png",
+        "/animated-crm-icon-3.png",
+        "/animated-crm-icon-4.png",
+        "/animated-crm-icon-7.png",
+        "/animated-crm-icon-8.png",
+        "/animated-crm-icon-9.png",
+        "/animated-crm-icon-10.png",
       ].map((src, i) => (
-        <div key={i} className="bg-white rounded-xl p-2 flex items-center justify-center shadow-md flex-shrink-0" style={{ width: "calc(12.5% - 9px)", height: "64px" }}>
+        <div
+          key={i}
+          className="bg-white rounded-xl p-2 flex items-center justify-center shadow-md flex-shrink-0"
+          style={{ width: "64px", height: "64px" }}
+        >
           <img src={src} alt={`icon-${i}`} className="w-10 h-10 object-contain" />
         </div>
       ))}
@@ -4461,7 +3029,7 @@ function CRMContent() {
 
   {/* Row 2 */}
   <div className="overflow-hidden">
-    <div className="slide-row-2 flex gap-3" style={{ width: "200%" }}>
+    <div className="slide-row-2 flex gap-3" style={{ width: "max-content" }}>
       {[
         "/animated-crm-icon-7.png",
         "/animated-crm-icon-8.png",
@@ -4471,8 +3039,21 @@ function CRMContent() {
         "/animated-crm-icon-2.png",
         "/animated-crm-icon-3.png",
         "/animated-crm-icon-4.png",
+        // duplicate for seamless loop
+        "/animated-crm-icon-7.png",
+        "/animated-crm-icon-8.png",
+        "/animated-crm-icon-9.png",
+        "/animated-crm-icon-10.png",
+        "/animated-crm-icon-1.png",
+        "/animated-crm-icon-2.png",
+        "/animated-crm-icon-3.png",
+        "/animated-crm-icon-4.png",
       ].map((src, i) => (
-        <div key={i} className="bg-white rounded-xl p-2 flex items-center justify-center shadow-md flex-shrink-0" style={{ width: "calc(12.5% - 9px)", height: "64px" }}>
+        <div
+          key={i}
+          className="bg-white rounded-xl p-2 flex items-center justify-center shadow-md flex-shrink-0"
+          style={{ width: "64px", height: "64px" }}
+        >
           <img src={src} alt={`icon-row2-${i}`} className="w-10 h-10 object-contain" />
         </div>
       ))}
@@ -4486,7 +3067,7 @@ function CRMContent() {
       <div className="bg-white px-10 py-12 border-t border-gray-100">
         <div className="text-center mb-8">
           <p className="text-[#00aeef] text-sm font-medium mb-1">✦ Workflow Insights ✦</p>
-          <h2 className="text-3xl font-bold text-gray-900">Q-Soft Technologies' CRM Workflow</h2>
+          <h2 className="text-3xl font-bold text-gray-900">AIMS Technologies' CRM Workflow</h2>
         </div>
 
         {/* Circular images row with connecting line */}
@@ -4494,10 +3075,10 @@ function CRMContent() {
           <div className="absolute top-1/2 left-1/4 right-1/4 h-0.5 bg-gray-200 -translate-y-1/2" />
           <div className="grid grid-cols-4 gap-6 w-full">
             {[
-              "/products/amis/standard14.png",
-              "/products/amis/standard15.png",
-              "/products/amis/standard16.png",
-              "/products/amis/standard17.png",
+              "/approach-img1.png",
+              "/approach-img2.png",
+              "/approach-img3.png",
+              "/approach-img4.png",
             ].map((src, i) => (
               <div key={i} className="flex flex-col items-center gap-2">
                 <div className="relative w-36 h-36 rounded-full overflow-hidden border-4 border-[#00aeef]/30 shadow-md">
@@ -4554,7 +3135,7 @@ function CRMContent() {
                   </p>
                 ))}
               </div>
-              <p className="text-gray-500 text-xs mt-auto">Q-Soft CRM • Secure • Scalable</p>
+              <p className="text-gray-500 text-xs mt-auto">AIMS CRM • Secure • Scalable</p>
             </div>
           ))}
         </div>
@@ -4652,10 +3233,17 @@ function FloatingButtons() {
 // MAIN PAGE
 // ─────────────────────────────────────────────────────────────────────────────
 export default function AimsErpPage() {
-  const [activeTab, setActiveTab] = useState("Accounting");
+  const [activeTab, setActiveTab] = useState(() => {
+  if (typeof window !== "undefined") {
+    return localStorage.getItem("aimsActiveTab") || "Accounting";
+  }
+  return "Accounting";
+});
+const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handleTabChange = (item: string) => {
     setActiveTab(item);
+    localStorage.setItem("aimsActiveTab", item);
     const mainEl = document.getElementById("main-content");
     if (mainEl) mainEl.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -4664,36 +3252,59 @@ export default function AimsErpPage() {
     <div className={`min-h-screen ${inter.className}`}>
       <Navbar />
 
+      {/* Mobile sidebar toggle button */}
+<button
+  className="fixed top-20 left-3 z-40 lg:hidden bg-[#00aeef] text-white p-2 rounded-md shadow-lg"
+  onClick={() => setSidebarOpen(!sidebarOpen)}
+>
+  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+    {sidebarOpen
+      ? <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+      : <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+    }
+  </svg>
+</button>
+
       <div className="flex" style={{ paddingTop: "64px" }}>
 
+        {/* Mobile overlay */}
+        {sidebarOpen && (
+          <div
+            className="fixed inset-0 bg-black/50 z-20 lg:hidden"
+            onClick={() => setSidebarOpen(false)}
+          />
+        )}
+
         {/* ── LEFT BLUE SIDEBAR ─────────────────────────────────────────── */}
-        <aside
-          className="w-56 flex-shrink-0 bg-[#00aeef] sticky self-start overflow-y-auto z-10"
-          style={{ top: "64px", height: "calc(100vh - 64px)" }}
+  <aside
+    className={`fixed lg:sticky top-16 h-[calc(100vh-64px)] w-56 flex-shrink-0 bg-[#00aeef] overflow-y-auto z-30 transition-transform duration-300
+      ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0`}
+  >
+    <nav className="py-4">
+      {sidebarItems.map((item) => (
+        <button
+          key={item}
+          onClick={() => {
+            handleTabChange(item);
+            setSidebarOpen(false); // close on mobile after selection
+          }}
+          className={`w-full text-left px-5 py-2 mx-2 my-1 text-sm font-medium transition-all duration-150 rounded-lg ${
+            activeTab === item
+              ? "bg-white text-[#00aeef] font-bold"
+              : "text-white hover:bg-[#0099d4]"
+          }`}
+          style={{ width: "calc(100% - 16px)" }}
         >
-          <nav className="py-4">
-            {sidebarItems.map((item) => (
-              <button
-                key={item}
-                onClick={() => handleTabChange(item)}
-                className={`w-full text-left px-5 py-2 mx-2 my-1 text-sm font-medium transition-all 
-                duration-150 rounded-lg ${
-                activeTab === item
-                ? "bg-white text-[#00aeef] font-bold"
-                : "text-white hover:bg-[#00aeef]"
-                }`}
-                style={{ width: "calc(100% - 16px)" }}
-            >
-                {item}
-              </button>
-            ))}
-          </nav>
-        </aside>
+          {item}
+        </button>
+      ))}
+    </nav>
+  </aside>
 
         {/* ── RIGHT CONTENT ─────────────────────────────────────────────── */}
         <main
           id="main-content"
-          className="flex-1 overflow-y-auto bg-white"
+          className="flex-1 overflow-y-auto bg-white lg:ml-0"
           style={{ height: "calc(100vh - 64px)" }}
         >
           {/* PINNED STATS BAR — always at the top regardless of active tab */}
