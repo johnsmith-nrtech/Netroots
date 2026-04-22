@@ -2026,15 +2026,14 @@ function SalesContent() {
         back: "Manage accounts receivable and track customer payments to maintain a healthy cash flow.", highlight: true },
   ];
 
-  // Numbered steps (hover interaction)
-  const steps = [
-    { num: 1, title: "Inquiry",      desc: "Record and manage customer inquiries quickly to capture every potential lead." },
-    { num: 2, title: "Quotation",    desc: "Create precise quotations fast and send them to clients for approval." },
-    { num: 3, title: "Order",        desc: "Convert approved quotations into confirmed sales orders ready for fulfillment." },
-    { num: 4, title: "Delivery",     desc: "Generate delivery documents and coordinate timely shipment of products." },
-    { num: 5, title: "Debtor Note",  desc: "Issue accurate price notes to debtors and maintain transparent billing." },
-    { num: 6, title: "Invoice",      desc: "Create and send professional invoices to ensure timely and accurate payments." },
-  ];
+const steps = [
+  { num: 1, title: "Inquiry",     desc: "Record and manage customer inquiries quickly to capture every potential lead.",        img: "/sales-inquiry.png" },
+  { num: 2, title: "Quotation",   desc: "Create precise quotations fast and send them to clients for approval.",                img: "/sales-quotation.png" },
+  { num: 3, title: "Order",       desc: "Convert approved quotations into confirmed sales orders ready for fulfillment.",       img: "/sales-order.png" },
+  { num: 4, title: "Delivery",    desc: "Generate delivery documents and coordinate timely shipment of products.",              img: "/sales-delivery.png" },
+  { num: 5, title: "Debtor Note", desc: "Issue accurate price notes to debtors and maintain transparent billing.",             img: "/sales-debtor-note.png" },
+  { num: 6, title: "Invoice",     desc: "Create and send professional invoices to ensure timely and accurate payments.",       img: "/sales-invoice.png" },
+];
 
   return (
     <div className="space-y-0">
@@ -2092,46 +2091,66 @@ function SalesContent() {
       </div>
 
       {/* BLOCK 3: Numbered hover steps + right image (same as Accounting pattern) */}
-      <div className="bg-white px-10 py-10 border-t border-gray-100">
-        <div className="flex gap-10">
-          <div className="w-1/2 space-y-1">
-            {steps.map((step, i) => (
-              <div
-                key={step.num}
-                onMouseEnter={() => setActiveStep(i)}
-                className="flex items-start gap-4 p-3 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors"
-              >
-                <div className={`flex-shrink-0 w-9 h-9 rounded-full border-2 flex items-center justify-center font-bold text-sm transition-all ${
-                  activeStep === i ? "bg-[#00aeef] border-[#00aeef] text-white" : "border-gray-300 text-gray-500"
-                }`}>
-                  {step.num}
-                </div>
-                <div>
-                  <p className={`font-bold text-base ${activeStep === i ? "text-[#00aeef]" : "text-gray-800"}`}>
-                    {step.title}
-                  </p>
-                  <AnimatePresence mode="wait">
-                    {activeStep === i && (
-                      <motion.p
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="text-sm text-gray-500 mt-1 leading-relaxed overflow-hidden"
-                      >
-                        {step.desc}
-                      </motion.p>
-                    )}
-                  </AnimatePresence>
-                </div>
-              </div>
-            ))}
+      {/* BLOCK 3: Numbered hover steps + right image */}
+<div className="bg-white px-10 py-10 border-t border-gray-100">
+  <div className="flex gap-10">
+    <div className="w-1/2 space-y-1">
+      {steps.map((step, i) => (
+        <div
+          key={step.num}
+          onMouseEnter={() => setActiveStep(i)}
+          className="flex items-start gap-4 p-3 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors"
+        >
+          <div className={`flex-shrink-0 w-9 h-9 rounded-full border-2 flex items-center justify-center font-bold text-sm transition-all ${
+            activeStep === i ? "bg-[#00aeef] border-[#00aeef] text-white" : "border-gray-300 text-gray-500"
+          }`}>
+            {step.num}
           </div>
-          <div className="w-1/2 relative rounded-xl overflow-hidden" style={{ minHeight: "320px" }}>
-            <Image src="/products/amis/standard5.png" alt="Sales step visual" fill className="object-cover rounded-xl" />
+          <div>
+            <p className={`font-bold text-base ${activeStep === i ? "text-[#00aeef]" : "text-gray-800"}`}>
+              {step.title}
+            </p>
+            <AnimatePresence mode="wait">
+              {activeStep === i && (
+                <motion.p
+                  key={step.num}
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="text-sm text-gray-500 mt-1 leading-relaxed overflow-hidden"
+                >
+                  {step.desc}
+                </motion.p>
+              )}
+            </AnimatePresence>
           </div>
         </div>
-      </div>
+      ))}
+    </div>
+
+    {/* Right image */}
+    <div className="w-1/2 rounded-xl overflow-hidden" style={{ minHeight: "320px", position: "relative" }}>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={activeStep}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          style={{ position: "absolute", inset: 0 }}
+        >
+          <Image
+            src={steps[activeStep].img}
+            alt={steps[activeStep].title}
+            fill
+            className="object-cover rounded-xl"
+          />
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  </div>
+</div>
 
       {/* BLOCK 4: Enhance Every Aspect — 2 large image+caption cards */}
       <div className="bg-white px-10 py-10 border-t border-gray-100">
@@ -2176,7 +2195,7 @@ function SalesContent() {
             { title: "Order Confirmation",    desc: "Convert approved quotations into confirmed sales orders ready for processing and fulfillment." },
             { title: "Dispatch Management",   desc: "Generate delivery documents and coordinate timely shipment of products to clients." },
           ].map((c, i) => (
-            <div key={c.title} className="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
+            <div key={c.title} className="border border-gray-400 rounded-xl p-6 hover:shadow-md transition-shadow">
               <h4 className="font-bold text-[14px] text-center h-10 text-gray-800 mb-2">{c.title}</h4>
               <p className="text-[12px] text-gray-500 text-center leading-relaxed">{c.desc}</p>
             </div>
@@ -2746,12 +2765,12 @@ function AdministrationContent() {
 
   // Numbered steps with image change
   const steps = [
-    { num: 1, title: "Currency",       desc: "Configure and manage multiple currencies for global operations.",           img: "/products/amis/standard14.png" },
-    { num: 2, title: "Dashboard",      desc: "Get a centralized overview of all key metrics and activities.",             img: "/products/amis/standard15.png" },
-    { num: 3, title: "Email History",  desc: "View a complete log of all emails sent from the system.",                   img: "/products/amis/standard16.png" },
-    { num: 4, title: "Email Settings", desc: "Configure email preferences and templates for automated communications.",   img: "/products/amis/standard17.png" },
-    { num: 5, title: "My Details",     desc: "Manage personal profile, password, and notification preferences.",          img: "/products/amis/standard4.png"  },
-    { num: 6, title: "To Do",          desc: "Assign and track tasks across teams for better accountability.",            img: "/products/amis/standard5.png"  },
+    { num: 1, title: "Currency",       desc: "Manage multiple currencies for global operations.",           img: "/currency.png" },
+    { num: 2, title: "Dashboard",      desc: "Visualize key metrics in a central dashboard.",             img: "/dashboard.png" },
+    { num: 3, title: "Email History",  desc: "Track all sent and received emails efficiently.",                   img: "/email-history.png" },
+    { num: 4, title: "Email Settings", desc: "Configure email preferences and templates.",   img: "/email-settings.png" },
+    { num: 5, title: "My Details",     desc: "Update personal profile and contact information.",          img: "/my-details.png"  },
+    { num: 6, title: "To Do",          desc: "Manage tasks and reminders for better productivity.",            img: "/to-do.png"  },
   ];
 
   const essentialTools = [
@@ -2873,11 +2892,11 @@ function AdministrationContent() {
           <h2 className="text-3xl font-bold text-gray-900 mb-2">Essential Administration Tools</h2>
           <p className="text-gray-500 text-sm max-w-2xl mx-auto">Access vital features designed to streamline your organization's administrative tasks with clarity and efficiency.</p>
         </div>
-        <div className="grid grid-cols-4 gap-5">
+        <div className="grid grid-cols-4 gap-8 mx-8">
           {essentialTools.map((t) => (
-            <div key={t.title} className="border border-gray-200 rounded-xl p-6 text-center hover:shadow-md transition-shadow">
-              <div className="w-10 h-10 rounded-full bg-[#00aeef] text-white flex items-center justify-center font-bold text-lg mx-auto mb-3">{t.num}</div>
-              <h4 className="font-bold text-[#1a6bb5] text-base mb-2">{t.title}</h4>
+            <div key={t.title} className="border border-gray-200 rounded-xl p-6 pt-8 text-center shadow-md">
+              <div className="w-10 h-10 rounded-full bg-[#00aeef] text-white flex items-center justify-center font-bold text-lg mx-auto mb-3 -mt-12">{t.num}</div>
+              <h4 className="font-bold text-[#1a6bb5] text-base mt-8 mb-2">{t.title}</h4>
               <p className="text-sm text-gray-500 leading-relaxed">{t.desc}</p>
             </div>
           ))}
@@ -2887,11 +2906,11 @@ function AdministrationContent() {
       {/* BLOCK 5: Administration Workflow Overview — light blue cards */}
       <div className="bg-white px-10 py-10 border-t border-gray-100">
         <h2 className="text-3xl font-bold text-gray-900 text-center mb-8">Administration Workflow Overview</h2>
-        <div className="grid grid-cols-4 gap-5">
+        <div className="grid grid-cols-4 gap-8 mx-8">
           {essentialTools.map((t) => (
-            <div key={t.title} className="bg-blue-50 border border-blue-100 rounded-2xl p-6 text-center hover:shadow-md transition-shadow">
-              <h4 className="font-bold text-gray-800 mb-2">{t.title}</h4>
-              <p className="text-sm text-gray-500 leading-relaxed">{t.desc}</p>
+            <div key={t.title} className="bg-blue-50 border rounded-2xl p-6 text-center hover:shadow-md transition-shadow">
+              <h4 className="font-bold text-gray-800 text-[12px] pt-6 mb-2">{t.title}</h4>
+              <p className="text-[10px] text-gray-500 leading-relaxed pb-6">{t.desc}</p>
             </div>
           ))}
         </div>
@@ -2985,18 +3004,19 @@ function POSContent() {
   ];
 
   const facilitatesFeatures = [
-    { title: "Sales Records",       desc: "Maintain accurate and complete records of every sale made through the POS system." },
-    { title: "Activity Monitoring", desc: "Track cashier actions, session logs, and transaction history in real time." },
-    { title: "Sales Forecasting",   desc: "Use past data to predict and plan future business performance." },
-    { title: "Cash Flow Control",   desc: "Monitor cash in and out at every POS terminal for better financial control." },
-    { title: "Custom POS Setup",    desc: "Configure terminals, categories, and tax rules to match your business needs." },
-  ];
+  { title: "Sales Records",       desc: "Maintain accurate and complete records of every sale made through the POS system.",  img: "/sales-records.png" },
+  { title: "Activity Monitoring", desc: "Track cashier actions, session logs, and transaction history in real time.",          img: "/activity-monitoring.png" },
+  { title: "Sales Forecasting",   desc: "Use past data to predict and plan future business performance.",                     img: "/sales-forecasting.png" },
+  { title: "Cash Flow Control",   desc: "Monitor cash in and out at every POS terminal for better financial control.",        img: "/cash-flow-control.png" },
+  { title: "Custom POS Setup",    desc: "Configure terminals, categories, and tax rules to match your business needs.",       img: "/custom-pos-setup.png"  },
+];
 
   const stepSlides = [
-    { img: "/products/amis/standard22.png", label: "Step 1: Open Terminal" },
-    { img: "/products/amis/standard14.png", label: "Step 2: Search Product" },
-    { img: "/products/amis/standard15.png", label: "Step 3: Add to Cart" },
-    { img: "/products/amis/standard16.png", label: "Step 4: Checkout & Pay" },
+    { img: "/2-1.png", label: "Step 1: Open Terminal" },
+    { img: "/4.png", label: "Step 2: Search Product" },
+    { img: "/10.png", label: "Step 3: Add to Cart" },
+    { img: "/8.png", label: "Step 4: Checkout & Pay" },
+    { img: "/8-1.png", label: "Step 4: Checkout & Pay" },
   ];
 
   return (
@@ -3006,21 +3026,20 @@ function POSContent() {
       <div className="bg-white px-10 py-12">
         <div className="text-center mb-10">
           <h2 className="text-4xl font-bold text-gray-900 mb-3">POS Features</h2>
-          <p className="text-gray-500 text-sm max-w-2xl mx-auto">
+          <p className="text-gray-500 text-sm max-w-3xl mx-auto">
             Q-Soft Technologies ERP (Hybrid) provides advanced POS functionalities for seamless business operations.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <div className="grid grid-cols-2 gap-6 max-w-4xl mx-auto">
           {posFeatures.map((f) => (
             <div
               key={f.title}
-              className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
-            >
+               className="bg-white border border-gray-200 rounded-2xl p-6 shadow-lg">
               <div className="w-14 h-14 rounded-xl bg-[#00aeef] flex items-center justify-center mb-4">
                 {f.icon}
               </div>
-              <h4 className="font-bold text-gray-900 text-lg mb-2">{f.title}</h4>
-              <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
+              <h4 className="font-semibold text-gray-900 text-lg mb-2">{f.title}</h4>
+              <p className="text-[12px] text-gray-500 leading-relaxed">{f.desc}</p>
             </div>
           ))}
         </div>
@@ -3031,15 +3050,26 @@ function POSContent() {
         <div className="flex gap-12 items-center">
           {/* Left: phone mockup image */}
           <div className="w-1/2 flex justify-center">
-            <div className="relative w-72 h-[480px] rounded-[2.5rem] overflow-hidden border-4 border-gray-200 shadow-2xl">
-              <Image
-                src="/products/amis/standard22.png"
-                alt="POS Mobile"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
+  <div className="relative flex items-center justify-center" style={{ width: "250px", height: "390px" }}>
+    
+    {/* Phone behind */}
+    <img
+      src="/phone-1.png"
+      alt="POS Mobile"
+      className="relative z-10 w-[260px]"
+    />
+
+    {/* Card overlay */}
+    <img
+      src="/card-1.png"
+      alt="POS Card Overlay"
+      id="pos-card-overlay"
+      className="absolute z-20 w-[230px]"
+      style={{ top: "5px", left: "40px", transition: "transform 0.1s ease-out" }}
+    />
+
+  </div>
+</div>
           {/* Right: text + 2×2 grid */}
           <div className="w-1/2">
             <h2 className="text-3xl font-bold text-gray-900 mb-3">POS on the Go</h2>
@@ -3066,11 +3096,11 @@ function POSContent() {
       {/* BLOCK 3: Step by Step Process — centered phone carousel with prev/next */}
       <div className="bg-white px-10 py-12 border-t border-gray-100">
         <h2 className="text-3xl font-bold text-gray-900 text-center mb-10">Step by Step Process</h2>
-        <div className="relative flex items-center justify-center gap-6">
+        <div className="relative flex items-center justify-evenly gap-35">
           {/* Prev button */}
           <button
             onClick={() => setActiveSlide((prev) => (prev - 1 + stepSlides.length) % stepSlides.length)}
-            className="w-12 h-12 rounded-full bg-[#00aeef] flex items-center justify-center shadow-md hover:bg-[#0099d4] transition-colors flex-shrink-0"
+            className="w-8 h-8 rounded-full bg-[#00aeef] flex items-center justify-center shadow-md hover:bg-[#0099d4] transition-colors flex-shrink-0"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
               <polyline points="15 18 9 12 15 6" />
@@ -3099,7 +3129,7 @@ function POSContent() {
           {/* Next button */}
           <button
             onClick={() => setActiveSlide((prev) => (prev + 1) % stepSlides.length)}
-            className="w-12 h-12 rounded-full bg-[#00aeef] flex items-center justify-center shadow-md hover:bg-[#0099d4] transition-colors flex-shrink-0"
+            className="w-8 h-8 rounded-full bg-[#00aeef] flex items-center justify-center shadow-md hover:bg-[#0099d4] transition-colors flex-shrink-0"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
               <polyline points="9 18 15 12 9 6" />
@@ -3132,9 +3162,26 @@ function POSContent() {
         </div>
         <div className="flex gap-10 items-start">
           {/* Left: image */}
-          <div className="w-1/2 relative h-80 rounded-2xl overflow-hidden flex-shrink-0">
-            <Image src="/products/amis/standard14.png" alt="POS Management" fill className="object-cover" />
-          </div>
+          {/* Left: image — changes on hover */}
+<div className="w-1/2 relative h-80 rounded-2xl overflow-hidden flex-shrink-0">
+  <AnimatePresence mode="wait">
+    <motion.div
+      key={facilitatesFeatures[activeFeature].img}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+      className="absolute inset-0"
+    >
+      <Image
+        src={facilitatesFeatures[activeFeature].img}
+        alt={facilitatesFeatures[activeFeature].title}
+        fill
+        className="object-cover"
+      />
+    </motion.div>
+  </AnimatePresence>
+</div>
           {/* Right: hover list */}
           <div className="w-1/2 space-y-1">
             {facilitatesFeatures.map((f, i) => (
@@ -3186,9 +3233,9 @@ function POSContent() {
             { title: "Secure Transactions",  desc: "Keep your business data safe with advanced ERP security." },
             { title: "Optimized Performance",desc: "Get maximum efficiency and results with expert modules." },
           ].map((c) => (
-            <div key={c.title} className="border border-gray-200 rounded-2xl p-6 text-center hover:shadow-md transition-shadow">
-              <h4 className="font-semibold text-gray-900 text-base mb-3">{c.title}</h4>
-              <p className="text-sm text-gray-500 leading-relaxed">{c.desc}</p>
+            <div key={c.title} className="shadow-md rounded-2xl p-6 bg-gray-100 text-center hover:shadow-md transition-shadow">
+              <h4 className="font-semibold text-gray-900 text-base text-[16px] mb-3">{c.title}</h4>
+              <p className="text-[13px] text-gray-500 leading-relaxed">{c.desc}</p>
             </div>
           ))}
         </div>
@@ -3203,7 +3250,7 @@ function ReportsContent() {
     <div className="space-y-0">
 
       {/* BLOCK 1: Hero Banner — blue bg, left text + right image */}
-      <div className="bg-[#00aeef] mx-7 my-8 rounded-2xl px-12 py-14 flex gap-10 items-center">
+      <div className="bg-gradient-to-r from-[#00aeef] to-[#0077b6] mx-7 my-8 px-12 py-14 flex gap-10 items-center">
         <div className="flex-1">
           <h1 className="text-4xl font-bold text-white mb-4 leading-snug">
             AIMS ERP Reports<br />& Analytics
@@ -3213,9 +3260,9 @@ function ReportsContent() {
             Visualize, analyze, and make informed decisions efficiently.
           </p>
         </div>
-        <div className="flex-1 relative h-64 rounded-xl overflow-hidden flex-shrink-0">
+        <div className="flex-1 relative h-64 rounded-l-xl overflow-hidden flex-shrink-0 -mr-12">
           <Image
-            src="/products/amis/standard23.png"
+            src="/heroimg1.png"
             alt="Reports Analytics"
             fill
             className="object-cover"
@@ -3224,30 +3271,34 @@ function ReportsContent() {
       </div>
 
       {/* BLOCK 2: Explore Reports Features — heading + 4 rounded images */}
-      <div className="bg-white px-10 py-12">
+      <div className="bg-white px-10 py-12 mx-9">
         <h2 className="text-3xl font-bold text-[#1a6bb5] text-center mb-10">
           Explore Reports Features
         </h2>
         <div className="grid grid-cols-4 gap-5">
-          {[
-            "/products/amis/standard23.png",
-            "/products/amis/standard24.png",
-            "/products/amis/standard25.png",
-            "/products/amis/standard26.png",
-          ].map((src, i) => (
-            <div
-              key={i}
-              className="relative h-56 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
-            >
-              <Image
-                src={src}
-                alt={`Report feature ${i + 1}`}
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-          ))}
-        </div>
+  {[
+    { src: "/data-analysis.png",           title: "Data Analysis" },
+    { src: "/interactive-dashboards.png",  title: "Interactive Dashboards" },
+    { src: "/reports-hub.png",             title: "Reports Hub" },
+    { src: "/mail-merge-reports.png",      title: "Mail Merge Reports" },
+  ].map((item, i) => (
+    <div
+      key={i}
+      className="relative h-56 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group"
+    >
+      <Image
+        src={item.src}
+        alt={item.title}
+        fill
+        className="object-cover group-hover:scale-105 transition-transform duration-300"
+      />
+      {/* Overlay on hover */}
+      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+        <p className="text-white font-bold text-base text-center px-4">{item.title}</p>
+      </div>
+    </div>
+  ))}
+</div>
       </div>
 
       {/* BLOCK 3: Essential Reports Tools — heading + 4 cards with small image + blue title */}
@@ -3263,29 +3314,29 @@ function ReportsContent() {
             {
               title: "Pending Reports",
               desc: "Easily view and approve pending reports for timely insights.",
-              img: "/products/amis/standard23.png",
+              img: "/pending-reports.png",
             },
             {
               title: "Unposted Data",
               desc: "Monitor unposted transactions to maintain accurate reporting.",
-              img: "/products/amis/standard24.png",
+              img: "/unposted-data.png",
             },
             {
               title: "Instant Notifications",
               desc: "Send updates and alerts directly via WhatsApp or email.",
-              img: "/products/amis/standard25.png",
+              img: "/instant-notifications.png",
             },
             {
               title: "Central Data Hub",
               desc: "Manage and access all reporting data from one centralized location.",
-              img: "/products/amis/standard26.png",
+              img: "/central-data-hub.png",
             },
           ].map((card) => (
             <div
               key={card.title}
-              className="bg-white border border-gray-200 rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition-shadow"
+              className="bg-white shadow-md border border-gray-200 rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition-shadow"
             >
-              <div className="relative h-20 w-28 mx-auto mb-4 rounded-lg overflow-hidden">
+              <div className="relative h-10 w-14 mx-auto mb-4 overflow-hidden">
                 <Image src={card.img} alt={card.title} fill className="object-cover" />
               </div>
               <h4 className="font-bold text-[#1a6bb5] text-base mb-3">{card.title}</h4>
@@ -3326,8 +3377,8 @@ function ReportsContent() {
               key={card.title}
               className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-md transition-shadow"
             >
-              <h4 className="font-bold text-[#1a6bb5] text-base mb-3">{card.title}</h4>
-              <p className="text-sm text-gray-500 leading-relaxed">{card.desc}</p>
+              <h4 className="font-bold text-[#1a6bb5] text-base text-center mb-3">{card.title}</h4>
+              <p className="text-sm text-gray-500 text-center leading-relaxed">{card.desc}</p>
             </div>
           ))}
         </div>
@@ -3343,7 +3394,7 @@ function BudgetContent() {
     <div className="space-y-0">
 
       {/* BLOCK 1: Hero Banner — blue bg, left text + 2×2 feature cards + right budget image */}
-      <div className="bg-[#00aeef] mx-7 my-8 rounded-2xl px-12 py-12">
+      <div className="bg-gradient-to-r from-[#0077b6] to-[#00aeef] mx-7 my-8 rounded-2xl px-12 py-12">
         <div className="flex gap-10 items-start">
           {/* Left: heading + description + 2×2 cards */}
           <div className="flex-1">
@@ -3386,9 +3437,9 @@ function BudgetContent() {
           </div>
 
           {/* Right: budget illustration image */}
-          <div className="flex-1 relative h-96 rounded-2xl overflow-hidden flex-shrink-0">
+          <div className="flex-1 relative h-65 shadow-[8px_8px_20px_rgba(0,0,0,0.3)] mt-40 rounded-2xl overflow-hidden flex-shrink-0">
             <Image
-              src="/products/amis/standard14.png"
+              src="/budget.png"
               alt="Budget Management"
               fill
               className="object-cover"
@@ -3409,7 +3460,7 @@ function BudgetContent() {
         </div>
 
         {/* 4 light-blue cards */}
-        <div className="grid grid-cols-4 gap-5 mb-10">
+        <div className="grid grid-cols-4 gap-6 mx-8 mb-10">
           {[
             {
               title: "Operational Budget",
@@ -3430,18 +3481,18 @@ function BudgetContent() {
           ].map((card) => (
             <div
               key={card.title}
-              className="bg-blue-50 border border-blue-100 rounded-2xl p-6 text-center hover:shadow-md transition-shadow"
+             className="bg-blue-100 rounded-2xl p-6 text-center shadow-xl backdrop-blur-sm"
             >
-              <h4 className="font-bold text-gray-900 text-base mb-3">{card.title}</h4>
-              <p className="text-sm text-gray-500 leading-relaxed">{card.desc}</p>
+              <h4 className="font-bold text-gray-900 text-base text-[16px] mb-3">{card.title}</h4>
+              <p className="leading-relaxed text-[11px]">{card.desc}</p>
             </div>
           ))}
         </div>
 
         {/* Wide centered image below cards */}
-        <div className="relative h-80 rounded-2xl overflow-hidden max-w-2xl mx-auto shadow-md">
+        <div className="relative h-70 rounded-2xl overflow-hidden mb-8 max-w-xl mx-auto shadow-xl backdrop-blur-sm">
           <Image
-            src="/products/amis/standard15.png"
+            src="/budget-types.png"
             alt="Budget Finance Illustration"
             fill
             className="object-cover"
@@ -3465,7 +3516,7 @@ function LeasingContent() {
             Quickly access key leasing modules to manage your organization's leasing activities efficiently.
           </p>
         </div>
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-3 gap-8 mx-8">
           {[
             {
               title: "Lease Category",
@@ -3482,17 +3533,17 @@ function LeasingContent() {
           ].map((card) => (
             <div
               key={card.title}
-              className="bg-white border border-gray-200 rounded-2xl p-8 text-center shadow-sm hover:shadow-md transition-shadow"
+              className="bg-gray-100 rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition-shadow"
             >
               <h4 className="font-bold text-[#00aeef] text-lg mb-3">{card.title}</h4>
-              <p className="text-sm text-gray-500 leading-relaxed">{card.desc}</p>
+              <p className="text-[11px] text-gray-500 leading-relaxed">{card.desc}</p>
             </div>
           ))}
         </div>
       </div>
 
       {/* BLOCK 2: Key Features — heading + 4 cards with blue titles */}
-      <div className="bg-white px-10 py-12 border-t border-gray-100">
+      <div className="bg-gray-100 px-10 py-12 mx-16 border-t border-gray-100">
         <div className="text-center mb-10">
           <h2 className="text-4xl font-bold text-gray-900 mb-3">Key Features</h2>
           <p className="text-gray-500 text-sm max-w-2xl mx-auto">
@@ -3520,10 +3571,10 @@ function LeasingContent() {
           ].map((card) => (
             <div
               key={card.title}
-              className="bg-white border border-gray-200 rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition-shadow"
+              className="bg-gray-100 border border-blue-200 rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition-shadow"
             >
               <h4 className="font-bold text-[#00aeef] text-base mb-3">{card.title}</h4>
-              <p className="text-sm text-gray-500 leading-relaxed">{card.desc}</p>
+              <p className="text-[10px] text-gray-500 leading-relaxed">{card.desc}</p>
             </div>
           ))}
         </div>
@@ -3537,7 +3588,7 @@ function LeasingContent() {
             Follow a clear workflow to manage leases from initiation to closure efficiently.
           </p>
         </div>
-        <div className="grid grid-cols-4 gap-5">
+        <div className="grid grid-cols-4 gap-6 mx-8">
           {[
             {
               num: 1,
@@ -3562,13 +3613,13 @@ function LeasingContent() {
           ].map((step) => (
             <div
               key={step.num}
-              className="bg-white border border-gray-200 rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition-shadow"
+              className="bg-gray-100 rounded-2xl p-6 text-center shadow-xl shadow-gray-300/50 backdrop-blur-sm"
             >
               <div className="w-12 h-12 rounded-full bg-[#00aeef] text-white flex items-center justify-center font-bold text-lg mx-auto mb-4">
                 {step.num}
               </div>
               <h4 className="font-bold text-[#00aeef] text-base mb-3">{step.title}</h4>
-              <p className="text-sm text-gray-500 leading-relaxed">{step.desc}</p>
+              <p className="text-[12px] leading-relaxed">{step.desc}</p>
             </div>
           ))}
         </div>
@@ -3584,15 +3635,15 @@ function TenancyContent() {
   const contracts = [
     {
       title: "Lease Agreement",
-      desc: "A formal agreement between the landlord and tenant outlining lease terms, duration, and conditions.",
+      desc: "Standard contract for lease-based tenancy agreements.",
     },
     {
       title: "Rental Contract",
-      desc: "A short-term rental contract covering monthly payments, rules, and tenant responsibilities.",
+      desc: "Short-term rental agreement with clear terms.",
     },
     {
       title: "Commercial Lease",
-      desc: "Contracts specifically designed for commercial and business properties with custom terms.",
+      desc: "Contract designed for commercial property tenants.",
     },
   ];
 
@@ -3600,7 +3651,7 @@ function TenancyContent() {
     <div className="space-y-0">
 
       {/* BLOCK 1: Property Overview — left text + right placeholder */}
-      <div className="bg-white px-10 py-12">
+      <div className="bg-white px-10 py-12 mx-6">
         <div className="flex gap-10 items-start">
           <div className="flex-1">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Property Overview</h2>
@@ -3613,7 +3664,7 @@ function TenancyContent() {
                 { title: "Property Details", desc: "View and manage the details of all available properties." },
                 { title: "Location Info",    desc: "Get insights on property locations and surroundings." },
               ].map((item) => (
-                <div key={item.title} className="bg-gray-50 border border-gray-200 rounded-xl p-4 border-l-4 border-l-[#00aeef]">
+                <div key={item.title} className="bg-gray-100 rounded-xl p-4">
                   <h4 className="font-bold text-[#00aeef] text-base mb-1">{item.title}</h4>
                   <p className="text-sm text-gray-500">{item.desc}</p>
                 </div>
@@ -3621,14 +3672,14 @@ function TenancyContent() {
             </div>
           </div>
           {/* Right: placeholder box */}
-          <div className="flex-1 bg-blue-50 border border-blue-100 rounded-2xl flex items-center justify-center h-64">
+          <div className="flex-1 bg-blue-200 rounded-2xl flex items-center justify-center h-58">
             <p className="text-[#00aeef] font-bold text-lg">Property Visual Placeholder</p>
           </div>
         </div>
       </div>
 
       {/* BLOCK 2: Property Types — heading + 4 left-border cards */}
-      <div className="bg-gray-50 px-10 py-12 border-t border-gray-100">
+      <div className="bg-gray-50 px-10 py-12 mx-6 border-t border-gray-100">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold text-gray-900 mb-3">Property Types</h2>
           <p className="text-gray-500 text-sm max-w-2xl mx-auto">
@@ -3647,7 +3698,7 @@ function TenancyContent() {
               className="bg-white border border-gray-200 rounded-2xl p-6 border-l-4 border-l-[#00aeef] shadow-sm hover:shadow-md transition-shadow"
             >
               <h4 className="font-bold text-[#00aeef] text-base mb-2">{card.title}</h4>
-              <p className="text-sm text-gray-500 leading-relaxed">{card.desc}</p>
+              <p className="text-[12px] text-gray-500 leading-relaxed">{card.desc}</p>
             </div>
           ))}
         </div>
@@ -3680,7 +3731,7 @@ function TenancyContent() {
       </div>
 
       {/* BLOCK 4: Tenant Contracts — heading + expandable accordion */}
-      <div className="bg-white px-10 py-12 border-t border-gray-100">
+      <div className="bg-gray-50 mx-4 px-10 py-12 border-t border-gray-100">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold text-gray-900 mb-3">Tenant Contracts</h2>
           <p className="text-gray-500 text-sm max-w-2xl mx-auto">
@@ -3692,10 +3743,10 @@ function TenancyContent() {
             <div key={c.title} className="border border-gray-200 rounded-xl overflow-hidden">
               <button
                 onClick={() => setOpenContract(openContract === c.title ? null : c.title)}
-                className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-gray-50 transition-colors"
+                className="w-full flex items-center justify-between px-8 py-3 hover:bg-blue-200 text-left bg-white transition-colors"
               >
                 <span className="font-bold text-[#00aeef] text-base">{c.title}</span>
-                <span className="text-gray-400 text-xl font-light">
+                <span className="text-[#00aeef] text-xl font-light">
                   {openContract === c.title ? "−" : "+"}
                 </span>
               </button>
@@ -3708,7 +3759,7 @@ function TenancyContent() {
                     transition={{ duration: 0.2 }}
                     className="overflow-hidden"
                   >
-                    <p className="px-6 pb-4 text-sm text-gray-500 leading-relaxed">{c.desc}</p>
+                    <p className="px-6 py-2 text-[12px] text-gray-500 leading-relaxed">{c.desc}</p>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -3734,26 +3785,27 @@ function BIContent() {
             Discover top-performing products, clients, and branches to enhance your business decisions.
           </p>
         </div>
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-3 gap-6 mx-8">
           {[
-            { title: "Best-Selling Products",      desc: "Identify products that generate the highest revenue.",                       img: "/products/amis/standard14.png" },
-            { title: "Top Clients",                desc: "Highlight your most valuable customers for strategic decisions.",             img: "/products/amis/standard15.png" },
-            { title: "High-Performing Branches",   desc: "Track branches with the best performance metrics.",                          img: "/products/amis/standard16.png" },
+            { title: "Best-Selling Products",      desc: "Identify products that generate the highest revenue.",                       img: "/best-selling-products.png" },
+            { title: "Top Clients",                desc: "Highlight your most valuable customers for strategic decisions.",             img: "/top-clients.png" },
+            { title: "High-Performing Branches",   desc: "Track branches with the best performance metrics.",                          img: "/high-performance-branches.png" },
           ].map((card) => (
-            <div key={card.title} className="relative h-56 rounded-2xl overflow-hidden group cursor-pointer">
+            <div key={card.title} className="border-l-4 border-[#00aeef] relative h-30 rounded-2xl overflow-hidden group cursor-pointer">
               <Image src={card.img} alt={card.title} fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-5">
-                <h4 className="font-bold text-white text-base mb-1">{card.title}</h4>
-                <p className="text-gray-200 text-xs leading-relaxed">{card.desc}</p>
+              <div className="absolute inset-0 bg-[#00aeef]/20" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-5">
+                  <h4 className="font-bold text-white text-base mb-1 text-center">{card.title}</h4>
+                  <p className="text-gray-200 text-xs leading-relaxed text-center">{card.desc}</p>
+                </div>
               </div>
-            </div>
           ))}
         </div>
       </div>
 
       {/* BLOCK 2: Inventory Analytics — white bg, left text + right image */}
-      <div className="px-10 py-12 border-t border-gray-100">
+      <div className="px-10 py-12 bg-blue-50 mx-8">
         <div className="flex gap-12 items-start">
           {/* Left: heading + desc + white bordered cards */}
           <div className="flex-1">
@@ -3777,7 +3829,7 @@ function BIContent() {
           </div>
           {/* Right: image */}
           <div className="flex-1 relative rounded-2xl overflow-hidden flex-shrink-0" style={{ height: "280px" }}>
-            <Image src="/products/amis/standard17.png" alt="Inventory Analytics" fill className="object-cover rounded-2xl" />
+            <Image src="/inventory.png" alt="Inventory Analytics" fill className="object-cover rounded-2xl" />
           </div>
         </div>
       </div>
@@ -3786,9 +3838,10 @@ function BIContent() {
       <div className="px-10 py-12 border-t border-gray-100">
         <div className="flex gap-12 items-start">
           {/* Left: image */}
-          <div className="flex-1 relative rounded-2xl overflow-hidden flex-shrink-0" style={{ height: "280px" }}>
-            <Image src="/products/amis/standard4.png" alt="Financial Analytics" fill className="object-cover rounded-2xl" />
-          </div>
+          <div className="flex-1 relative rounded-2xl mt-15 overflow-hidden flex-shrink-0 mx-10" style={{ height: "240px" }}>
+  <Image src="/financial.png" alt="Financial Analytics" fill className="object-cover rounded-2xl" />
+  <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/40 to-transparent" />
+</div>
           {/* Right: heading + desc + light blue cards */}
           <div className="flex-1">
             <h2 className="text-3xl font-bold text-gray-900 mb-3">Financial Analytics</h2>
@@ -3859,18 +3912,19 @@ function ProjectManagementContent() {
             with clear progress indicators and assigned managers.
           </p>
         </div>
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-3 gap-6 mx-6">
           {projects.map((p) => (
-            <div key={p.title} className="bg-blue-50 border border-blue-100 rounded-2xl p-6 relative">
+            <div key={p.title} className="bg-blue-50 border border-blue-100 rounded-2xl p-6 relative shadow-xl shadow-blue-200/50">
               {/* Progress circle — top right */}
               <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#00aeef] flex items-center justify-center">
                 <span className="text-white text-xs font-bold">{p.progress}%</span>
               </div>
-              <h4 className="font-bold text-[#00aeef] text-lg mb-2 pr-14">{p.title}</h4>
-              <p className="text-sm text-gray-500 mb-4">Project Manager: {p.manager}</p>
+              <h4 className="font-bold text-[#00aeef] mt-14 text-[16px] mb-2 pr-14">{p.title}</h4>
+              <p className="text-[15px] text-gray-500 mb-4">Project Manager: {p.manager}</p>
               <span className={`text-xs font-semibold px-4 py-1.5 rounded-full ${p.statusColor}`}>
                 {p.status}
               </span>
+              
             </div>
           ))}
         </div>
@@ -3927,7 +3981,7 @@ function ProjectManagementContent() {
 
 function DownloadBrochureContent() {
   return (
-    <div className="bg-gray-50 min-h-screen flex items-start justify-center px-10 py-16">
+    <div className="bg-gray-50 min-h-screen flex items-start justify-center px-10 py-16 mx-8 mt-10">
       <div className="bg-white rounded-3xl shadow-sm border border-gray-100 max-w-2xl w-full px-12 py-14 text-center">
 
         {/* Heading */}
@@ -3938,12 +3992,13 @@ function DownloadBrochureContent() {
         </p>
 
         {/* Brochure preview image */}
-        <div className="relative h-56 w-72 mx-auto rounded-2xl overflow-hidden mb-10 shadow-md">
+        <div className="relative w-72 mx-auto rounded-md mb-10 shadow-md">
           <Image
-            src="/products/amis/standard14.png"
+            src="/brochure.png"
             alt="AIMS ERP Brochure"
-            fill
-            className="object-cover"
+            width={288}
+            height={400}
+            className="object-contain w-full rounded-2xl"
           />
         </div>
 
@@ -3967,25 +4022,236 @@ function DownloadBrochureContent() {
 }
 
 
+// function CRMContent() {
+//   return (
+//     <div className="space-y-0">
+
+//       {/* BLOCK 1: 6 feature cards with arrow icon — title + desc + image */}
+//       <div className="bg-white px-10 py-10">
+//         <div className="text-center mb-8">
+//           <h2 className="text-3xl font-bold text-gray-900 mb-1">CRM Solutions Tailored for You</h2>
+//           <div className="w-16 h-1 bg-[#1a6bb5] mx-auto mt-2 mb-3 rounded" />
+//           <p className="text-gray-500 text-sm">Manage customers, track activities, and drive sales with our next-generation CRM tools.</p>
+//         </div>
+//         <div className="grid grid-cols-3 gap-6">
+//           {[
+//             { title: "Lead Management",           desc: "Easily capture, sort, and track potential leads. Automate follow-ups and boost conversions with smarter workflows.",                                          img: "/products/amis/standard5.png"  },
+//             { title: "Activity Monitoring",        desc: "Track every customer interaction, monitor progress, and keep your sales process transparent with activity logs.",                                            img: "/products/amis/standard6.png"  },
+//             { title: "Calendar Management",        desc: "Plan, schedule, and manage customer meetings with a built-in calendar that syncs across your CRM.",                                                          img: "/products/amis/standard7.png"  },
+//             { title: "Reports & Analytics",        desc: "Generate detailed sales and performance reports that provide actionable insights to drive growth.",                                                           img: "/products/amis/standard8.png"  },
+//             { title: "Customers/Clients Workflow", desc: "Maintain a secure, cloud-based customer database that's always accessible, organized, and easy to manage.",                                                 img: "/products/amis/standard9.png"  },
+//             { title: "Stage Tracking",             desc: "Visualize your sales funnel and monitor progress at every stage to maximize efficiency.",                                                                    img: "/products/amis/standard10.png" },
+//           ].map((card) => (
+//             <div key={card.title} className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+//               <div className="p-5 flex items-start justify-between gap-2">
+//                 <h4 className="font-bold text-gray-900 text-base">{card.title}</h4>
+//                 <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[#00aeef] flex items-center justify-center">
+//                   <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+//                     <path d="M7 17L17 7M17 7H7M17 7v10" />
+//                   </svg>
+//                 </div>
+//               </div>
+//               <p className="text-sm text-gray-500 leading-relaxed px-5 pb-4">{card.desc}</p>
+//               <div className="relative h-44">
+//                 <Image src={card.img} alt={card.title} fill className="object-cover px-5 py-4" />
+//               </div>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+
+//       {/* BLOCK 2: Why AIMS ERP CRM — dark background */}
+//       <div className="bg-gray-900 px-10 py-12 mx-7 my-4 rounded-2xl">
+//   <div className="text-center mb-10">
+//     <h2 className="text-4xl font-bold text-white mb-4">
+//       Why Q-Soft Technologies' ERP CRM Solutions?
+//     </h2>
+//     <p className="text-gray-300 text-sm max-w-2xl mx-auto leading-relaxed">
+//       Q-Soft Technologies has built a trusted reputation by delivering advanced CRM and ERP systems
+//       that empower businesses to manage customer relationships efficiently and grow sustainably.
+//     </p>
+//   </div>
+//   <div className="grid grid-cols-2 gap-5">
+//     {[
+//       {
+//         title: "Comprehensive Tools",
+//         desc: "Q-Soft's CRM suite is designed to be your complete business relationship hub. Every module is customized to meet your goals and includes features such as:",
+//         bullets: ["Scalable customer capacity", "Flexible user roles and access", "Secure and seamless communication"],
+//         icon: "💻📊",
+//       },
+//       {
+//         title: "Powerful Sales CRM",
+//         desc: "With years of expertise, Q-Soft delivers sales-focused CRM tools that streamline your pipeline, improve conversion rates, and give your team the insights they need to close deals faster.",
+//         bullets: [],
+//         icon: "📈",
+//       },
+//       {
+//         title: "Cutting-Edge Technology",
+//         desc: "Q-Soft integrates the latest technologies and frameworks into its CRM solutions, ensuring your business stays ahead with reliable, scalable, and innovative tools.",
+//         bullets: [],
+//         icon: "⚙️💡",
+//       },
+//     ].map((card) => (
+//       <div
+//         key={card.title}
+//         className="bg-gray-800 rounded-2xl p-6 relative overflow-hidden hover:bg-gray-700 transition-colors"
+//       >
+//         <h4 className="font-bold text-white text-xl mb-3">{card.title}</h4>
+//         <p className="text-gray-300 text-sm leading-relaxed mb-3">{card.desc}</p>
+//         {card.bullets.map((b) => (
+//           <p key={b} className="text-gray-400 text-sm mb-1">• {b}</p>
+//         ))}
+//         {/* icon bottom right */}
+//         <div className="absolute bottom-4 right-4 text-4xl opacity-80">
+//           {card.icon}
+//         </div>
+//       </div>
+//     ))}
+//   </div>
+// </div>
+
+//       {/* BLOCK 3: Dashboard section — heading + large image */}
+//       <div className="bg-white px-10 py-10 border-t border-gray-100">
+//         <div className="text-center mb-6">
+//           <h2 className="text-3xl font-bold text-gray-900 mb-3">
+//             User-Friendly Dashboard for Efficient CRM Management Tool
+//           </h2>
+//           <p className="text-gray-500 text-sm max-w-2xl mx-auto leading-relaxed">
+//             Our expert developers have designed the most easy-to-understand and easy-to-use dashboard for customer relationship management.
+//           </p>
+//         </div>
+//         <div className="relative h-80 rounded-2xl overflow-hidden shadow-lg">
+//           <Image src="/products/amis/Dashboard.png" alt="CRM Dashboard" fill className="object-cover" />
+//         </div>
+//       </div>
+
+//       {/* BLOCK 4: Streamlines Your Every CRM Needs — dark banner */}
+//       <div className="bg-gray-900 px-10 py-10 mx-8 my-6 rounded-xl">
+//         <div className="flex gap-10 items-center">
+//           <div className="flex-1">
+//             <h2 className="text-3xl font-bold text-white mb-4">Streamlines Your Every CRM Needs</h2>
+//             <p className="text-gray-300 text-sm leading-relaxed mb-5">
+//               AIMS ERP provides a tailored CRM management tool for all-around effective operations, streamlining activities end-to-end and adapting to your business needs.
+//             </p>
+//             <ul className="space-y-2">
+//               {["Customized to match client requirements", "Fast and precise processing", "Instant report generation when needed"].map((item) => (
+//                 <li key={item} className="flex items-center gap-2 text-gray-200 text-sm">
+//                   <div className="w-2 h-2 rounded-full bg-[#00aeef] shrink-0" />
+//                   {item}
+//                 </li>
+//               ))}
+//             </ul>
+//           </div>
+//           {/* icon grid */}
+//           <div className="flex-1 grid grid-cols-4 gap-3">
+//             {[...Array(8)].map((_, i) => (
+//               <div key={i} className="bg-white rounded-xl p-3 flex items-center justify-center h-16">
+//                 <div className="w-8 h-8 bg-[#00aeef]/20 rounded-lg" />
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* BLOCK 5: CRM Workflow — circular images + step cards */}
+//       <div className="bg-white px-10 py-10 border-t border-gray-100">
+//         <div className="text-center mb-8">
+//           <p className="text-[#00aeef] text-sm font-medium mb-1">✦ Workflow Insights ✦</p>
+//           <h2 className="text-3xl font-bold text-gray-900">AIMS ERP CRM Workflow</h2>
+//         </div>
+
+//         {/* circular images row */}
+//         <div className="grid grid-cols-4 gap-6 mb-6">
+//           {[
+//             "/products/amis/standard14.png",
+//             "/products/amis/standard15.png",
+//             "/products/amis/standard16.png",
+//             "/products/amis/standard17.png",
+//           ].map((src, i) => (
+//             <div key={i} className="flex flex-col items-center gap-2">
+//               <div className="relative w-36 h-36 rounded-full overflow-hidden border-4 border-[#00aeef]/30">
+//                 <Image src={src} alt={`Step ${i + 1}`} fill className="object-cover" />
+//               </div>
+//               <div className="w-3 h-3 rounded-full bg-[#00aeef]" />
+//             </div>
+//           ))}
+//         </div>
+
+//         {/* step cards */}
+//         <div className="grid grid-cols-4 gap-5">
+//           {[
+//             {
+//               step: "STEP 01", title: "Lead Management",
+//               points: [
+//                 { label: "Capture & Store:", text: "Securely capture, sort and store every lead in a cloud database." },
+//                 { label: "Prioritize:", text: "Auto-tag leads by source and score to focus on what matters." },
+//                 { label: "Compliance:", text: "Role-based access keeps data secure." },
+//               ],
+//             },
+//             {
+//               step: "STEP 02", title: "CRM Stages",
+//               points: [
+//                 { label: "Track:", text: "Monitor each stage from New → Qualified → Won with real-time status." },
+//                 { label: "Assess:", text: "Quickly pull stage summaries for team stand-ups and reviews." },
+//                 { label: "Retrieve:", text: "Find any deal instantly with powerful search." },
+//               ],
+//             },
+//             {
+//               step: "STEP 03", title: "Managing Calendar",
+//               points: [
+//                 { label: "Schedule:", text: "Send reminders, sequence tasks, and auto-book follow-ups." },
+//                 { label: "Keep Record:", text: "Every meeting and note is attached to its contact or deal." },
+//               ],
+//             },
+//             {
+//               step: "STEP 04", title: "Report Generation",
+//               points: [
+//                 { label: "Leads:", text: "Conversion, velocity, and attribution reports on demand." },
+//                 { label: "Activities:", text: "Team productivity and SLA dashboards keep work on track." },
+//                 { label: "On-Demand:", text: "Export any report instantly in multiple formats." },
+//               ],
+//             },
+//           ].map((card) => (
+//             <div key={card.step} className="bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl p-5 border border-gray-700">
+//               <p className="text-[#00aeef] text-xs font-semibold mb-1">{card.step}</p>
+//               <h4 className="font-bold text-white text-lg mb-3">{card.title}</h4>
+//               <div className="space-y-2 mb-4">
+//                 {card.points.map((p) => (
+//                   <p key={p.label} className="text-gray-300 text-xs leading-relaxed">
+//                     <span className="text-[#00aeef] font-semibold">{p.label}</span> {p.text}
+//                   </p>
+//                 ))}
+//               </div>
+//               <p className="text-gray-500 text-xs mt-auto">AIMS ERP • Secure • Scalable</p>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+
+//     </div>
+//   );
+// }
+
+
 function CRMContent() {
   return (
     <div className="space-y-0">
 
-      {/* BLOCK 1: 6 feature cards with arrow icon — title + desc + image */}
-      <div className="bg-white px-10 py-10">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-1">CRM Solutions Tailored for You</h2>
-          <div className="w-16 h-1 bg-[#1a6bb5] mx-auto mt-2 mb-3 rounded" />
+      {/* BLOCK 1: CRM Solutions Tailored — heading + underline + 6 cards with image bottom */}
+      <div className="bg-white px-10 py-12">
+        <div className="text-center mb-10">
+          <h2 className="text-4xl font-bold text-gray-900 mb-2">CRM Solutions Tailored for You</h2>
+          <div className="w-20 h-1 bg-[#00aeef] mx-auto mt-2 mb-4 rounded" />
           <p className="text-gray-500 text-sm">Manage customers, track activities, and drive sales with our next-generation CRM tools.</p>
         </div>
         <div className="grid grid-cols-3 gap-6">
           {[
-            { title: "Lead Management",           desc: "Easily capture, sort, and track potential leads. Automate follow-ups and boost conversions with smarter workflows.",                                          img: "/products/amis/standard5.png"  },
-            { title: "Activity Monitoring",        desc: "Track every customer interaction, monitor progress, and keep your sales process transparent with activity logs.",                                            img: "/products/amis/standard6.png"  },
-            { title: "Calendar Management",        desc: "Plan, schedule, and manage customer meetings with a built-in calendar that syncs across your CRM.",                                                          img: "/products/amis/standard7.png"  },
-            { title: "Reports & Analytics",        desc: "Generate detailed sales and performance reports that provide actionable insights to drive growth.",                                                           img: "/products/amis/standard8.png"  },
-            { title: "Customers/Clients Workflow", desc: "Maintain a secure, cloud-based customer database that's always accessible, organized, and easy to manage.",                                                 img: "/products/amis/standard9.png"  },
-            { title: "Stage Tracking",             desc: "Visualize your sales funnel and monitor progress at every stage to maximize efficiency.",                                                                    img: "/products/amis/standard10.png" },
+            { title: "Lead Management",           desc: "Easily capture, sort, and track potential leads. Automate follow-ups and boost conversions with smarter workflows.",                          img: "/crm-service-img-1-min.png" },
+            { title: "Activity Monitoring",        desc: "Track every customer interaction, monitor progress, and keep your sales process transparent with activity logs.",                            img: "/crm-service-img-2-min.png" },
+            { title: "Calendar Management",        desc: "Plan, schedule, and manage customer meetings with a built-in calendar that syncs across your CRM.",                                          img: "/crm-service-img-3-min.png" },
+            { title: "Reports & Analytics",        desc: "Generate detailed sales and performance reports that provide actionable insights to drive growth.",                                           img: "/crm-service-img-4-min.png" },
+            { title: "Customers/Clients Workflow", desc: "Maintain a secure, cloud-based customer database that's always accessible, organized, and easy to manage.",                                 img: "/crm-service-img-5-min.png" },
+            { title: "Stage Tracking",             desc: "Visualize your sales funnel and monitor progress at every stage to maximize efficiency.",                                                    img: "/crm-service-img-6-min.png" },
           ].map((card) => (
             <div key={card.title} className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
               <div className="p-5 flex items-start justify-between gap-2">
@@ -3996,133 +4262,254 @@ function CRMContent() {
                   </svg>
                 </div>
               </div>
-              <p className="text-sm text-gray-500 leading-relaxed px-5 pb-4">{card.desc}</p>
-              <div className="relative h-44">
-                <Image src={card.img} alt={card.title} fill className="object-cover px-5 py-4" />
+              <p className="text-sm text-gray-500 leading-relaxed px-5 pb-3">{card.desc}</p>
+              <div className="relative h-44 mx-4 mb-4 rounded-xl overflow-hidden">
+                <Image src={card.img} alt={card.title} fill className="object-cover" />
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* BLOCK 2: Why AIMS ERP CRM — dark background */}
-      <div className="bg-gray-900 px-10 py-12 mx-7 my-4 rounded-2xl">
+      {/* BLOCK 2: Why Q-Soft CRM — dark bg, 2 col cards with emoji icons */}
+      <div className="bg-black px-10 py-12 mx-7 my-4">
   <div className="text-center mb-10">
-    <h2 className="text-4xl font-bold text-white mb-4">
-      Why Q-Soft Technologies' ERP CRM Solutions?
-    </h2>
+    <h2 className="text-4xl font-bold text-white mb-4">Why AIMS Technologies' ERP CRM Solutions?</h2>
     <p className="text-gray-300 text-sm max-w-2xl mx-auto leading-relaxed">
       Q-Soft Technologies has built a trusted reputation by delivering advanced CRM and ERP systems
       that empower businesses to manage customer relationships efficiently and grow sustainably.
     </p>
   </div>
+
   <div className="grid grid-cols-2 gap-5">
-    {[
-      {
-        title: "Comprehensive Tools",
-        desc: "Q-Soft's CRM suite is designed to be your complete business relationship hub. Every module is customized to meet your goals and includes features such as:",
-        bullets: ["Scalable customer capacity", "Flexible user roles and access", "Secure and seamless communication"],
-        icon: "💻📊",
-      },
-      {
-        title: "Powerful Sales CRM",
-        desc: "With years of expertise, Q-Soft delivers sales-focused CRM tools that streamline your pipeline, improve conversion rates, and give your team the insights they need to close deals faster.",
-        bullets: [],
-        icon: "📈",
-      },
-      {
-        title: "Cutting-Edge Technology",
-        desc: "Q-Soft integrates the latest technologies and frameworks into its CRM solutions, ensuring your business stays ahead with reliable, scalable, and innovative tools.",
-        bullets: [],
-        icon: "⚙️💡",
-      },
-    ].map((card) => (
-      <div
-        key={card.title}
-        className="bg-gray-800 rounded-2xl p-6 relative overflow-hidden hover:bg-gray-700 transition-colors"
-      >
-        <h4 className="font-bold text-white text-xl mb-3">{card.title}</h4>
-        <p className="text-gray-300 text-sm leading-relaxed mb-3">{card.desc}</p>
-        {card.bullets.map((b) => (
-          <p key={b} className="text-gray-400 text-sm mb-1">• {b}</p>
-        ))}
-        {/* icon bottom right */}
-        <div className="absolute bottom-4 right-4 text-4xl opacity-80">
-          {card.icon}
-        </div>
+    {/* Left: Comprehensive Tools — tall card */}
+    <div className="bg-[#131321] rounded-2xl p-10 relative overflow-hidden row-span-2">
+      <h4 className="font-bold text-white text-xl mb-3">Comprehensive Tools</h4>
+      <p className="text-gray-300 text-sm leading-relaxed mb-4 pr-10">
+        AIMS CRM suite is designed to be your complete business relationship hub. Every module is customized to meet your goals and includes features such as:
+      </p>
+      {["Scalable customer capacity", "Flexible user roles and access", "Secure and seamless communication"].map((b) => (
+        <p key={b} className="text-gray-400 text-sm mb-2">• {b}</p>
+      ))}
+      <div className="absolute bottom-6 right-6 w-20 h-20"
+      style={{
+        animation: "floatY 2s infinite"
+      }}>
+        <Image src="/Comprehensive-icon-min-1.png" alt="Comprehensive Tools" fill className="object-contain" />
       </div>
-    ))}
+      <style>{`
+  @keyframes floatY {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+`}</style>
+    </div>
+
+    {/* Right top: Powerful Sales CRM */}
+    <div className="bg-[#131321] rounded-2xl p-10 relative overflow-hidden">
+      <h4 className="font-bold text-white text-xl mb-3">Powerful Sales CRM</h4>
+      <p className="text-gray-300 text-sm leading-relaxed pr-7">
+        With years of expertise, AIMS delivers sales-focused CRM tools that streamline your pipeline, improve conversion rates, and give your team the insights they need to close deals faster.
+      </p>
+      <div className="absolute bottom-2 right-6 w-15 h-15"
+      style={{
+        animation: "floatY 2s infinite"
+      }}>
+        <Image src="/Sales-CRM-icon-min.png" alt="Comprehensive Tools" fill className="object-contain" />
+      </div>
+      <style>{`
+  @keyframes floatY {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+`}</style>
+    </div>
+
+    {/* Right bottom: Cutting-Edge Technology */}
+    <div className="bg-[#131321] rounded-2xl p-10 relative overflow-hidden">
+      <h4 className="font-bold text-white text-xl mb-3">Cutting-Edge Technology</h4>
+      <p className="text-gray-300 text-sm leading-relaxed">
+        AIMS integrates the latest technologies and frameworks into its CRM solutions, ensuring your business stays ahead with reliable, scalable, and innovative tools.
+      </p>
+      <div className="absolute bottom-2 right-6 w-15 h-15" 
+      style={{
+        animation: "floatY 2s infinite"
+      }}>
+  <Image src="/Latest-Technological-icon-min.png" alt="Comprehensive Tools" fill className="object-contain" />
+</div>
+
+<style>{`
+  @keyframes floatY {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+`}</style>
+    </div>
   </div>
 </div>
 
-      {/* BLOCK 3: Dashboard section — heading + large image */}
-      <div className="bg-white px-10 py-10 border-t border-gray-100">
+      {/* BLOCK 3: Dashboard section */}
+      <div className="bg-white px-10 py-12 border-t border-gray-100">
         <div className="text-center mb-6">
           <h2 className="text-3xl font-bold text-gray-900 mb-3">
             User-Friendly Dashboard for Efficient CRM Management Tool
           </h2>
           <p className="text-gray-500 text-sm max-w-2xl mx-auto leading-relaxed">
-            Our expert developers have designed the most easy-to-understand and easy-to-use dashboard for customer relationship management.
+            Our expert developers at Q-Soft Technologies have designed the most easy-to-understand
+            and easy-to-use dashboard for customer relationship management.
           </p>
         </div>
-        <div className="relative h-80 rounded-2xl overflow-hidden shadow-lg">
-          <Image src="/products/amis/Dashboard.png" alt="CRM Dashboard" fill className="object-cover" />
-        </div>
+        <div className="relative mx-10 mt-16">
+  {/* Pen — appears above board, animating */}
+  <img
+    src="/hero-img-pen.png"
+    alt="CRM Dashboard Pen"
+    className="absolute w-32 -top-6 left-1/2 z-10"
+    style={{
+      transformOrigin: "center bottom",
+      animation: "penWrite 3s ease-in-out infinite",
+      transform: "translateX(-50%)"
+    }}
+  />
+
+  {/* Dashboard board */}
+  <img
+    src="/CRM-Mockup-renew.png"
+    alt="CRM Dashboard"
+    className="w-full rounded-2xl shadow-lg"
+  />
+
+  <style>{`
+    @keyframes penWrite {
+      0%   { transform: translateX(-50%) translateY(0px) rotate(-2deg); }
+      25%  { transform: translateX(-48%) translateY(-4px) rotate(0deg); }
+      50%  { transform: translateX(-52%) translateY(-2px) rotate(-3deg); }
+      75%  { transform: translateX(-49%) translateY(-5px) rotate(-1deg); }
+      100% { transform: translateX(-50%) translateY(0px) rotate(-2deg); }
+    }
+  `}</style>
+</div>
       </div>
 
-      {/* BLOCK 4: Streamlines Your Every CRM Needs — dark banner */}
-      <div className="bg-gray-900 px-10 py-10 mx-8 my-6 rounded-xl">
+      {/* BLOCK 4: Streamlines Your Every CRM Needs — dark banner + moving icons */}
+      <div className="bg-black px-10 py-10 mx-7 my-4 rounded-xl">
+        <style>{`
+          @keyframes floatIcon {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+          }
+          .float-icon { animation: floatIcon 3s ease-in-out infinite; }
+          .float-icon:nth-child(2) { animation-delay: 0.3s; }
+          .float-icon:nth-child(3) { animation-delay: 0.6s; }
+          .float-icon:nth-child(4) { animation-delay: 0.9s; }
+          .float-icon:nth-child(5) { animation-delay: 1.2s; }
+          .float-icon:nth-child(6) { animation-delay: 1.5s; }
+          .float-icon:nth-child(7) { animation-delay: 1.8s; }
+          .float-icon:nth-child(8) { animation-delay: 2.1s; }
+        `}</style>
         <div className="flex gap-10 items-center">
           <div className="flex-1">
             <h2 className="text-3xl font-bold text-white mb-4">Streamlines Your Every CRM Needs</h2>
             <p className="text-gray-300 text-sm leading-relaxed mb-5">
-              AIMS ERP provides a tailored CRM management tool for all-around effective operations, streamlining activities end-to-end and adapting to your business needs.
+              AIMS Technologies provides a tailored CRM management tool for all-around effective operations,
+              streamlining activities end-to-end and adapting to your business needs.
             </p>
             <ul className="space-y-2">
               {["Customized to match client requirements", "Fast and precise processing", "Instant report generation when needed"].map((item) => (
                 <li key={item} className="flex items-center gap-2 text-gray-200 text-sm">
-                  <div className="w-2 h-2 rounded-full bg-[#00aeef] shrink-0" />
+                  <div className="w-2 h-2 rounded-full bg-white shrink-0" />
                   {item}
                 </li>
               ))}
             </ul>
           </div>
-          {/* icon grid */}
-          <div className="flex-1 grid grid-cols-4 gap-3">
-            {[...Array(8)].map((_, i) => (
-              <div key={i} className="bg-white rounded-xl p-3 flex items-center justify-center h-16">
-                <div className="w-8 h-8 bg-[#00aeef]/20 rounded-lg" />
-              </div>
-            ))}
-          </div>
+          {/* Floating icons grid */}
+<div className="flex-1 overflow-hidden">
+  <style>{`
+    @keyframes slideIcons {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @keyframes slideIconsReverse {
+      0%   { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+    .slide-row { animation: slideIcons 6s linear infinite; }
+    .slide-row-2 { animation: slideIconsReverse 6s linear infinite; }
+  `}</style>
+
+  {/* Row 1 */}
+  <div className="overflow-hidden mb-3">
+    <div className="slide-row flex gap-3" style={{ width: "200%" }}>
+      {[
+        "/animated-crm-icon-1.png",
+        "/animated-crm-icon-2.png",
+        "/animated-crm-icon-3.png",
+        "/animated-crm-icon-4.png",
+        "/animated-crm-icon-7.png",
+        "/animated-crm-icon-8.png",
+        "/animated-crm-icon-9.png",
+        "/animated-crm-icon-10.png",
+      ].map((src, i) => (
+        <div key={i} className="bg-white rounded-xl p-2 flex items-center justify-center shadow-md flex-shrink-0" style={{ width: "calc(12.5% - 9px)", height: "64px" }}>
+          <img src={src} alt={`icon-${i}`} className="w-10 h-10 object-contain" />
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {/* Row 2 */}
+  <div className="overflow-hidden">
+    <div className="slide-row-2 flex gap-3" style={{ width: "200%" }}>
+      {[
+        "/animated-crm-icon-7.png",
+        "/animated-crm-icon-8.png",
+        "/animated-crm-icon-9.png",
+        "/animated-crm-icon-10.png",
+        "/animated-crm-icon-1.png",
+        "/animated-crm-icon-2.png",
+        "/animated-crm-icon-3.png",
+        "/animated-crm-icon-4.png",
+      ].map((src, i) => (
+        <div key={i} className="bg-white rounded-xl p-2 flex items-center justify-center shadow-md flex-shrink-0" style={{ width: "calc(12.5% - 9px)", height: "64px" }}>
+          <img src={src} alt={`icon-row2-${i}`} className="w-10 h-10 object-contain" />
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
         </div>
       </div>
 
       {/* BLOCK 5: CRM Workflow — circular images + step cards */}
-      <div className="bg-white px-10 py-10 border-t border-gray-100">
+      <div className="bg-white px-10 py-12 border-t border-gray-100">
         <div className="text-center mb-8">
           <p className="text-[#00aeef] text-sm font-medium mb-1">✦ Workflow Insights ✦</p>
-          <h2 className="text-3xl font-bold text-gray-900">AIMS ERP CRM Workflow</h2>
+          <h2 className="text-3xl font-bold text-gray-900">Q-Soft Technologies' CRM Workflow</h2>
         </div>
 
-        {/* circular images row */}
-        <div className="grid grid-cols-4 gap-6 mb-6">
-          {[
-            "/products/amis/standard14.png",
-            "/products/amis/standard15.png",
-            "/products/amis/standard16.png",
-            "/products/amis/standard17.png",
-          ].map((src, i) => (
-            <div key={i} className="flex flex-col items-center gap-2">
-              <div className="relative w-36 h-36 rounded-full overflow-hidden border-4 border-[#00aeef]/30">
-                <Image src={src} alt={`Step ${i + 1}`} fill className="object-cover" />
+        {/* Circular images row with connecting line */}
+        <div className="relative flex items-center justify-center mb-8">
+          <div className="absolute top-1/2 left-1/4 right-1/4 h-0.5 bg-gray-200 -translate-y-1/2" />
+          <div className="grid grid-cols-4 gap-6 w-full">
+            {[
+              "/products/amis/standard14.png",
+              "/products/amis/standard15.png",
+              "/products/amis/standard16.png",
+              "/products/amis/standard17.png",
+            ].map((src, i) => (
+              <div key={i} className="flex flex-col items-center gap-2">
+                <div className="relative w-36 h-36 rounded-full overflow-hidden border-4 border-[#00aeef]/30 shadow-md">
+                  <Image src={src} alt={`Step ${i + 1}`} fill className="object-cover" />
+                </div>
+                <div className="w-3 h-3 rounded-full bg-[#00aeef]" />
               </div>
-              <div className="w-3 h-3 rounded-full bg-[#00aeef]" />
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
-        {/* step cards */}
+        {/* Step cards */}
         <div className="grid grid-cols-4 gap-5">
           {[
             {
@@ -4167,7 +4554,7 @@ function CRMContent() {
                   </p>
                 ))}
               </div>
-              <p className="text-gray-500 text-xs mt-auto">AIMS ERP • Secure • Scalable</p>
+              <p className="text-gray-500 text-xs mt-auto">Q-Soft CRM • Secure • Scalable</p>
             </div>
           ))}
         </div>
@@ -4176,6 +4563,7 @@ function CRMContent() {
     </div>
   );
 }
+
 
 function renderContent(tab: string) {
   switch (tab) {
