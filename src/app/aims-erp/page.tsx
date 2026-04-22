@@ -3233,17 +3233,17 @@ function FloatingButtons() {
 // MAIN PAGE
 // ─────────────────────────────────────────────────────────────────────────────
 export default function AimsErpPage() {
-  const [activeTab, setActiveTab] = useState(() => {
-  if (typeof window !== "undefined") {
-    return localStorage.getItem("aimsActiveTab") || "Accounting";
-  }
-  return "Accounting";
-});
-const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState("Accounting");
+
+  useEffect(() => {
+    const saved = sessionStorage.getItem("aimsActiveTab");
+    if (saved) setActiveTab(saved);
+  }, []);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handleTabChange = (item: string) => {
     setActiveTab(item);
-    localStorage.setItem("aimsActiveTab", item);
+    sessionStorage.setItem("aimsActiveTab", item);
     const mainEl = document.getElementById("main-content");
     if (mainEl) mainEl.scrollTo({ top: 0, behavior: "smooth" });
   };
