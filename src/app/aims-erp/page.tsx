@@ -2810,14 +2810,14 @@ function CRMContent() {
           ].map((card) => (
             <div key={card.title} className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
               <div className="p-5 flex items-start justify-between gap-2">
-                <h4 className="font-bold text-gray-900 text-base">{card.title}</h4>
+                <h4 className="font-bold text-gray-900 h-4 text-base">{card.title}</h4>
                 <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[#00aeef] flex items-center justify-center">
                   <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
                     <path d="M7 17L17 7M17 7H7M17 7v10" />
                   </svg>
                 </div>
               </div>
-              <p className="text-sm text-gray-500 leading-relaxed px-5 pb-3">{card.desc}</p>
+              <p className="text-sm text-gray-500 leading-relaxed h-28 px-5">{card.desc}</p>
               <div className="relative h-44 mx-4 mb-4 rounded-xl overflow-hidden">
                 <Image src={card.img} alt={card.title} fill className="object-cover" />
               </div>
