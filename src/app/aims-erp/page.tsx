@@ -81,7 +81,7 @@ function PinnedStatsBar() {
 
   return (
     <div ref={ref} className="bg-[#00aeef] px-10 py-8">
-      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1">AIMS ERP (Hybrid)</h1>
+      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1">AimsEdge ERP (Hybrid)</h1>
       <p className="text-blue-100 text-base mb-6">
         Manage your business anywhere with Desktop, Mobile and Web App
       </p>
@@ -415,7 +415,7 @@ function InventoryContent() {
       <div className="bg-gradient-to-r from-[#00aeef] to-[#0077b6] mx-7 my-8 px-10 py-18 flex flex-col lg:flex-row gap-10 items-center overflow-hidden">
         <div className="flex-1">
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-snug">
-            AIMS ERP (Hybrid) Inventory Management
+            AimsEdge ERP (Hybrid) Inventory Management
           </h1>
           <p className="text-blue-100 text-base leading-relaxed">
             Manage your stock efficiently with our modern inventory system designed to streamline operations and prevent losses.
@@ -498,7 +498,7 @@ function InventoryContent() {
       {/* BLOCK 4: Why Choose — 4 cards */}
       <div className="bg-white px-10 py-10 border-t border-gray-100">
         <h2 className="text-3xl font-bold text-[#1a6bb5] text-center mb-8">
-          Why Choose AIMS ERP Inventory (Hybrid)
+          Why Choose AimsEdge ERP Inventory (Hybrid)
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           {whyChoose.map((c) => (
@@ -1403,7 +1403,7 @@ function ManufacturingContent() {
       {/* BLOCK 5: Workflow steps with connected numbers */}
       <div className="bg-white px-10 py-10 border-t border-gray-100">
         <h2 className="text-3xl font-bold text-gray-900 text-center mb-3">Manufacturing Workflow Made Simple</h2>
-        <p className="text-gray-500 text-center text-sm max-w-2xl mx-auto mb-10">AIMS ERP helps you control, monitor, and optimize the entire manufacturing cycle. From planning to final goods, every stage is connected for better efficiency and performance.</p>
+        <p className="text-gray-500 text-center text-sm max-w-2xl mx-auto mb-10">AimsEdge ERP helps you control, monitor, and optimize the entire manufacturing cycle. From planning to final goods, every stage is connected for better efficiency and performance.</p>
         {/* connected number row */}
         <div className="flex items-center justify-center mb-8 gap-0">
           {workflowSteps.map((step, i) => (
@@ -1954,10 +1954,10 @@ function POSContent() {
       <div className="bg-gray-900 px-10 py-12">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-white mb-3">
-            AIMS ERP (Hybrid) Software Facilitates Your POS Management
+            AimsEdge ERP (Hybrid) Software Facilitates Your POS Management
           </h2>
           <p className="text-gray-300 text-sm max-w-2xl mx-auto leading-relaxed">
-            AIMS ERP (Hybrid) POS software comes with the right options to manage your point of sale effectively.
+            AimsEdge ERP (Hybrid) POS software comes with the right options to manage your point of sale effectively.
             The modules equip you with the right competency to achieve optimal outcomes.
           </p>
         </div>
@@ -2022,9 +2022,9 @@ function POSContent() {
       {/* BLOCK 5: Why Choose — heading + 4 plain white cards */}
       <div className="bg-white px-10 py-12 border-t border-gray-100">
         <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-gray-900 mb-3">Why Choose AIMS ERP POS?</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-3">Why Choose AimsEdge ERP POS?</h2>
           <p className="text-gray-500 text-sm max-w-2xl mx-auto leading-relaxed">
-            AIMS ERP POS software is designed to simplify and secure your point-of-sale operations.
+            AimsEdge ERP POS software is designed to simplify and secure your point-of-sale operations.
             With powerful modules, seamless integration, and reliable performance, it helps your business grow with confidence.
           </p>
         </div>
@@ -2055,7 +2055,7 @@ function ReportsContent() {
       <div className="bg-gradient-to-r from-[#00aeef] to-[#0077b6] mx-7 my-8 px-12 py-14 flex flex-col lg:flex-row gap-10 items-center">
         <div className="flex-1">
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-snug">
-            AIMS ERP Reports<br />& Analytics
+            AimsEdge ERP Reports<br />& Analytics
           </h1>
           <p className="text-blue-50 text-base leading-relaxed max-w-md">
             Get deep insights and real-time reporting with our advanced ERP reporting module.
@@ -2797,7 +2797,7 @@ function DownloadBrochureContent() {
         <div className="relative w-48 sm:w-72 mx-auto rounded-md mb-10 shadow-md">
           <Image
             src="/brochure.png"
-            alt="AIMS ERP Brochure"
+            alt="AimsEdge ERP Brochure"
             width={288}
             height={400}
             className="object-contain w-full rounded-2xl"
@@ -2865,9 +2865,9 @@ function CRMContent() {
       {/* BLOCK 2: Why AIMS CRM — dark bg, 2 col cards with emoji icons */}
       <div className="bg-black px-10 py-12 mx-7 my-4">
         <div className="text-center mb-10">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">Why AIMS Technologies' ERP CRM Solutions?</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">Why AIMSEdge Technologies' ERP CRM Solutions?</h2>
           <p className="text-gray-300 text-sm max-w-2xl mx-auto leading-relaxed">
-            AIMS Technologies has built a trusted reputation by delivering advanced CRM and ERP systems
+            AimsEdge Technologies has built a trusted reputation by delivering advanced CRM and ERP systems
             that empower businesses to manage customer relationships efficiently and grow sustainably.
           </p>
         </div>
@@ -2877,7 +2877,7 @@ function CRMContent() {
           <div className="bg-[#131321] rounded-2xl p-10 relative overflow-hidden row-span-2">
             <h4 className="font-bold text-white text-xl mb-3">Comprehensive Tools</h4>
             <p className="text-gray-300 text-sm leading-relaxed mb-4 pr-10">
-              AIMS CRM suite is designed to be your complete business relationship hub. Every module is customized to meet your goals and includes features such as:
+              AimsEdge CRM suite is designed to be your complete business relationship hub. Every module is customized to meet your goals and includes features such as:
             </p>
             {["Scalable customer capacity", "Flexible user roles and access", "Secure and seamless communication"].map((b) => (
               <p key={b} className="text-gray-400 text-sm mb-2">• {b}</p>
@@ -2900,7 +2900,7 @@ function CRMContent() {
           <div className="bg-[#131321] rounded-2xl p-10 relative overflow-hidden">
             <h4 className="font-bold text-white text-xl mb-3">Powerful Sales CRM</h4>
             <p className="text-gray-300 text-sm leading-relaxed pr-7">
-              With years of expertise, AIMS delivers sales-focused CRM tools that streamline your pipeline, improve conversion rates, and give your team the insights they need to close deals faster.
+              With years of expertise, AimsEdge delivers sales-focused CRM tools that streamline your pipeline, improve conversion rates, and give your team the insights they need to close deals faster.
             </p>
             <div className="absolute bottom-2 right-6 w-15 h-15"
               style={{
@@ -2920,7 +2920,7 @@ function CRMContent() {
           <div className="bg-[#131321] rounded-2xl p-10 relative overflow-hidden">
             <h4 className="font-bold text-white text-xl mb-3">Cutting-Edge Technology</h4>
             <p className="text-gray-300 text-sm leading-relaxed">
-              AIMS integrates the latest technologies and frameworks into its CRM solutions, ensuring your business stays ahead with reliable, scalable, and innovative tools.
+              AimsEdge integrates the latest technologies and frameworks into its CRM solutions, ensuring your business stays ahead with reliable, scalable, and innovative tools.
             </p>
             <div className="absolute bottom-2 right-6 w-15 h-15" 
               style={{
@@ -3001,7 +3001,7 @@ function CRMContent() {
           <div className="flex-1">
             <h2 className="text-3xl font-bold text-white mb-4">Streamlines Your Every CRM Needs</h2>
             <p className="text-gray-300 text-sm leading-relaxed mb-5">
-              AIMS Technologies provides a tailored CRM management tool for all-around effective operations,
+              AimsEdge Technologies provides a tailored CRM management tool for all-around effective operations,
               streamlining activities end-to-end and adapting to your business needs.
             </p>
             <ul className="space-y-2">
@@ -3101,7 +3101,7 @@ function CRMContent() {
       <div className="bg-white px-10 py-12 border-t border-gray-100">
         <div className="text-center mb-8">
           <p className="text-[#00aeef] text-sm font-medium mb-1">✦ Workflow Insights ✦</p>
-          <h2 className="text-3xl font-bold text-gray-900">AIMS Technologies' CRM Workflow</h2>
+          <h2 className="text-3xl font-bold text-gray-900">AimsEdge Technologies' CRM Workflow</h2>
         </div>
 
         {/* Circular images row with connecting line */}
@@ -3169,7 +3169,7 @@ function CRMContent() {
                   </p>
                 ))}
               </div>
-              <p className="text-gray-500 text-xs mt-auto">AIMS CRM • Secure • Scalable</p>
+              <p className="text-gray-500 text-xs mt-auto">AimsEdge CRM • Secure • Scalable</p>
             </div>
           ))}
         </div>
