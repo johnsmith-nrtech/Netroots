@@ -132,7 +132,7 @@ function AccountingContent() {
     .acc-flip-front, .acc-flip-back { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
     .acc-flip-back { transform: rotateY(180deg); }
   `}</style>
-  <div className="grid grid-cols-3 gap-5">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
     {featureCards.map((card) => (
       <div key={card.title} className="acc-flip h-90 cursor-pointer">
         <div className="acc-flip-inner w-full h-full">
@@ -340,7 +340,7 @@ function AccountingContent() {
             desired financial outcomes. To get started, simply follow this easy process:
           </p>
         </div>
-        <div className="grid grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {[
             { title: "Audit Trail",        desc: "Keep a complete record of all actions to ensure accountability and transparency." },
             { title: "Data Import/Export", desc: "Easily transfer data in and out of the system for seamless integration." },
@@ -645,7 +645,7 @@ function PurchaseContent() {
 
       {/* BLOCK 1: 3×4 Feature Cards with icons */}
       <div className="bg-white px-10 py-10">
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {featureCards.map((card) => (
             <div key={card.title} className="border border-gray-200 rounded-2xl p-6 hover:shadow-md transition-shadow">
               <div className="text-gray-700 mb-4">{card.icon}</div>
@@ -744,7 +744,7 @@ function PurchaseContent() {
             Our Procurement ERP (Hybrid) helps businesses worldwide achieve maximum efficiency and accuracy in purchasing and inventory management. Here's how it simplifies your workflow:
           </p>
         </div>
-        <div className="grid grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {[
             { title: "Product Sync",          desc: "Every product is synced with sales and purchase records, ensuring real-time accuracy across all departments." },
             { title: "Procurement Reporting", desc: "Generate accurate reports including stock ledgers, sales logs, bills, and tax claims — on demand." },
@@ -813,7 +813,7 @@ const steps = [
           .flip-card-front, .flip-card-back { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
           .flip-card-back { transform: rotateY(180deg); }
         `}</style>
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {flipCards.map((card) => (
             <div key={card.title} className="flip-card h-48 cursor-pointer">
               <div className="flip-card-inner w-full h-full">
@@ -954,7 +954,7 @@ const steps = [
             Our Sales ERP solutions streamline lead management, sales tracking, reporting, and team performance. Follow this simple workflow to get started:
           </p>
         </div>
-        <div className="grid grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {[
             { title: "Client Inquiries",      desc: "Collect and organize all incoming client inquiries to kickstart the sales workflow efficiently." },
             { title: "Quotation Preparation", desc: "Create and send accurate quotations to prospects quickly, ensuring clarity and professionalism." },
@@ -1042,7 +1042,7 @@ function TaxPortalContent() {
       {/* BLOCK 2: Key Features 2×2 grid with hover-grow titles */}
       <div className="bg-white px-10 py-10 border-t border-gray-100">
         <h2 className="text-3xl font-bold text-[#1a6bb5] text-center mb-8">Key Features of Tax Portal</h2>
-        <div className="grid grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {keyFeatures.map((f) => (
             <div
               key={f.title}
@@ -1117,7 +1117,7 @@ function HRPayrollContent() {
       {/* BLOCK 1: Payroll Core Modules — image cards with overlay text */}
       <div className="bg-white px-10 py-10 mt-12">
         <h2 className="text-3xl font-extrabold text-[#1a6bb5] text-center mb-8">Payroll Core Modules</h2>
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {coreModules.map((card) => (
             <div key={card.title} className="group relative rounded-2xl overflow-hidden h-62 cursor-pointer shadow-sm hover:shadow-md transition-shadow">
               <Image src={card.img} alt={card.title} fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
@@ -1167,7 +1167,7 @@ function HRPayrollContent() {
       {/* BLOCK 4: Core Payroll Components — 3+2 white cards with blue title */}
       <div className="bg-white px-10 py-10 border-t border-gray-100">
         <h2 className="text-3xl font-bold text-[#1a6bb5] text-center mb-8">Core Payroll Components</h2>
-        <div className="grid grid-cols-3 gap-5 mb-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {corePayroll.slice(0, 3).map((c) => (
             <div key={c.title} className="border border-gray-200 rounded-2xl p-6 hover:shadow-md transition-shadow">
               <h4 className="font-bold text-[#1a6bb5] text-base mb-2">{c.title}</h4>
@@ -1175,7 +1175,7 @@ function HRPayrollContent() {
             </div>
           ))}
         </div>
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {corePayroll.slice(3).map((c) => (
             <div key={c.title} className="border border-gray-200 rounded-2xl p-6 hover:shadow-md transition-shadow">
               <h4 className="font-bold text-[#1a6bb5] text-base mb-2">{c.title}</h4>
@@ -1188,7 +1188,7 @@ function HRPayrollContent() {
       {/* BLOCK 5: Payroll Process Workflow — 4 light-blue cards */}
       <div className="bg-white px-10 py-10 border-t border-gray-100">
         <h2 className="text-3xl font-bold text-[#1a6bb5] text-center mb-8">Payroll Process Workflow</h2>
-        <div className="grid grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {workflow.map((w) => (
             <div key={w.title} className="bg-blue-50 border border-blue-100 rounded-2xl p-6 hover:shadow-md transition-shadow text-center">
               <h4 className="font-bold text-[#1a6bb5] text-base mb-2">{w.title}</h4>
@@ -1354,7 +1354,7 @@ function ManufacturingContent() {
         <div className="relative h-110 rounded-2xl overflow-hidden mb-8">
           <Image src="/manufacturing.png" alt="Manufacturing Process" fill className="object-cover" />
         </div>
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {iconCards.map((c) => (
             <div key={c.title} className="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
               <div className="text-gray-700 mb-3">{c.icon}</div>
@@ -1382,7 +1382,7 @@ function ManufacturingContent() {
             </div>
           ))}
         </div>
-        <div className="grid grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {workflowSteps.map((step) => (
             <div key={step.num} className="border border-gray-200 rounded-xl p-5 text-center hover:shadow-md transition-shadow">
               <h4 className="font-bold text-gray-800 mb-2">{step.title}</h4>
@@ -1476,7 +1476,7 @@ function FixedAssetsContent() {
         className={`bg-white px-10 py-10 border-t border-gray-100 transition-all duration-700 delay-100 ${visible[1] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
       >
         <h2 className="text-3xl font-bold text-[#1a6bb5] text-center mb-8">Key Asset Management Features</h2>
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {keyFeatures.map((f) => (
             <div key={f.title} className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
               <div className="relative h-20 flex items-center justify-center p-4">
@@ -1496,7 +1496,7 @@ function FixedAssetsContent() {
         className={`bg-white px-10 py-10 border-t border-gray-100 transition-all duration-700 delay-200 ${visible[2] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
       >
         <h2 className="text-3xl font-bold text-[#1a6bb5] text-center mb-8">Fixed Assets Workflow</h2>
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {workflow.map((w) => (
             <div key={w.title} className="bg-blue-50 border border-blue-100 rounded-2xl p-6 text-center hover:shadow-md transition-shadow">
               <h4 className="font-bold text-[#1a6bb5] text-lg mb-2">{w.title}</h4>
@@ -1558,7 +1558,7 @@ function AdministrationContent() {
         .admin-flip-back { transform: rotateY(180deg); }
       `}</style>
       <div className="bg-white px-10 py-10">
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {imageCards.map((card) => (
             <div key={card.title} className="admin-flip h-90 cursor-pointer">
               <div className="admin-flip-inner w-full h-full">
@@ -1842,7 +1842,7 @@ function POSContent() {
             <p className="text-gray-500 text-sm mb-8 leading-relaxed">
               Experience complete POS functionality right from your mobile device.
             </p>
-            <div className="grid grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {onTheGoFeatures.map((f) => (
                 <div key={f.title} className="flex items-start gap-3">
                   <div className="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center flex-shrink-0 mt-1">
@@ -1992,7 +1992,7 @@ function POSContent() {
             With powerful modules, seamless integration, and reliable performance, it helps your business grow with confidence.
           </p>
         </div>
-        <div className="grid grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {[
             { title: "Remote Access",        desc: "Manage your POS anytime, anywhere without being on-site." },
             { title: "WhatsApp Alerts",      desc: "Receive instant POS updates directly on your WhatsApp." },
@@ -2041,7 +2041,7 @@ function ReportsContent() {
         <h2 className="text-3xl font-bold text-[#1a6bb5] text-center mb-10">
           Explore Reports Features
         </h2>
-        <div className="grid grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
   {[
     { src: "/data-analysis.png",           title: "Data Analysis" },
     { src: "/interactive-dashboards.png",  title: "Interactive Dashboards" },
@@ -2075,7 +2075,7 @@ function ReportsContent() {
             Access vital features designed to simplify and enhance your reporting tasks for better decision making.
           </p>
         </div>
-        <div className="grid grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {[
             {
               title: "Pending Reports",
@@ -2120,7 +2120,7 @@ function ReportsContent() {
             Follow a simple and effective process to create, analyze, and share reports across your organization.
           </p>
         </div>
-        <div className="grid grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {[
             {
               title: "Generate Reports",
@@ -2316,7 +2316,7 @@ function LeasingContent() {
             Leverage the powerful features of our leasing system to simplify lease management.
           </p>
         </div>
-        <div className="grid grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {[
             {
               title: "Flexible Terms",
@@ -2452,7 +2452,7 @@ function TenancyContent() {
             Explore the different property types and manage each category effectively.
           </p>
         </div>
-        <div className="grid grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {[
             { title: "Residential",  desc: "Houses, apartments, and flats for tenants." },
             { title: "Commercial",   desc: "Offices, shops, and commercial spaces." },
@@ -2836,7 +2836,7 @@ function CRMContent() {
     </p>
   </div>
 
-  <div className="grid grid-cols-2 gap-5">
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
     {/* Left: Comprehensive Tools — tall card */}
     <div className="bg-[#131321] rounded-2xl p-10 relative overflow-hidden row-span-2">
       <h4 className="font-bold text-white text-xl mb-3">Comprehensive Tools</h4>
@@ -3091,7 +3091,7 @@ function CRMContent() {
         </div>
 
         {/* Step cards */}
-        <div className="grid grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {[
             {
               step: "STEP 01", title: "Lead Management",
