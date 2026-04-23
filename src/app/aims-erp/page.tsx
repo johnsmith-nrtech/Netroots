@@ -35,26 +35,65 @@ const sidebarItems = [
 // PINNED TOP STATS BAR — appears on every tab
 // ─────────────────────────────────────────────────────────────────────────────
 function PinnedStatsBar() {
-  const stats = [
-    { value: "17+",    label: "MODULES AVAILABLE" },
-    { value: "10000+", label: "ACTIVE CLIENTS" },
-    { value: "18+",    label: "YEARS EXPERIENCE" },
-    { value: "24/7",   label: "SUPPORT SERVICE" },
+  const stats: { value: number | string; suffix: string; label: string }[] = [
+    { value: 17,     suffix: "+", label: "MODULES AVAILABLE" },
+    { value: 10000,  suffix: "+", label: "ACTIVE CLIENTS" },
+    { value: 18,     suffix: "+", label: "YEARS EXPERIENCE" },
+    { value: "24/7", suffix: "",  label: "SUPPORT SERVICE" },
   ];
 
+  const [counts, setCounts] = useState(stats.map(() => 0));
+  const [started, setStarted] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting && !started) setStarted(true); },
+      { threshold: 0.3 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [started]);
+
+  useEffect(() => {
+    if (!started) return;
+    stats.forEach((s, i) => {
+      if (typeof s.value !== "number") return;
+      const target = s.value as number;
+      const duration = 1500;
+      const steps = 60;
+      const increment = target / steps;
+      let current = 0;
+      const interval = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(interval);
+        }
+        setCounts((prev) => {
+          const updated = [...prev];
+          updated[i] = Math.floor(current);
+          return updated;
+        });
+      }, duration / steps);
+    });
+  }, [started]);
+
   return (
-    <div className="bg-[#00aeef] px-10 py-8">
+    <div ref={ref} className="bg-[#00aeef] px-10 py-8">
       <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1">AIMS ERP (Hybrid)</h1>
       <p className="text-blue-100 text-base mb-6">
         Manage your business anywhere with Desktop, Mobile and Web App
       </p>
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
-        {stats.map((s) => (
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        {stats.map((s, i) => (
           <div
             key={s.label}
             className="bg-white/10 border border-white/20 rounded-md p-5 text-center text-white"
           >
-            <p className="text-3xl font-bold">{s.value}</p>
+            <p className="text-3xl font-bold">
+              {typeof s.value === "number" ? `${counts[i]}${s.suffix}` : s.value}
+            </p>
             <p className="text-[11px] tracking-widest mt-1 text-blue-100 uppercase">{s.label}</p>
           </div>
         ))}
@@ -62,6 +101,7 @@ function PinnedStatsBar() {
     </div>
   );
 }
+
 
 // ─────────────────────────────────────────────────────────────────────────────
 // ACCOUNTING CONTENT
@@ -921,7 +961,7 @@ const steps = [
             Our Sales ERP software provides comprehensive modules to optimize workflows, boost team performance, and improve client satisfaction.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {[
             { title: "Manage Product Returns",    desc: "Handle returns efficiently to maintain customer trust and keep records accurate.",         img: "/sales-return.png" },
             { title: "Order Tracking Overview",   desc: "Keep track of all orders in real-time, ensuring visibility and accountability.",           img: "/sales-overview.png" },
