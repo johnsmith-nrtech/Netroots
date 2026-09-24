@@ -5,9 +5,24 @@ import { FaFacebookF, FaLinkedinIn, FaInstagram, FaYoutube } from "react-icons/f
 import { Inter } from "next/font/google";
 import Link from "next/link";
 
+import { useState } from "react";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Footer() {
+  const [desktopSubmitted, setDesktopSubmitted] = useState(false);
+  const [mobileSubmitted, setMobileSubmitted] = useState(false);
+
+  const handleDesktopSubmit = () => {
+    setDesktopSubmitted(true);
+    setTimeout(() => setDesktopSubmitted(false), 3000);
+  };
+
+  const handleMobileSubmit = () => {
+    setMobileSubmitted(true);
+    setTimeout(() => setMobileSubmitted(false), 3000);
+  };
+
   return (
     <footer className={`bg-black  text-white pt-5 ${inter.className}`}>
 
@@ -72,15 +87,25 @@ export default function Footer() {
               <input type="checkbox" className="w-4 h-4 accent-blue-500 rounded mt-1" />
               I agree to the Privacy Policy & give my permission to process my personal data for the purposes specified in the Privacy Policy.
             </label>
-            <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 text-sm mt-3 self-center md:self-start">
+            <button
+              onClick={handleDesktopSubmit}
+              className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 text-sm mt-3 self-center md:self-start"
+            >
               Submit
             </button>
+            <p
+              className={`text-green-400 text-xs mt-1 h-4 transition-opacity duration-200 ${
+                desktopSubmitted ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              Your request have been submitted
+            </p>
           </div>
 
           {/* Terms */}
           <div className="flex flex-wrap gap-4 text-gray-400 text-xs mt-4 justify-center md:justify-start">
-            <span>Terms & Conditions</span>
-            <span>Privacy Policy</span>
+            <Link href="/terms-and-conditions" className="hover:text-white transition-colors">Terms & Conditions</Link>
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
           </div>
         </div>
       </div>
@@ -149,15 +174,25 @@ export default function Footer() {
             <input type="checkbox" className="w-4 h-4 accent-blue-500 rounded mt-1" />
             I agree to the Privacy Policy & give my permission to process my personal data.
           </label>
-          <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 text-sm mt-3 self-center">
+          <button
+            onClick={handleMobileSubmit}
+            className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 text-sm mt-3 self-center"
+          >
             Subscribe
           </button>
+          <p
+            className={`text-green-400 text-xs mt-1 h-4 text-center transition-opacity duration-200 ${
+              mobileSubmitted ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            Your request have been submitted
+          </p>
         </div>
 
         {/* Terms */}
         <div className="flex flex-wrap gap-4 text-gray-400 text-xs mt-4 justify-center text-center">
-          <span>Terms & Conditions</span>
-          <span>Privacy Policy</span>
+          <Link href="/terms-and-conditions" className="hover:text-white transition-colors">Terms & Conditions</Link>
+          <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
         </div>
 
       </div>
