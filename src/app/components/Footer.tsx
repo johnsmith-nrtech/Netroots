@@ -89,7 +89,7 @@ export default function Footer() {
             </label>
             <button
               onClick={handleDesktopSubmit}
-              className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 text-sm mt-3 self-center md:self-start"
+              className="bg-blue-600 text-white px-6 py-2 cursor-pointer rounded-full hover:bg-blue-700 text-sm mt-3 self-center md:self-start"
             >
               Submit
             </button>
@@ -176,7 +176,7 @@ export default function Footer() {
           </label>
           <button
             onClick={handleMobileSubmit}
-            className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 text-sm mt-3 self-center"
+            className="bg-blue-600 text-white px-6 py-2 cursor-pointer rounded-full hover:bg-blue-700 text-sm mt-3 self-center"
           >
             Subscribe
           </button>
