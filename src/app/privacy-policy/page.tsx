@@ -1,18 +1,3 @@
-// import Navbar from "../components/Navbar";
-// import Footer from "../components/Footer";
-// import PrivacyPolicy from "../components/PrivacyPolicy";
-
-// export default function PrivacyPolicyPage() {
-//   return (
-//     <>
-//       <Navbar />
-//       <PrivacyPolicy />
-//       <Footer />
-//     </>
-//   );
-// }
-
-
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -22,7 +7,7 @@ export default function PrivacyPolicyPage() {
       <Navbar />
       <section className="bg-white text-black px-6 md:px-20 pt-32 pb-12 max-w-5xl mx-auto">
         <h1 className="text-3xl font-bold mb-2">Privacy Policy</h1>
-        <p className="text-gray-500 text-sm mb-8">Last Updated: [Insert Date]</p>
+        <p className="text-gray-500 text-sm mb-8">Last Updated: 28th September 2026</p>
 
         <p className="text-gray-700 mb-6">
           At Netroots Technologies (&quot;we,&quot; &quot;our,&quot; &quot;us&quot;), we value

@@ -1,18 +1,3 @@
-// import Navbar from "../components/Navbar";
-// import Footer from "../components/Footer";
-// import TermsAndConditions from "../components/TermsAndConditions";
-
-// export default function TermsAndConditionsPage() {
-//   return (
-//     <>
-//       <Navbar />
-//       <TermsAndConditions />
-//       <Footer />
-//     </>
-//   );
-// }
-
-
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -22,7 +7,7 @@ export default function TermsAndConditionsPage() {
       <Navbar />
       <section className="bg-white text-black px-6 md:px-20 pt-32 pb-12 max-w-5xl mx-auto">
         <h1 className="text-3xl font-bold mb-2">Terms & Conditions</h1>
-        <p className="text-gray-500 text-sm mb-8">Last Updated: [Insert Date]</p>
+        <p className="text-gray-500 text-sm mb-8">Last Updated: 28th September 2026</p>
 
         <p className="text-gray-700 mb-6">
           Welcome to Netroots Technologies (&quot;Company,&quot; &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;).

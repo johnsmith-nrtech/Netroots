@@ -10,17 +10,19 @@ import { useState } from "react";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Footer() {
-  const [desktopSubmitted, setDesktopSubmitted] = useState(false);
-  const [mobileSubmitted, setMobileSubmitted] = useState(false);
+  const [desktopChecked, setDesktopChecked] = useState(false);
+  const [mobileChecked, setMobileChecked] = useState(false);
+  const [desktopStatus, setDesktopStatus] = useState<"idle" | "success" | "error">("idle");
+  const [mobileStatus, setMobileStatus] = useState<"idle" | "success" | "error">("idle");
 
   const handleDesktopSubmit = () => {
-    setDesktopSubmitted(true);
-    setTimeout(() => setDesktopSubmitted(false), 3000);
+    setDesktopStatus(desktopChecked ? "success" : "error");
+    setTimeout(() => setDesktopStatus("idle"), 3000);
   };
 
   const handleMobileSubmit = () => {
-    setMobileSubmitted(true);
-    setTimeout(() => setMobileSubmitted(false), 3000);
+    setMobileStatus(mobileChecked ? "success" : "error");
+    setTimeout(() => setMobileStatus("idle"), 3000);
   };
 
   return (
@@ -84,7 +86,12 @@ export default function Footer() {
               className="w-full p-3 rounded-full border border-gray-600 text-white text-sm placeholder-gray-400 outline-none focus:ring-2 focus:ring-blue-500"
             />
             <label className="flex items-start gap-2 text-xs text-gray-400 mt-2 justify-start">
-              <input type="checkbox" className="w-4 h-4 accent-blue-500 rounded mt-1" />
+              <input
+                type="checkbox"
+                checked={desktopChecked}
+                onChange={(e) => setDesktopChecked(e.target.checked)}
+                className="w-4 h-4 accent-blue-500 rounded mt-1"
+              />
               I agree to the Privacy Policy & give my permission to process my personal data for the purposes specified in the Privacy Policy.
             </label>
             <button
@@ -94,11 +101,13 @@ export default function Footer() {
               Submit
             </button>
             <p
-              className={`text-green-400 text-xs mt-1 h-4 transition-opacity duration-200 ${
-                desktopSubmitted ? "opacity-100" : "opacity-0"
-              }`}
+              className={`text-xs mt-1 h-4 transition-opacity duration-200 ${
+                desktopStatus === "idle" ? "opacity-0" : "opacity-100"
+              } ${desktopStatus === "error" ? "text-red-500" : "text-green-400"}`}
             >
-              Your request have been submitted
+              {desktopStatus === "error"
+                ? "Please select the checkbox"
+                : "Your request have been submitted"}
             </p>
           </div>
 
@@ -171,7 +180,12 @@ export default function Footer() {
             className="w-full p-3 rounded-full border border-gray-600 text-white text-sm placeholder-gray-400 outline-none focus:ring-2 focus:ring-blue-500"
           />
           <label className="flex items-start gap-2 text-xs text-gray-400 mt-2">
-            <input type="checkbox" className="w-4 h-4 accent-blue-500 rounded mt-1" />
+            <input
+              type="checkbox"
+              checked={mobileChecked}
+              onChange={(e) => setMobileChecked(e.target.checked)}
+              className="w-4 h-4 accent-blue-500 rounded mt-1"
+            />
             I agree to the Privacy Policy & give my permission to process my personal data.
           </label>
           <button
@@ -181,11 +195,13 @@ export default function Footer() {
             Subscribe
           </button>
           <p
-            className={`text-green-400 text-xs mt-1 h-4 text-center transition-opacity duration-200 ${
-              mobileSubmitted ? "opacity-100" : "opacity-0"
-            }`}
+            className={`text-xs mt-1 h-4 text-center transition-opacity duration-200 ${
+              mobileStatus === "idle" ? "opacity-0" : "opacity-100"
+            } ${mobileStatus === "error" ? "text-red-500" : "text-green-400"}`}
           >
-            Your request have been submitted
+            {mobileStatus === "error"
+              ? "Please select the checkbox"
+              : "Your request have been submitted"}
           </p>
         </div>
 
