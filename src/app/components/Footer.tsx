@@ -5,24 +5,33 @@ import { FaFacebookF, FaLinkedinIn, FaInstagram, FaYoutube } from "react-icons/f
 import { Inter } from "next/font/google";
 import Link from "next/link";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Footer() {
   const [desktopChecked, setDesktopChecked] = useState(false);
   const [mobileChecked, setMobileChecked] = useState(false);
-  const [desktopStatus, setDesktopStatus] = useState<"idle" | "success" | "error">("idle");
-  const [mobileStatus, setMobileStatus] = useState<"idle" | "success" | "error">("idle");
+  const [desktopResult, setDesktopResult] = useState<"success" | "error" | null>(null);
+  const [mobileResult, setMobileResult] = useState<"success" | "error" | null>(null);
+  const [desktopVisible, setDesktopVisible] = useState(false);
+  const [mobileVisible, setMobileVisible] = useState(false);
+
+  const desktopTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const mobileTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleDesktopSubmit = () => {
-    setDesktopStatus(desktopChecked ? "success" : "error");
-    setTimeout(() => setDesktopStatus("idle"), 3000);
+    if (desktopTimeoutRef.current) clearTimeout(desktopTimeoutRef.current);
+    setDesktopResult(desktopChecked ? "success" : "error");
+    setDesktopVisible(true);
+    desktopTimeoutRef.current = setTimeout(() => setDesktopVisible(false), 3000);
   };
 
   const handleMobileSubmit = () => {
-    setMobileStatus(mobileChecked ? "success" : "error");
-    setTimeout(() => setMobileStatus("idle"), 3000);
+    if (mobileTimeoutRef.current) clearTimeout(mobileTimeoutRef.current);
+    setMobileResult(mobileChecked ? "success" : "error");
+    setMobileVisible(true);
+    mobileTimeoutRef.current = setTimeout(() => setMobileVisible(false), 3000);
   };
 
   return (
@@ -102,10 +111,10 @@ export default function Footer() {
             </button>
             <p
               className={`text-xs mt-1 h-4 transition-opacity duration-200 ${
-                desktopStatus === "idle" ? "opacity-0" : "opacity-100"
-              } ${desktopStatus === "error" ? "text-red-500" : "text-green-400"}`}
+                desktopVisible ? "opacity-100" : "opacity-0"
+              } ${desktopResult === "error" ? "text-red-500" : "text-green-400"}`}
             >
-              {desktopStatus === "error"
+              {desktopResult === "error"
                 ? "Please select the checkbox"
                 : "Your request have been submitted"}
             </p>
@@ -196,10 +205,10 @@ export default function Footer() {
           </button>
           <p
             className={`text-xs mt-1 h-4 text-center transition-opacity duration-200 ${
-              mobileStatus === "idle" ? "opacity-0" : "opacity-100"
-            } ${mobileStatus === "error" ? "text-red-500" : "text-green-400"}`}
+              mobileVisible ? "opacity-100" : "opacity-0"
+            } ${mobileResult === "error" ? "text-red-500" : "text-green-400"}`}
           >
-            {mobileStatus === "error"
+            {mobileResult === "error"
               ? "Please select the checkbox"
               : "Your request have been submitted"}
           </p>
