@@ -89,7 +89,7 @@ export default function CommunityManagementPage() {
             Build a Community That <span className="text-blue-600">Stays</span>
           </h1>
           <p className="text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
-            We manage your social presence day-to-day — engaging your
+            We manage your social presence day-to-day: engaging your
             audience, creating consistent content, and protecting your brand
             reputation so you can focus on running your business.
           </p>

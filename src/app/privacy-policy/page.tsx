@@ -25,8 +25,15 @@ export default function PrivacyPolicyPage() {
         <p className="text-gray-700 mb-6">
           At Netroots Technologies (&quot;we,&quot; &quot;our,&quot; &quot;us&quot;), we value
           your privacy and are committed to protecting your personal data. This Privacy Policy
-          outlines how we collect, use, disclose, and safeguard your information when you visit
-          https://www.netrootstech.com.
+          outlines how we collect, use, disclose, and safeguard your information when you visit{" "}
+          <a
+            href="https://www.netrootstech.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:opacity-80"
+          >
+            https://www.netrootstech.com
+          </a>
         </p>
 
         <div className="space-y-6 text-gray-700 text-sm leading-relaxed">

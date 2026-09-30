@@ -49,7 +49,7 @@ const features = [
     icon: "📈",
     title: "Transparent ROI Reporting",
     description:
-      "Clear dashboards showing spend, return, and cost-per-conversion — no vanity metrics, just results.",
+      "Clear dashboards showing spend, return, and cost-per-conversion: no vanity metrics, just results.",
   },
 ];
 
@@ -90,7 +90,7 @@ export default function PerformanceMarketingPage() {
           </h1>
           <p className="text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
             We run data-driven paid campaigns across Google, Meta, and other
-            platforms — focused on measurable ROI, not just impressions and
+            platforms, focused on measurable ROI, not just impressions and
             clicks.
           </p>
           <a

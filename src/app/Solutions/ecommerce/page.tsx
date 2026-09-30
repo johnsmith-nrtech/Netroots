@@ -89,8 +89,8 @@ export default function EcommercePage() {
             Online Stores Built to <span className="text-blue-600">Sell</span>
           </h1>
           <p className="text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
-            We design and build fast, secure e-commerce stores — from custom
-            storefronts to Shopify and WooCommerce builds — optimized to turn
+            We design and build fast, secure e-commerce stores, from custom
+            storefronts to Shopify and WooCommerce builds, optimized to turn
             browsers into buyers.
           </p>
           <a

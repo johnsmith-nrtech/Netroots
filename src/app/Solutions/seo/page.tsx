@@ -37,7 +37,7 @@ const features = [
     icon: "📊",
     title: "Keyword Research",
     description:
-      "In-depth research to target keywords your customers actually search for — balancing volume and competition.",
+      "In-depth research to target keywords your customers actually search for, balancing volume and competition.",
   },
   {
     icon: "📈",

@@ -24,8 +24,15 @@ export default function TermsAndConditionsPage() {
 
         <p className="text-gray-700 mb-6">
           Welcome to Netroots Technologies (&quot;Company,&quot; &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;).
-          These Terms & Conditions govern your access to and use of our website
-          (https://www.netrootstech.com) and any services provided by Netroots Technologies.
+          These Terms & Conditions govern your access to and use of our website{" "}
+          <a
+            href="https://www.netrootstech.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:opacity-80"
+          >
+            https://www.netrootstech.com
+          </a> and any services provided by Netroots Technologies.
           By accessing or using our website and services, you agree to be bound by these Terms.
           If you do not agree, please do not use our website or services.
         </p>
@@ -88,10 +95,10 @@ export default function TermsAndConditionsPage() {
           <div>
             <h2 className="text-lg font-semibold text-black mb-2">6. Limitation of Liability</h2>
             <p>
-              To the maximum extent permitted by law, Netroots Technologies shall not be liable
-              for any indirect, incidental, special, consequential, or punitive damages —
-              including loss of profits, data, or business opportunities — arising out of or in
-              connection with your use of our website or services.
+              To the maximum extent permitted by law, Netroots Technologies shall not be liable for any 
+              indirect, incidental, special, consequential, or punitive damages (including loss of 
+              profits, data, or business opportunities) arising out of or in connection with your use 
+              of our website or services.
             </p>
           </div>
 

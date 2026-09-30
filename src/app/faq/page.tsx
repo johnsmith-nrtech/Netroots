@@ -33,7 +33,7 @@ const faqs: FaqItem[] = [
   {
     question: "Can you help with an existing product or codebase?",
     answer:
-      "Absolutely. We regularly take over, audit, and improve existing codebases — whether it's fixing bugs, adding new features, or planning a larger redesign or migration.",
+      "Absolutely. We regularly take over, audit, and improve existing codebases, whether it's fixing bugs, adding new features, or planning a larger redesign or migration.",
   },
   {
     question: "How do I get started?",

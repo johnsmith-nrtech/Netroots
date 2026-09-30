@@ -43,7 +43,7 @@ const features = [
     icon: "🔧",
     title: "CMS Integration",
     description:
-      "Easily manage your own content with WordPress, headless CMS, or custom admin panels — no developer needed for updates.",
+      "Easily manage your own content with WordPress, headless CMS, or custom admin panels, no developer needed for updates.",
   },
   {
     icon: "🔒",
@@ -90,7 +90,7 @@ export default function WebDesignPage() {
           </h1>
           <p className="text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
             We design and build fast, responsive websites that reflect your
-            brand and turn visitors into customers — from simple landing
+            brand and turn visitors into customers. From simple landing
             pages to full-scale platforms.
           </p>
           <a
