@@ -1,5 +1,6 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -17,10 +18,18 @@ const geistMono = Geist_Mono({
 });
 
 // Metadata with favicon support
-export const metadata = {
-  title: "NetrootsTechnologies",
+export const metadata: Metadata = {
+  metadataBase: new URL("https://www.netrootstech.com"),
+  title: {
+    default: "Netroots Technologies",
+    template: "%s | Netroots Technologies",
+  },
   description: "Grow Your Business With Us",
- 
+  openGraph: {
+    siteName: "Netroots Technologies",
+    type: "website",
+    locale: "en_US",
+  },
 };
 
 export default function RootLayout({

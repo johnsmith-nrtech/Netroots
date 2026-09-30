@@ -1,5 +1,18 @@
+import type { Metadata } from "next";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | Netroots Technologies",
+  description:
+    "Learn how Netroots Technologies collects, uses, and protects your personal data, including information about cookies, data security, and your privacy rights.",
+  openGraph: {
+    title: "Privacy Policy | Netroots Technologies",
+    description:
+      "Learn how Netroots Technologies collects, uses, and protects your personal data.",
+    url: "/privacy-policy",
+  },
+};
 
 export default function PrivacyPolicyPage() {
   return (

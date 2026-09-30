@@ -55,14 +55,14 @@ export default function Footer() {
         <div className="flex-1 md:flex-1 ml-15 text-center md:text-left">
           <h3 className="font-semibold mb-4 text-lg">Solutions</h3>
           <ul className="space-y-2 text-gray-300 text-sm md:text-sm">
-            <li><Link href="/solutions/seo" className="hover:text-white transition-colors">Rank #1 on Google</Link></li>
-            <li><Link href="/solutions/web-design" className="hover:text-white transition-colors">Website Design & Development</Link></li>
-            <li><Link href="/solutions/design-alchemy" className="hover:text-white transition-colors">Design Alchemy</Link></li>
-            <li><Link href="/solutions/community-management" className="hover:text-white transition-colors">Community Management</Link></li>
-            <li><Link href="/solutions/performance-marketing" className="hover:text-white transition-colors">Performance Marketing</Link></li>
-            <li><Link href="/solutions/brand-strategy" className="hover:text-white transition-colors">Brand Strategy Development</Link></li>
-            <li><Link href="/solutions/ecommerce" className="hover:text-white transition-colors">E-commerce Solutions</Link></li>
-            <li><Link href="/solutions/content-marketing" className="hover:text-white transition-colors">Content Marketing</Link></li>
+            <li><Link href="/Solutions/seo" className="hover:text-white transition-colors">Rank #1 on Google</Link></li>
+            <li><Link href="/Solutions/web-design" className="hover:text-white transition-colors">Website Design & Development</Link></li>
+            <li><Link href="/Solutions/design-alchemy" className="hover:text-white transition-colors">Design Alchemy</Link></li>
+            <li><Link href="/Solutions/community-management" className="hover:text-white transition-colors">Community Management</Link></li>
+            <li><Link href="/Solutions/performance-marketing" className="hover:text-white transition-colors">Performance Marketing</Link></li>
+            <li><Link href="/Solutions/brand-strategy" className="hover:text-white transition-colors">Brand Strategy Development</Link></li>
+            <li><Link href="/Solutions/ecommerce" className="hover:text-white transition-colors">E-commerce Solutions</Link></li>
+            <li><Link href="/Solutions/content-marketing" className="hover:text-white transition-colors">Content Marketing</Link></li>
           </ul>
         </div>
 
@@ -149,14 +149,14 @@ export default function Footer() {
           <div className="flex-1 bg-gray-900 rounded-xl p-4 shadow-inner">
             <h3 className="font-bold mb-3 text-lg text-left text-white">Solutions</h3>
             <ul className="space-y-2 text-gray-300 text-sm text-left">
-              <li><Link href="/solutions/seo" className="hover:text-blue-400 transition-colors font-medium">Rank #1 on Google</Link></li>
-              <li><Link href="/solutions/web-design" className="hover:text-blue-400 transition-colors font-medium">Website Design & Development</Link></li>
-              <li><Link href="/solutions/design-alchemy" className="hover:text-blue-400 transition-colors font-medium">Design Alchemy</Link></li>
-              <li><Link href="/solutions/community-management" className="hover:text-blue-400 transition-colors font-medium">Community Management</Link></li>
-              <li><Link href="/solutions/performance-marketing" className="hover:text-blue-400 transition-colors font-medium">Performance Marketing</Link></li>
-              <li><Link href="/solutions/brand-strategy" className="hover:text-blue-400 transition-colors font-medium">Brand Strategy Development</Link></li>
-              <li><Link href="/solutions/ecommerce" className="hover:text-blue-400 transition-colors font-medium">E-commerce Solutions</Link></li>
-              <li><Link href="/solutions/content-marketing" className="hover:text-blue-400 transition-colors font-medium">Content Marketing</Link></li>
+              <li><Link href="/Solutions/seo" className="hover:text-blue-400 transition-colors font-medium">Rank #1 on Google</Link></li>
+              <li><Link href="/Solutions/web-design" className="hover:text-blue-400 transition-colors font-medium">Website Design & Development</Link></li>
+              <li><Link href="/Solutions/design-alchemy" className="hover:text-blue-400 transition-colors font-medium">Design Alchemy</Link></li>
+              <li><Link href="/Solutions/community-management" className="hover:text-blue-400 transition-colors font-medium">Community Management</Link></li>
+              <li><Link href="/Solutions/performance-marketing" className="hover:text-blue-400 transition-colors font-medium">Performance Marketing</Link></li>
+              <li><Link href="/Solutions/brand-strategy" className="hover:text-blue-400 transition-colors font-medium">Brand Strategy Development</Link></li>
+              <li><Link href="/Solutions/ecommerce" className="hover:text-blue-400 transition-colors font-medium">E-commerce Solutions</Link></li>
+              <li><Link href="/Solutions/content-marketing" className="hover:text-blue-400 transition-colors font-medium">Content Marketing</Link></li>
             </ul>
           </div>
 

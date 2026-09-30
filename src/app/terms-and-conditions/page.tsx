@@ -1,5 +1,18 @@
+import type { Metadata } from "next";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+
+export const metadata: Metadata = {
+  title: "Terms & Conditions | Netroots Technologies",
+  description:
+    "Read the Terms & Conditions governing the use of Netroots Technologies' website and services, including intellectual property, client agreements, and liability.",
+  openGraph: {
+    title: "Terms & Conditions | Netroots Technologies",
+    description:
+      "Read the Terms & Conditions governing the use of Netroots Technologies' website and services.",
+    url: "/terms-and-conditions",
+  },
+};
 
 export default function TermsAndConditionsPage() {
   return (
