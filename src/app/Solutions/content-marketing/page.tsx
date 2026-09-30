@@ -151,7 +151,7 @@ export default function ContentMarketingPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-white px-6 md:px-20 pb-20">
+      <section className="bg-white px-6 md:px-20 pb-20 pt-10">
         <div className="max-w-4xl mx-auto text-center bg-blue-50 rounded-2xl py-10 px-6">
           <h2 className="text-xl md:text-2xl font-bold mb-2">
             Ready to turn content into your growth engine?
